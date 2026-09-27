@@ -1,0 +1,4 @@
+# Root index.html only redirects to frontend/ for local viewing; on Vercel "/" is rewritten to the landing page.
+/index.html
+/docs
+/README.md
