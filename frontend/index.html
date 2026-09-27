@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kirana Rakshak · Built on iQOO 15</title>
+  <meta name="description" content="Kirana Rakshak turns the iQOO 15 into an offline AI guard for Indian kirana stores: it counts deliveries, blocks expired sales, controls the freezer over IR and answers in Hindi.">
+  <meta name="theme-color" content="#0B0C0E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23151618'/%3E%3Cpath d='M32 12l16 6v12c0 11-7 18-16 22-9-4-16-11-16-22V18z' fill='%23D4F639'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <div class="loader-mark">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6l20 8v16c0 14-9 23-20 28C21 53 12 44 12 30V14z" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      <span>KIRANA RAKSHAK</span>
+    </div>
+    <div class="loader-bar"><i></i></div>
+    <p class="loader-note mono">Booting Hexagon NPU · 0 cloud calls</p>
+  </div>
+
+  <!-- ============ BACKGROUND ============ -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="alarm" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="#hero" class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6l20 8v16c0 14-9 23-20 28C21 53 12 44 12 30V14z" fill="currentColor"/></svg>
+      <span>KIRANA<b>RAKSHAK</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#ch-nfc">Story</a>
+      <a href="#matrix">Hardware</a>
+      <a href="#pipeline">Offline AI</a>
+      <a href="#judging">Why it wins</a>
+    </nav>
+    <div class="nav-right">
+      <div class="legend mono" title="Colour legend used across this page">
+        <span><i class="dot lime"></i>App</span>
+        <span><i class="dot orange"></i>iQOO 15</span>
+      </div>
+      <button id="sound-toggle" class="icon-btn" aria-pressed="false" title="Let the in-app Soundbox speak">
+        <svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path class="wave" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/><path class="mute" d="m22 9-6 6M16 9l6 6"/></svg>
+      </button>
+      <a href="#live" class="btn btn-lime sm">Try it live</a>
+    </div>
+  </header>
+
+  <!-- ============ CHAPTER RAIL ============ -->
+  <aside class="rail" aria-hidden="true">
+    <div class="rail-track"><i id="rail-fill"></i></div>
+    <span id="rail-label" class="mono">00 · Intro</span>
+  </aside>
+
+  <!-- ============ 3D STAGE (phone is built by js/phone.js) ============ -->
+  <div id="stage">
+    <div id="pose"><div id="tilt"><div id="float"><div id="fit">
+      <div id="phone-mount"></div>
+    </div></div></div></div>
+    <div id="phone-caption" class="mono"></div>
+  </div>
+
+  <main>
+
+    <!-- ============ 0 · HERO ============ -->
+    <section id="hero" class="chapter hero" data-pose="hero" data-shape="0" data-label="00 · Intro" data-screen="home">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="pulse"></span>iQOO Hackathon 2026 · Productivity × Open Innovation</p>
+        <h1 class="display">
+          <span class="line"><span>KIRANA</span></span>
+          <span class="line"><span class="lime-text">RAKSHAK</span></span>
+        </h1>
+        <p class="hindi">किराना रक्षक · the shop's guardian</p>
+        <p class="lede">The iQOO 15 that <b>counts every delivery</b>, <b>blocks expired sales</b>, <b>commands the freezer</b> and <b>answers in Hindi</b> — with the phone in Airplane Mode.</p>
+        <div class="cta-row">
+          <a href="#leaks" class="btn btn-lime">Scroll the story <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+          <a href="#live" class="btn btn-ghost">Open live prototype</a>
+        </div>
+        <ul class="hero-stats">
+          <li><b data-count="300" data-prefix="&lt;" data-suffix="ms">&lt;300ms</b><span>delivery audit</span></li>
+          <li><b data-count="0">0</b><span>cloud calls</span></li>
+          <li><b data-count="12">12</b><span>iQOO 15 hardware parts used</span></li>
+          <li><b data-count="14">14</b><span>features, one counter</span></li>
+        </ul>
+      </div>
+      <div class="scroll-hint mono"><i></i>Scroll — the phone follows</div>
+    </section>
+
+    <!-- ============ 1 · THE PROBLEM ============ -->
+    <section id="leaks" class="chapter" data-pose="leaks" data-shape="3" data-label="01 · The problem" data-screen="home">
+      <div class="copy">
+        <p class="eyebrow mono">01 · The problem</p>
+        <h2 class="display-2">12 million kiranas.<br><span class="muted">Five leaks. Every day.</span></h2>
+        <div class="ticker">
+          <span class="mono">Up to</span>
+          <b id="leak-ticker">₹0</b>
+          <span class="mono">lost per store, per month*</span>
+        </div>
+        <ol class="leaks">
+          <li><span class="n mono">01</span><div><b>Short deliveries</b><p>Bill says 24 Maggi, 20 get unloaded. Nobody counts at 9 AM.</p></div><em class="mono">₹8–15k</em></li>
+          <li><span class="n mono">02</span><div><b>Stock that expires unseen</b><p>Old packets get buried; the 30-day return window is missed.</p></div><em class="mono">₹5–10k</em></li>
+          <li><span class="n mono">03</span><div><b>Cold-chain spoilage</b><p>Freezer setting drops, ice-cream melts, paneer turns.</p></div><em class="mono">₹3–6k</em></li>
+          <li><span class="n mono">04</span><div><b>Expired sale to a customer</b><p>One bad packet undoes ten years of neighbourhood trust.</p></div><em class="mono">Trust</em></li>
+          <li><span class="n mono">05</span><div><b>Apps that need typing</b><p>English menus, barcodes, internet. Useless with 5 customers shouting.</p></div><em class="mono">Time</em></li>
+        </ol>
+        <p class="footnote">*Monthly ranges from our shopkeeper research (see <code>master.md</code> §2). Estimates, not audited figures.</p>
+      </div>
+    </section>
+
+    <!-- ============ 2 · WHY iQOO 15 ============ -->
+    <section id="hardware" class="chapter copy-right" data-pose="back" data-shape="2" data-label="02 · The phone">
+      <div class="copy">
+        <p class="eyebrow mono orange-text">02 · Why only an iQOO 15</p>
+        <h2 class="display-2">A shop audit needs <span class="orange-text">sensors</span>, not servers.</h2>
+        <p class="body">Kirana Rakshak is not an app that happens to run on a phone. Every step of the workflow is anchored to a specific piece of iQOO 15 hardware — most of which ordinary phones, iPhones and laptops simply do not have.</p>
+        <ul class="hotspot-list">
+          <li data-hs="uw"><span class="hs-n mono">1</span><div><b>50MP Ultra-wide · 119°</b><p>1/2.76" sensor. The whole 1.5 m counter in one frame — 30 packets, no stitching.</p></div></li>
+          <li data-hs="tele"><span class="hs-n mono">2</span><div><b>50MP 3× Periscope telemacro</b><p>Sony IMX882, 1/1.95". Reads faint dot-matrix expiry dates from 25 cm, without the phone's shadow.</p></div></li>
+          <li data-hs="main"><span class="hs-n mono">3</span><div><b>50MP Sony IMX921 main</b><p>1/1.56" sensor with iQOO's own OIS — sharp bill and challan photos in dim shop light.</p></div></li>
+          <li data-hs="spec"><span class="hs-n mono">4</span><div><b>Color Spectrum sensor + triple ambient light sensors</b><p>Detects 50 Hz tube-light flicker and glare on foil packs before the shot.</p></div></li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip orange">Snapdragon 8 Elite Gen 5</span><span class="chip orange">Supercomputing Chip Q3</span><span class="chip orange">IR blaster</span><span class="chip orange">NavIC</span><span class="chip orange">7000 mAh</span><span class="chip orange">Floating camera module</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3 · VENDOR INTAKE ============ -->
+    <section id="ch-nfc" class="chapter" data-pose="nfc" data-shape="1" data-label="03 · 09:00 Delivery" data-screen="vendor-list" data-action="nfc">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="time">09:00</span> The distributor arrives</p>
+        <h2 class="display-2">Tap. Stamp. <span class="lime-text">Count.</span></h2>
+        <p class="body">Rajesh from the Nestlé distributor walks in with cartons. Ramesh doesn't type anything.</p>
+        <ol class="steps">
+          <li><i class="tag hw">NFC</i><div><b>1-tap check-in</b><p>Rajesh taps his ID card on the phone — vendor ledger opens in &lt;100 ms.</p></div></li>
+          <li><i class="tag hw">NavIC</i><div><b>Proof-of-delivery stamp</b><p>India's own satellite system geo-tags the delivery; a SHA-256 hash makes it tamper-proof.</p></div></li>
+          <li><i class="tag hw">Spectrum</i><div><b>Kill the flicker</b><p>Color Spectrum sensor locks 50 Hz anti-banding so foil packets don't blind the camera.</p></div></li>
+          <li><i class="tag hw">UW 119°</i><div><b>One wide photo</b><p>Ultra-wide captures the entire counter in a single frame.</p></div></li>
+          <li><i class="tag sw">YOLO11n</i><div><b>Counted on the NPU</b><p>INT8 detector on the Hexagon NPU counts 20 packets in ~22 ms.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 4 · SHORT DELIVERY ============ -->
+    <section id="ch-bill" class="chapter copy-right" data-pose="bill" data-shape="1" data-label="04 · Shortage caught" data-screen="vendor-bill">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="time">09:01</span> The catch</p>
+        <h2 class="display-2">Bill says <span class="strike">24</span>.<br>Camera saw <span class="lime-text">20</span>.</h2>
+        <div class="versus">
+          <div><span class="mono">Bill quantity</span><b>24</b><small>PaddleOCR on-device</small></div>
+          <div class="vs mono">vs</div>
+          <div><span class="mono">Camera count</span><b class="lime-text">20</b><small>YOLO11n · 22 ms</small></div>
+        </div>
+        <div class="deduct">
+          <span class="mono">Money to deduct — on the spot</span>
+          <b id="deduct-ticker">₹0</b>
+          <code class="mono">4 short × ₹14 = ₹56 · matched with Jaro-Winkler &gt; 0.82</code>
+        </div>
+        <p class="body">A sharp double-knock on the haptic motor tells Ramesh before the delivery boy leaves. Across 15 vendors a month, that is the ₹8–15k leak closed.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5 · IR COLD CHAIN ============ -->
+    <section id="ch-ir" class="chapter" data-pose="ir" data-shape="1" data-label="05 · Cold chain" data-screen="stock" data-action="ir">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="time">11:30</span> Ice-cream arrives</p>
+        <h2 class="display-2">The phone <span class="orange-text">talks to the freezer.</span></h2>
+        <p class="body">When dairy or ice-cream is logged, the iQOO 15's top-frame <b>IR blaster</b> fires a 38 kHz remote command and pushes the old deep-freezer into super-freeze. No smart plug, no Wi-Fi — the phone <em>is</em> the remote.</p>
+        <div class="freezer" id="freezer">
+          <div class="freezer-body">
+            <div class="freezer-led"></div>
+            <span class="mono freezer-temp" id="freezer-temp">-12°C</span>
+            <span class="mono freezer-name">Voltas deep freezer</span>
+          </div>
+          <div class="freezer-state mono" id="freezer-state">Waiting for IR…</div>
+        </div>
+        <pre class="code mono"><span class="c">// ConsumerIrManager · NEC 38 kHz</span>
+irManager.<span class="k">transmit</span>(<span class="n">38000</span>, SUPER_FREEZE)</pre>
+      </div>
+    </section>
+
+    <!-- ============ 6 · EXPIRED SALE ============ -->
+    <section id="ch-expired" class="chapter copy-right danger" data-pose="expired" data-shape="1" data-label="06 · Sale blocked" data-screen="sell" data-action="expired">
+      <div class="copy">
+        <p class="eyebrow mono red-text"><span class="time">16:00</span> Rush hour</p>
+        <h2 class="display-2">Stop. <span class="red-text">That packet expired.</span></h2>
+        <p class="body">A customer picks an old packet from the back of the shelf. When it's scanned, the batch check fails and the phone <b>physically rumbles for 500 ms</b> on its dual-axis (X + Z) vibration motor while the screen turns red. In an 80 dB bazaar, a vibration in the hand beats a beep nobody hears.</p>
+        <div class="chip-row">
+          <span class="chip orange">Dual-axis X+Z motor</span><span class="chip orange">3× telemacro date read</span><span class="chip lime">SQLite batch registry</span>
+        </div>
+        <div class="tip"><b>Zero loss:</b> the app also reminds Ramesh to return near-expiry stock to the distributor inside the 30-day window for full credit.</div>
+      </div>
+    </section>
+
+    <!-- ============ 7 · VOICE ============ -->
+    <section id="ch-voice" class="chapter" data-pose="voice" data-shape="1" data-label="07 · Hindi voice" data-screen="assistant" data-action="voice">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="time">19:30</span> Flour on his hands</p>
+        <h2 class="display-2">Just ask. <span class="lime-text">In Hindi.</span></h2>
+        <div class="chat">
+          <div class="bubble q"><span class="mono">Ramesh</span>“Rajesh vendor ne kitna kam maal diya hai?”</div>
+          <div class="bubble a"><span class="mono">Phone · loud</span>“Rajesh vendor se 4 packet Maggi kam aaye the, kul ₹56 kaatne baaki hain.”</div>
+        </div>
+        <p class="body">Whisper speech-to-text and the Laya intent model run on the NPU, turn the question into a fixed SQL query, and the answer is read out on the stereo speakers — a built-in shop soundbox. The language model only phrases facts from the database; it never invents numbers.</p>
+        <div class="chip-row"><span class="chip orange">Beamforming mics</span><span class="chip orange">Stereo speakers</span><span class="chip lime">Whisper STT</span><span class="chip lime">Laya intent</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 8 · VAULT ============ -->
+    <section id="ch-vault" class="chapter copy-right" data-pose="vault" data-shape="1" data-label="08 · Vault" data-screen="stock">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="time">All day</span> Built for a real counter</p>
+        <h2 class="display-2">Dusty hands. Power cuts. <span class="lime-text">12 hours.</span></h2>
+        <div class="mini-bento">
+          <div><i class="tag hw">3D Ultrasonic</i><b>Margins behind a fingerprint</b><p>Works through flour, oil and water — optical sensors don't.</p></div>
+          <div><i class="tag hw">7000 mAh</i><b>Survives outages</b><p>Full-day counter duty with a large vapour chamber keeping it cool.</p></div>
+          <div><i class="tag hw">IP68 / IP69</i><b>Spill-proof</b><p>Milk, water and cleaning are part of the job.</p></div>
+          <div><i class="tag sw">SQLite</i><b>Your data stays in the shop</b><p>Every batch, vendor and rupee lives on the phone.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9 · OFFICE KIT ============ -->
+    <section id="ch-office" class="chapter office copy-right" data-pose="office" data-shape="0" data-label="09 · Office Kit" data-screen="sales-khata">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="time">21:30</span> Green light phase</p>
+        <h2 class="display-2">Phone meets laptop — <span class="lime-text">iQOO Office Kit.</span></h2>
+        <p class="body">During the day the phone works alone. At closing, Office Kit mirrors a clean customer bill to a second screen (cost prices stay private on the phone) and pushes a reconciled Excel sheet to the laptop in one click.</p>
+        <div class="laptop">
+          <div class="laptop-screen">
+            <div class="lap-bar mono"><i></i><i></i><i></i><span>Kirana_Rakshak_Audit_27Sep.xlsx</span></div>
+            <table class="mono">
+              <thead><tr><th>Vendor</th><th>Item</th><th>Bill</th><th>Got</th><th>Deduct</th></tr></thead>
+              <tbody>
+                <tr><td>Rajesh (Nestlé)</td><td>Maggi 70g</td><td>24</td><td>20</td><td class="neg">−₹56</td></tr>
+                <tr><td>Rajesh (Nestlé)</td><td>KitKat</td><td>12</td><td>12</td><td>₹0</td></tr>
+                <tr><td>Sharma Dairy</td><td>Amul Paneer</td><td>10</td><td>9</td><td class="neg">−₹90</td></tr>
+                <tr><td>Parle Agency</td><td>Parle-G 100g</td><td>36</td><td>36</td><td>₹0</td></tr>
+              </tbody>
+            </table>
+            <div class="lap-foot mono"><span>NavIC PoD ✓ · SHA-256 7f8a…21ef</span><b>Saved today ₹1,840</b></div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HARDWARE MATRIX ============ -->
+    <section id="matrix" class="block" data-pose="hidden" data-shape="1" data-label="10 · Hardware map">
+      <div class="block-head">
+        <p class="eyebrow mono orange-text">10 · Hardware synergy map</p>
+        <h2 class="display-2">12 parts of the iQOO 15.<br><span class="muted">Each one has a job.</span></h2>
+        <div class="filters" role="tablist">
+          <button class="filter active" data-tier="all">All</button>
+          <button class="filter" data-tier="1">Tier 1 · Exclusive</button>
+          <button class="filter" data-tier="2">Tier 2 · Optics</button>
+          <button class="filter" data-tier="3">Tier 3 · Touch & sound</button>
+          <button class="filter" data-tier="4">Tier 4 · Connect</button>
+        </div>
+      </div>
+      <div class="bento" id="bento"></div>
+    </section>
+
+    <!-- ============ PIPELINE ============ -->
+    <section id="pipeline" class="block" data-pose="hidden" data-shape="2" data-label="11 · Offline AI">
+      <div class="block-head split">
+        <div>
+          <p class="eyebrow mono">11 · Zero-cloud architecture</p>
+          <h2 class="display-2">Pull the plug.<br><span class="lime-text">Nothing changes.</span></h2>
+          <p class="body">Five models share the Snapdragon 8 Elite Gen 5 NPU. No OpenAI, no AWS, no Firebase. Flip the switch.</p>
+        </div>
+        <button id="airplane" class="airplane on" aria-pressed="true">
+          <span class="ap-track"><span class="ap-knob"><svg viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span></span>
+          <span class="ap-label mono">Airplane mode <b>ON</b></span>
+        </button>
+      </div>
+      <div class="flow">
+        <svg class="flow-lines" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M120 70 C 320 70, 340 210, 500 210"/>
+          <path d="M120 170 C 320 170, 340 210, 500 210"/>
+          <path d="M120 260 C 320 260, 340 210, 500 210"/>
+          <path d="M120 350 C 320 350, 340 210, 500 210"/>
+          <path d="M500 210 C 660 210, 680 90, 880 90"/>
+          <path d="M500 210 C 660 210, 680 210, 880 210"/>
+          <path d="M500 210 C 660 210, 680 330, 880 330"/>
+          <path class="cloud-link" d="M500 210 C 500 120, 560 40, 700 20"/>
+        </svg>
+        <div class="flow-col in">
+          <div class="node hw"><b>Cameras</b><span class="mono">UW 119° · 3× tele</span></div>
+          <div class="node hw"><b>NFC + NavIC</b><span class="mono">badge · geostamp</span></div>
+          <div class="node hw"><b>Mics</b><span class="mono">Hindi / Hinglish</span></div>
+          <div class="node hw"><b>Light sensors</b><span class="mono">50 Hz · CCT</span></div>
+        </div>
+        <div class="flow-core">
+          <div class="core-chip">
+            <span class="mono">Hexagon NPU</span>
+            <b>Snapdragon 8 Elite Gen 5</b>
+            <small class="mono">+ Supercomputing Chip Q3 for the 144 Hz HUD</small>
+          </div>
+          <div class="cloud-node mono" id="cloud-node"><s>Cloud API</s> · 0 bytes sent</div>
+        </div>
+        <div class="flow-col out">
+          <div class="node sw"><b>SQLite ledger</b><span class="mono">batches · vendors</span></div>
+          <div class="node hw"><b>Haptics · IR · Speakers</b><span class="mono">act in the shop</span></div>
+          <div class="node hw"><b>Office Kit</b><span class="mono">laptop · Excel</span></div>
+        </div>
+      </div>
+      <div class="zoo">
+        <div class="zoo-row head mono"><span>Job</span><span>Model</span><span>Size</span><span>Runtime</span></div>
+        <div class="zoo-row"><span>Packet counting</span><span>YOLO11n</span><span class="mono">~3 MB INT8</span><span class="mono">Qualcomm QNN</span></div>
+        <div class="zoo-row"><span>Bill & date OCR</span><span>PaddleOCR Mobile v4</span><span class="mono">~8 MB INT8</span><span class="mono">LiteRT</span></div>
+        <div class="zoo-row"><span>Hindi speech → text</span><span>Whisper small/base</span><span class="mono">~75 MB INT8</span><span class="mono">Sherpa-ONNX</span></div>
+        <div class="zoo-row"><span>Intent & slots</span><span>Laya multilingual</span><span class="mono">~150 MB INT8</span><span class="mono">ONNX Runtime</span></div>
+        <div class="zoo-row"><span>Hindi reply phrasing</span><span>BlueLM-1.5B class SLM</span><span class="mono">~750 MB INT4</span><span class="mono">llama.cpp</span></div>
+      </div>
+    </section>
+
+    <!-- ============ JUDGING ============ -->
+    <section id="judging" class="block" data-pose="hidden" data-shape="3" data-label="12 · Why it wins">
+      <div class="block-head">
+        <p class="eyebrow mono">12 · Mapped to the finale criteria</p>
+        <h2 class="display-2">Built for how the <span class="lime-text">finale is judged.</span></h2>
+        <p class="body">Weights are our estimate from the published format (phone-first Red Light phase, Office Kit Green Light phase, live demo).</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar" style="--w:30"><div class="p-head"><b>Phone-first execution & sensor depth</b><span class="mono">~30%</span></div><div class="bar"><i></i></div><p>12 hardware parts, each tied to one workflow step. Full demo runs in Airplane Mode on the phone alone.</p></div>
+        <div class="pillar" style="--w:25"><div class="p-head"><b>On-device AI integration</b><span class="mono">~25%</span></div><div class="bar"><i></i></div><p>Five local models on the Hexagon NPU; the SLM phrases SQL facts, so no hallucinated rupees.</p></div>
+        <div class="pillar" style="--w:15"><div class="p-head"><b>Office Kit cross-device</b><span class="mono">~15%</span></div><div class="bar"><i></i></div><p>Customer-facing bill mirror + private cashier HUD, 1-click Excel sync at closing.</p></div>
+        <div class="pillar" style="--w:15"><div class="p-head"><b>Real-world relevance</b><span class="mono">~15%</span></div><div class="bar"><i></i></div><p>12M kiranas, rupee-denominated savings, Hindi-first, designed for a 52-year-old shopkeeper.</p></div>
+        <div class="pillar" style="--w:15"><div class="p-head"><b>Pitch & live demo</b><span class="mono">~15%</span></div><div class="bar"><i></i></div><p>Physical props: 20 real Maggi, a bill that says 24, an expired Parle-G, an NFC card and an IR LED that lights up on stage.</p></div>
+      </div>
+      <div class="demo-strip">
+        <div><span class="mono">0:15</span><b>Airplane Mode ON</b></div>
+        <div><span class="mono">0:40</span><b>₹56 short caught</b></div>
+        <div><span class="mono">1:00</span><b>IR LED lights up</b></div>
+        <div><span class="mono">1:25</span><b>Phone rumbles, sale blocked</b></div>
+        <div><span class="mono">1:45</span><b>Hindi answer, out loud</b></div>
+        <div><span class="mono">2:00</span><b>Excel on the laptop</b></div>
+      </div>
+    </section>
+
+    <!-- ============ LIVE ============ -->
+    <section id="live" class="chapter live" data-pose="live" data-shape="0" data-label="13 · Try it" data-screen="home">
+      <div class="copy">
+        <p class="eyebrow mono"><span class="pulse"></span>13 · Live prototype</p>
+        <h2 class="display-2">Your turn. <span class="lime-text">Tap the phone.</span></h2>
+        <p class="body">The screen on the right is the real Kirana Rakshak prototype, not a video. Tap through it, or jump straight to a moment. Drag the phone's frame to turn it around.</p>
+        <div class="jump-grid">
+          <button data-jump="home">Home</button>
+          <button data-jump="nfc">NFC vendor tap</button>
+          <button data-jump="vendor-bill">Shortage bill</button>
+          <button data-jump="expired">Expired sale</button>
+          <button data-jump="ir">Fire IR blaster</button>
+          <button data-jump="assistant">Hindi assistant</button>
+          <button data-jump="stock">Stock & vault</button>
+          <button data-jump="flip">Flip phone ↺</button>
+          <button data-jump="legend">Legend · white</button>
+          <button data-jump="alpha">Alpha · black</button>
+        </div>
+        <a class="btn btn-ghost" href="../prototype/kirana_rakshak_ui.html" target="_blank" rel="noopener">Open prototype full screen ↗</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" data-pose="hidden" data-shape="3" data-label="14 · Team">
+    <div class="foot-big display">HOLOTRIO</div>
+    <p class="foot-note mono">A concept prototype for the iQOO Hackathon 2026. iQOO and Snapdragon are trademarks of their owners; this site is not affiliated with them.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/phone.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/particles.js"></script>
+</body>
+</html>

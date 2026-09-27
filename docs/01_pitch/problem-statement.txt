@@ -1,0 +1,121 @@
+**Title:** Grand Finale Dashboard · iQOO Hackathon 2026
+
+**Source:** [https://iqoo.reskilll.com/dashboard/iqoo-finale](https://iqoo.reskilll.com/dashboard/iqoo-finale)
+
+---
+
+# Page Structure Map
+```text
+Grand Finale Dashboard · iQOO Hackathon 2026
+└── Grand Finale.
+    └── Important dates
+        ├── HoloTrio
+        ├── Mobility
+        ├── Community App
+        ├── Smart Living
+        ├── Productivity
+        ├── Developer Tools
+        └── Open Innovation
+```
+
+---
+
+Dashboard · Grand Finale
+
+# Grand Finale.
+
+Fri 9 – Sun 11 October · TBA, Bengaluru. Form your team, lock a problem statement, then submit your Phase 1 idea.
+
+PuneGrand Finale
+
+## Important dates
+
+Phase 1 · Idea submission deadline
+
+5 Oct 2026
+
+Grand Finale
+
+Fri 9 – Sun 11 October
+
+Submissions close in
+
+10Days
+
+12Hrs
+
+45Min
+
+18Sec
+
+Join the WhatsApp community
+
+Get announcements, run-of-show updates & connect with fellow builders.
+
+Your Phase 1 entry
+
+Teams cannot mix students and working professionals. Invite or join only people in the same category you registered as. Solo is fine.
+
+Team
+
+#### HoloTrio
+
+S
+
+Sanskar Tiwari
+
+sanskartiwari.smt@gmail.com
+
+Leader
+
+S
+
+Shambhavi patil
+
+shambhavipatil5631@gmail.com
+
+Member
+
+2/3 members
+
+Invite only teammates in your registration category. Mixed student / pro teams are not allowed.
+
+Invite a teammate by email
+
+Mobility
+
+#### Mobility
+
+Build solutions for navigation, EVs, public transport, parking, or travel experiences.
+
+Community App
+
+#### Community App
+
+Build a community app, not specific to iQOO, that connects developers, professionals, or interest groups, with AI (preferred to be on device) at the core.
+
+Smart Living
+
+#### Smart Living
+
+Design AI-powered solutions for smart homes, IoT, connected devices, or everyday convenience.
+
+Productivity
+
+#### Productivity
+
+Build AI-powered solutions that help people work smarter, automate repetitive tasks, manage time and information, improve workflows, and get more done.
+
+Developer Tools
+
+#### Developer Tools
+
+Build tools that help developers create, test, deploy, or collaborate faster using AI.
+
+Open Innovation
+
+#### Open Innovation
+
+Anything outside the tracks, any domain, with a local or open source model at the core.
+
+Complete the previous step to unlock.
