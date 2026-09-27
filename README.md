@@ -7,6 +7,7 @@ Team HoloTrio. An offline AI guard for Indian kirana stores, built on the iQOO 1
 ```
 IQOO Research/
 ├── README.md                  ← you are here
+├── index.html                 forwards to frontend/ (so the site root works)
 ├── frontend/                  showcase website (scroll-driven 3D iQOO 15)
 │   ├── index.html
 │   ├── css/  js/  assets/
@@ -38,4 +39,4 @@ Then open:
 - Website: http://localhost:5173/frontend/
 - App UI on its own: http://localhost:5173/prototype/kirana_rakshak_ui.html
 
-Serve the whole folder (not `frontend/` alone) — the website loads the app from `../prototype/`.
+Serve the whole folder (not `frontend/` alone), the website loads the app from `../prototype/`.

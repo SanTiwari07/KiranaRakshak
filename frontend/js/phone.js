@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <!-- BACK: iQOO 15 — AG-frosted glass, floating squircle camera module.
+    <!-- BACK: iQOO 15, AG-frosted glass, floating squircle camera module.
          Legend = white + tri-colour racing checkerboard; Alpha = matte black + bronze ring. -->
     <div class="face back">
       <div class="island">

@@ -118,9 +118,84 @@
     .sound-bar-3 { animation: waveBar 0.5s ease-in-out infinite 0.4s; }
     .sound-bar-4 { animation: waveBar 0.5s ease-in-out infinite 0.15s; }
     .sound-bar-5 { animation: waveBar 0.5s ease-in-out infinite 0.3s; }
+
+    /* side guide panels */
+    .guide-panel { scrollbar-width: none; }
+    .guide-in { animation: guideIn .35s cubic-bezier(.2,.8,.2,1) both; }
+    .guide-in:nth-child(2) { animation-delay: .05s; } .guide-in:nth-child(3) { animation-delay: .1s; }
+    .guide-in:nth-child(4) { animation-delay: .15s; } .guide-in:nth-child(5) { animation-delay: .2s; }
+    @keyframes guideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* ---------- responsive fit ---------- */
+    /* Desktop / tablet / 2K / 4K: the phone is zoomed by JS to fit the window, page never scrolls */
+    body.fit-mode { height: 100vh; height: 100dvh; min-height: 0 !important; overflow: hidden; padding: 0 !important; }
+    body.fit-mode #phone-chassis-wrapper { flex-shrink: 0; }
+    /* Real phones: run the app full-screen, no fake chassis or fake status bar */
+    body.app-full { padding: 0 !important; display: block !important; min-height: 0 !important; height: 100vh; height: 100dvh; overflow: hidden; background: #F4F4F0 !important; }
+    body.app-full #phone-chassis-wrapper { padding: 0 !important; width: 100vw; height: 100vh; height: 100dvh; transform: none !important; }
+    body.app-full #iqoo-phone-body { transition: none !important; width: 100% !important; height: 100% !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; background: #F4F4F0 !important; --tw-ring-shadow: 0 0 #0000 !important; }
+    body.app-full #iqoo-phone-body > :not(#phone-front) { display: none !important; }
+    body.app-full #phone-front { border-radius: 0 !important; border: 0 !important; }
+    body.app-full #phone-front > div:first-child { display: none !important; }
+    body.app-full .gesture-bar { display: none !important; }
+    body.app-full .guide-panel { display: none !important; }
   </style>
 </head>
 <body class="min-h-screen text-[#151618] p-2 md:p-6 flex flex-col items-center justify-center antialiased">
+
+  <!-- ================= SIDE GUIDE PANELS (desktop only; hidden inside the website's 3D phone) ================= -->
+  <aside id="guide-left" class="guide-panel hidden xl:flex fixed left-8 2xl:left-16 top-1/2 -translate-y-1/2 w-[330px] max-h-[92vh] flex-col gap-3 overflow-y-auto">
+    <div class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-[#151618] flex items-center justify-center shrink-0">
+        <svg class="w-4.5 h-4.5 w-[18px] h-[18px] text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <div>
+        <span class="text-[10px] font-black text-slate-500 uppercase tracking-[0.14em] block leading-none">Kirana Rakshak</span>
+        <span class="text-[11px] font-bold text-slate-400">Live prototype guide</span>
+      </div>
+    </div>
+
+    <div class="p-5 bg-[#151618] text-white rounded-[30px] stripe-pattern space-y-3">
+      <span id="g-step" class="inline-block text-[10px] font-black bg-[#D4F639] text-[#151618] px-2.5 py-1 rounded-full uppercase tracking-wide">Screen</span>
+      <h2 id="g-title" class="text-[26px] font-black leading-[1.05] tracking-tight">Title</h2>
+      <p id="g-what" class="text-[13px] text-slate-300 font-medium leading-relaxed">What this page does.</p>
+    </div>
+
+    <div class="p-4 bg-white rounded-[26px] border border-black/[0.08] space-y-2.5">
+      <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.14em]">Try it</span>
+      <ol id="g-try" class="space-y-2 text-[12px] font-semibold text-[#151618]"></ol>
+    </div>
+
+    <div id="g-save-wrap" class="p-4 bg-[#D4F639] rounded-[26px] flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12"/><path d="M6 8h12"/><path d="m6 13 8.5 8"/><path d="M6 13h3"/><path d="M9 13c6.667 0 6.667-10 0-10"/></svg>
+      </div>
+      <div class="min-w-0">
+        <span class="text-[10px] font-black text-[#151618]/60 uppercase tracking-wide block">Problem it solves</span>
+        <span id="g-save" class="text-[13px] font-black text-[#151618] leading-snug block">...</span>
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.14em] px-1">Jump to a screen</span>
+      <div id="g-nav" class="flex flex-wrap gap-1.5"></div>
+    </div>
+  </aside>
+
+  <aside id="guide-right" class="guide-panel hidden xl:flex fixed right-8 2xl:right-16 top-1/2 -translate-y-1/2 w-[330px] max-h-[92vh] flex-col gap-3 overflow-y-auto">
+    <div class="flex items-center justify-between px-1">
+      <div>
+        <span class="text-[10px] font-black text-slate-500 uppercase tracking-[0.14em] block leading-none">iQOO 15 hardware</span>
+        <span class="text-[11px] font-bold text-slate-400">used on this screen</span>
+      </div>
+      <span class="text-[10px] font-black text-white bg-[#FF5722] px-2.5 py-1 rounded-full">iQOO 15</span>
+    </div>
+    <div id="g-hw" class="space-y-2"></div>
+    <div class="p-4 bg-[#151618] rounded-[26px] text-white space-y-1.5">
+      <span class="text-[10px] font-black text-[#D4F639] uppercase tracking-[0.14em]">Why only iQOO 15</span>
+      <p id="g-why" class="text-[12px] text-slate-300 font-medium leading-relaxed">...</p>
+    </div>
+  </aside>
 
   <!-- ================= AUTHENTIC iQOO 15 CHASSIS WRAPPER ================= -->
   <div id="phone-chassis-wrapper" class="relative py-1 transition-all">
@@ -203,183 +278,117 @@
 
           <!-- ================= 0. SCREEN: SHOPKEEPER AUTHENTICATION (LOGIN & SIGN UP PAGE) ================= -->
           <!-- ================= 0. SCREEN: SHOPKEEPER AUTHENTICATION (LOGIN & SIGN UP PAGE) ================= -->
-          <div id="screen-auth" class="space-y-3 pb-24 transition-all hidden">
-            
-            <!-- Auth Screen Top Bar -->
-            <div class="flex items-center justify-between pb-1.5 border-b border-black/10">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span id="txt-auth-badge" class="text-[10px] font-black text-slate-500 uppercase tracking-wider">KiranaGuard · Offline Security</span>
+          <div id="screen-auth" class="h-full flex flex-col gap-3 transition-all hidden">
+
+            <!-- Top bar: brand + language + back -->
+            <div class="flex items-center justify-between pt-1">
+              <div class="flex items-center gap-2 min-w-0">
+                <div class="w-8 h-8 rounded-xl bg-[#151618] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <span id="txt-auth-badge" class="text-[11px] font-black text-slate-500 truncate">100% Offline · Secure</span>
               </div>
-              <div class="flex items-center gap-1.5">
-                <!-- Language Toggle on Auth Screen -->
-                <button id="btn-auth-lang-toggle" onclick="toggleLanguage()" title="Switch Language" class="h-8 px-2 rounded-xl bg-[#151618] hover:bg-black text-white border border-black/10 shadow-sm flex items-center gap-1 active:scale-95 transition-all text-xs font-black cursor-pointer">
-                  <svg class="lucide lucide-languages w-3.5 h-3.5 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button id="btn-auth-lang-toggle" onclick="toggleLanguage()" title="Switch Language" class="h-8 px-2.5 rounded-full bg-[#151618] text-white flex items-center gap-1 active:scale-95 transition-all text-[11px] font-black cursor-pointer">
+                  <svg class="w-3.5 h-3.5 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
                   <span class="lbl-curr-lang text-[#D4F639]">EN</span>
                 </button>
-                <button id="btn-auth-back-store" onclick="switchScreen('home')" class="text-xs font-bold text-slate-600 bg-white border border-black/10 px-2.5 py-1.5 rounded-xl flex items-center gap-1 hover:text-black hover:bg-slate-50 transition-all shadow-sm hidden cursor-pointer">
-                  <svg class="lucide lucide-arrow-left w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                <button id="btn-auth-back-store" onclick="switchScreen('home')" class="h-8 px-2.5 rounded-full bg-white border border-black/10 text-[11px] font-bold text-slate-600 flex items-center gap-1 hover:text-black transition-all hidden cursor-pointer">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                   <span id="txt-auth-back-store">Store</span>
                 </button>
               </div>
             </div>
 
-            <!-- Hero Bento Card (Obsidian & Electric Lime) -->
-            <div class="p-4 bg-[#151618] rounded-[26px] text-white stripe-pattern border-2 border-black shadow-md space-y-2">
-              <div class="flex items-start justify-between">
-                <div class="w-11 h-11 rounded-2xl bg-[#D4F639] text-[#151618] flex items-center justify-center shadow-lg shrink-0">
-                  <svg class="lucide lucide-shield-check w-6 h-6 text-[#151618]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <div class="text-right">
-                  <span class="text-[9px] px-2 py-0.5 rounded-full bg-white/10 text-[#D4F639] font-bold border border-white/15">100% Offline</span>
-                  <span class="text-[9px] text-slate-400 block pt-0.5">iQOO 15 Hardware Vault</span>
-                </div>
-              </div>
-
-              <div>
-                <h3 id="txt-auth-screen-title" class="text-base font-black text-white">KiranaGuard Dukaan Access</h3>
-                <p id="txt-auth-screen-sub" class="text-[11px] text-slate-300 font-medium">On-device biometric & M-PIN login for store owner</p>
-              </div>
-
-              <div class="flex items-center gap-2 pt-1 border-t border-white/10 text-[9px] text-slate-400 font-bold">
-                <span class="flex items-center gap-1 text-emerald-400">
-                  <svg class="lucide lucide-check w-3 h-3 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>Qualcomm 3D Ultrasonic</span>
-                </span>
-                <span>•</span>
-                <span>Encrypted SQLite</span>
-              </div>
+            <!-- Title -->
+            <div>
+              <h3 id="txt-auth-screen-title" class="text-[26px] font-black text-[#151618] leading-tight tracking-tight">Welcome back</h3>
+              <p id="txt-auth-screen-sub" class="text-xs text-slate-500 font-semibold mt-0.5">Unlock your store with M-PIN or fingerprint</p>
             </div>
 
-            <!-- Segmented Switcher: Login vs Sign Up -->
-            <div id="auth-tabs-container" class="grid grid-cols-2 p-1 bg-white border border-black/10 rounded-2xl text-xs font-black shadow-sm">
-              <button id="tab-btn-login" onclick="switchAuthTab('login')" class="py-2.5 rounded-xl bg-[#151618] text-[#D4F639] transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-                <svg class="lucide lucide-log-in w-3.5 h-3.5 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
-                <span id="txt-tab-login">Login</span>
-              </button>
-              <button id="tab-btn-signup" onclick="switchAuthTab('signup')" class="py-2.5 rounded-xl text-slate-600 hover:text-black transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                <svg class="lucide lucide-user-plus w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
-                <span id="txt-tab-signup">Sign Up</span>
-              </button>
+            <!-- Segmented switch -->
+            <div id="auth-tabs-container" class="grid grid-cols-2 p-1 bg-black/[0.05] rounded-full text-xs font-black">
+              <button id="tab-btn-login" onclick="switchAuthTab('login')" class="py-2 rounded-full bg-white text-[#151618] shadow-sm transition-all cursor-pointer"><span id="txt-tab-login">Login</span></button>
+              <button id="tab-btn-signup" onclick="switchAuthTab('signup')" class="py-2 rounded-full text-slate-500 hover:text-black transition-all cursor-pointer"><span id="txt-tab-signup">Sign Up</span></button>
             </div>
 
-            <!-- ================= TAB 1: LOGIN (ELEVATED WITH 3x4 POS HARDWARE KEYPAD) ================= -->
-            <div id="auth-view-login" class="space-y-3 text-xs">
-              <div class="bg-white p-3.5 rounded-[24px] border-2 border-black/10 shadow-sm space-y-2.5">
-                
-                <!-- Registered Mobile Pill -->
-                <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-black/5">
-                  <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg bg-[#151618] text-[#D4F639] flex items-center justify-center font-bold text-xs">
-                      <svg class="lucide lucide-smartphone w-3.5 h-3.5 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-                    </div>
-                    <div>
-                      <span id="lbl-login-phone" class="text-[9px] font-bold text-slate-400 block leading-tight">Registered Mobile Number</span>
-                      <span class="font-mono font-black text-xs text-[#151618]">+91 98765 43210</span>
-                    </div>
-                  </div>
-                  <span class="text-[9px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">Verified</span>
+            <!-- LOGIN -->
+            <div id="auth-view-login" class="flex-1 min-h-0 flex flex-col gap-3 text-xs">
+              <div class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-white border border-black/[0.08]">
+                <div class="min-w-0">
+                  <span id="lbl-login-phone" class="text-[10px] font-bold text-slate-400 block leading-tight">Registered Mobile Number</span>
+                  <span class="font-mono font-black text-sm text-[#151618]">+91 98765 43210</span>
                 </div>
-
-                <!-- M-PIN Prompt & 6 Illuminated Dots -->
-                <div class="pt-1 text-center space-y-1.5">
-                  <div class="flex items-center justify-between px-1">
-                    <label id="lbl-login-mpin" class="font-black text-[#151618] text-xs">Enter 6-Digit Store M-PIN</label>
-                    <span id="txt-login-demo-hint" class="text-[10px] text-slate-400 font-mono font-bold">(Demo: 123456)</span>
-                  </div>
-
-                  <!-- 6 Interactive Illuminated PIN Dots -->
-                  <div class="flex items-center justify-center gap-3.5 py-1">
-                    <span id="pdot-1" class="w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all"></span>
-                    <span id="pdot-2" class="w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all"></span>
-                    <span id="pdot-3" class="w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all"></span>
-                    <span id="pdot-4" class="w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all"></span>
-                    <span id="pdot-5" class="w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all"></span>
-                    <span id="pdot-6" class="w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all"></span>
-                  </div>
-                </div>
-
-                <!-- Tactile On-Device 3x4 POS Hardware Keypad (Fills dead white space completely & feels like authentic POS!) -->
-                <div class="grid grid-cols-3 gap-2 pt-1 font-mono">
-                  <button type="button" onclick="pressKeypadDigit('1')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">1</button>
-                  <button type="button" onclick="pressKeypadDigit('2')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">2</button>
-                  <button type="button" onclick="pressKeypadDigit('3')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">3</button>
-                  
-                  <button type="button" onclick="pressKeypadDigit('4')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">4</button>
-                  <button type="button" onclick="pressKeypadDigit('5')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">5</button>
-                  <button type="button" onclick="pressKeypadDigit('6')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">6</button>
-                  
-                  <button type="button" onclick="pressKeypadDigit('7')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">7</button>
-                  <button type="button" onclick="pressKeypadDigit('8')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">8</button>
-                  <button type="button" onclick="pressKeypadDigit('9')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">9</button>
-                  
-                  <!-- 1-Tap 3D Ultrasonic Biometric Key -->
-                  <button type="button" onclick="quickBiometricLogin()" title="Qualcomm 3D Sonic Unlock" class="h-11 rounded-2xl bg-emerald-50 border-2 border-emerald-300 text-emerald-800 shadow-sm hover:bg-emerald-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
-                    <svg class="lucide lucide-fingerprint w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 3"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/></svg>
-                  </button>
-                  <button type="button" onclick="pressKeypadDigit('0')" class="h-11 rounded-2xl bg-white border-2 border-black/10 font-black text-lg text-[#151618] shadow-sm hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center cursor-pointer">0</button>
-                  <!-- Backspace / Delete Key -->
-                  <button type="button" onclick="deleteKeypadDigit()" title="Delete" class="h-11 rounded-2xl bg-slate-100 border-2 border-black/10 text-slate-700 shadow-sm hover:bg-slate-200 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
-                    <svg class="lucide lucide-delete w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><line x1="18" x2="12" y1="9" y2="15"/><line x1="12" x2="18" y1="9" y2="15"/></svg>
-                  </button>
-                </div>
+                <span id="txt-login-verified" class="text-[10px] font-black text-[#151618] bg-[#D4F639] px-2 py-0.5 rounded-full shrink-0">Verified</span>
               </div>
 
-              <!-- Submit Login CTA (Matches Giant Electric Lime Button Style from Image 1!) -->
-              <button onclick="submitShopkeeperLogin()" class="w-full py-3.5 bg-[#D4F639] hover:bg-lime-400 text-[#151618] font-black text-xs rounded-2xl shadow-md border-2 border-black flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer">
-                <svg class="lucide lucide-log-in w-4 h-4 text-[#151618]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
-                <span id="txt-login-btn">Login to Ganesh Kirana Store</span>
-              </button>
+              <!-- M-PIN: 6 boxes, centred in the free space above the keypad -->
+              <div class="flex-1 min-h-0 flex flex-col items-center justify-center gap-3">
+                <label id="lbl-login-mpin" class="font-black text-[#151618] text-sm">Enter 6-digit M-PIN</label>
+                <div id="pin-boxes" class="flex items-center justify-center gap-2">
+                  <span id="pdot-1"></span><span id="pdot-2"></span><span id="pdot-3"></span><span id="pdot-4"></span><span id="pdot-5"></span><span id="pdot-6"></span>
+                </div>
+                <span id="txt-login-demo-hint" class="text-[10px] text-slate-400 font-mono font-bold">(Demo: 123456)</span>
+              </div>
 
-              <div class="text-center pt-0.5">
-                <button type="button" onclick="switchAuthTab('signup')" class="text-[11px] font-bold text-slate-500 hover:text-black cursor-pointer">
-                  <span id="txt-switch-signup-link">New Kirana store? Register new account</span>
+              <div class="grid grid-cols-3 gap-2 font-mono">
+                <button type="button" onclick="pressKeypadDigit('1')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">1</button>
+                <button type="button" onclick="pressKeypadDigit('2')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">2</button>
+                <button type="button" onclick="pressKeypadDigit('3')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">3</button>
+                <button type="button" onclick="pressKeypadDigit('4')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">4</button>
+                <button type="button" onclick="pressKeypadDigit('5')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">5</button>
+                <button type="button" onclick="pressKeypadDigit('6')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">6</button>
+                <button type="button" onclick="pressKeypadDigit('7')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">7</button>
+                <button type="button" onclick="pressKeypadDigit('8')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">8</button>
+                <button type="button" onclick="pressKeypadDigit('9')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">9</button>
+                <button type="button" onclick="quickBiometricLogin()" title="3D Ultrasonic fingerprint" class="h-12 rounded-2xl bg-[#151618] text-[#D4F639] active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 3"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/></svg>
+                </button>
+                <button type="button" onclick="pressKeypadDigit('0')" class="h-12 rounded-2xl bg-white border border-black/[0.06] font-bold text-xl text-[#151618] hover:bg-slate-50 active:scale-95 active:bg-[#D4F639] transition-all flex items-center justify-center cursor-pointer">0</button>
+                <button type="button" onclick="deleteKeypadDigit()" title="Delete" class="h-12 rounded-2xl text-slate-500 hover:bg-black/5 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"/><line x1="18" x2="12" y1="9" y2="15"/><line x1="12" x2="18" y1="9" y2="15"/></svg>
                 </button>
               </div>
+
+              <button onclick="submitShopkeeperLogin()" class="w-full h-12 shrink-0 bg-[#D4F639] hover:bg-lime-400 text-[#151618] font-black text-sm rounded-full flex items-center justify-center px-4 transition-all active:scale-95 cursor-pointer">
+                <span id="txt-login-btn" class="truncate">Login to Ganesh Kirana Store</span>
+              </button>
+              <button type="button" onclick="switchAuthTab('signup')" class="text-[11px] font-bold text-slate-500 hover:text-black cursor-pointer -mt-1">
+                <span id="txt-switch-signup-link">New Kirana store? Register new account</span>
+              </button>
             </div>
 
-            <!-- ================= TAB 2: SIGN UP ================= -->
-            <div id="auth-view-signup" class="space-y-3 text-xs hidden">
-              <div class="bg-white p-3.5 rounded-[22px] border-2 border-black/10 shadow-sm space-y-2.5">
-                <div>
-                  <label id="lbl-signup-name" class="font-black text-[#151618] block mb-1">Shopkeeper Full Name:</label>
-                  <input type="text" id="signup-name" value="Ramesh Kumar Gupta" placeholder="e.g. Ramesh Kumar Gupta" class="w-full px-3 py-2 rounded-xl bg-slate-50 border-2 border-black/10 font-bold text-[#151618] focus:outline-none focus:border-black focus:bg-white text-xs">
-                </div>
-
-                <div>
-                  <label id="lbl-signup-store" class="font-black text-[#151618] block mb-1">Kirana Store Name:</label>
-                  <input type="text" id="signup-store" value="Ganesh Kirana Store" placeholder="e.g. Ganesh Kirana Store" class="w-full px-3 py-2 rounded-xl bg-slate-50 border-2 border-black/10 font-bold text-[#151618] focus:outline-none focus:border-black focus:bg-white text-xs">
-                </div>
-
-                <div>
-                  <label id="lbl-signup-phone" class="font-black text-[#151618] block mb-1">WhatsApp Mobile Number:</label>
-                  <div class="relative flex items-center">
-                    <span class="absolute left-3 text-xs font-bold text-slate-400 font-mono">+91</span>
-                    <input type="tel" id="signup-phone" value="98765 43210" placeholder="98765 43210" class="w-full pl-11 pr-3 py-2 rounded-xl bg-slate-50 border-2 border-black/10 font-mono font-bold text-[#151618] focus:outline-none focus:border-black focus:bg-white text-xs">
-                  </div>
-                </div>
-
-                <div>
-                  <label id="lbl-signup-mpin" class="font-black text-[#151618] block mb-1">Create 6-Digit M-PIN:</label>
-                  <input type="password" maxlength="6" id="signup-mpin" value="123456" placeholder="Set 6-digit pin (e.g. 123456)" class="w-full px-3 py-2 rounded-xl bg-slate-50 border-2 border-black/10 font-mono font-bold text-[#151618] focus:outline-none focus:border-black focus:bg-white tracking-widest text-xs">
+            <!-- SIGN UP -->
+            <div id="auth-view-signup" class="flex-1 min-h-0 flex flex-col gap-2.5 text-xs hidden">
+              <div>
+                <label id="lbl-signup-name" class="text-[10px] font-black text-slate-500 uppercase tracking-wide block mb-1 px-1">Shopkeeper Full Name:</label>
+                <input type="text" id="signup-name" value="Ramesh Kumar Gupta" placeholder="e.g. Ramesh Kumar Gupta" class="w-full h-11 px-3.5 rounded-2xl bg-white border border-black/10 font-bold text-sm text-[#151618] focus:outline-none focus:border-[#151618]">
+              </div>
+              <div>
+                <label id="lbl-signup-store" class="text-[10px] font-black text-slate-500 uppercase tracking-wide block mb-1 px-1">Kirana Store Name:</label>
+                <input type="text" id="signup-store" value="Ganesh Kirana Store" placeholder="e.g. Ganesh Kirana Store" class="w-full h-11 px-3.5 rounded-2xl bg-white border border-black/10 font-bold text-sm text-[#151618] focus:outline-none focus:border-[#151618]">
+              </div>
+              <div>
+                <label id="lbl-signup-phone" class="text-[10px] font-black text-slate-500 uppercase tracking-wide block mb-1 px-1">WhatsApp Mobile Number:</label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3.5 text-sm font-bold text-slate-400 font-mono">+91</span>
+                  <input type="tel" id="signup-phone" value="98765 43210" placeholder="98765 43210" class="w-full h-11 pl-12 pr-3.5 rounded-2xl bg-white border border-black/10 font-mono font-bold text-sm text-[#151618] focus:outline-none focus:border-[#151618]">
                 </div>
               </div>
-
-              <!-- Submit Sign Up CTA -->
-              <button onclick="submitShopkeeperSignUp()" class="w-full py-3.5 bg-[#151618] hover:bg-black text-[#D4F639] font-black text-xs rounded-2xl shadow-md border-2 border-white/10 flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer">
-                <svg class="lucide lucide-check w-4 h-4 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <label id="lbl-signup-mpin" class="text-[10px] font-black text-slate-500 uppercase tracking-wide block mb-1 px-1">Create 6-Digit M-PIN:</label>
+                <input type="password" maxlength="6" id="signup-mpin" value="123456" placeholder="••••••" class="w-full h-11 px-3.5 rounded-2xl bg-white border border-black/10 font-mono font-bold text-sm text-[#151618] tracking-[0.4em] focus:outline-none focus:border-[#151618]">
+              </div>
+              <button onclick="submitShopkeeperSignUp()" class="mt-auto w-full h-12 shrink-0 bg-[#151618] hover:bg-black text-[#D4F639] font-black text-sm rounded-full flex items-center justify-center transition-all active:scale-95 cursor-pointer">
                 <span id="txt-signup-btn">Create Store Account & Launch</span>
               </button>
-
-              <div class="text-center pt-0.5">
-                <button type="button" onclick="switchAuthTab('login')" class="text-[11px] font-bold text-slate-500 hover:text-black cursor-pointer">
-                  <span id="txt-switch-login-link">Already registered? Login with M-PIN</span>
-                </button>
-              </div>
+              <button type="button" onclick="switchAuthTab('login')" class="text-[11px] font-bold text-slate-500 hover:text-black cursor-pointer">
+                <span id="txt-switch-login-link">Already registered? Login with M-PIN</span>
+              </button>
             </div>
 
             <!-- ================= TAB 3: PROFILE SUMMARY & HARDWARE VAULT (ELEVATED TO MATCH IMAGE 1 BENTO STYLE) ================= -->
-            <div id="auth-view-profile" class="space-y-3 text-xs hidden">
+            <div id="auth-view-profile" class="space-y-3 text-xs pb-4 hidden">
               
               <!-- Store Identity Carbon Card (Obsidian & Electric Lime) -->
               <div class="p-4 bg-[#151618] rounded-[26px] text-white stripe-pattern border-2 border-black shadow-md space-y-2.5">
@@ -470,37 +479,28 @@
 
             </div>
 
-            <!-- Bottom Offline Hardware Security Badge -->
-            <div class="p-2.5 bg-slate-100 rounded-2xl border border-black/5 flex items-center justify-between text-[9px] text-slate-500 font-bold">
-              <div class="flex items-center gap-1.5">
-                <svg class="lucide lucide-shield-check w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                <span>Qualcomm 3D Ultrasonic Sensor (0.08s)</span>
-              </div>
-              <span class="text-slate-400 font-mono">OriginOS 6</span>
             </div>
 
-          </div>
-
           <!-- ================= 1. HOME SCREEN: STRICTLY 2 GIANT BUTTONS ONLY ================= -->
-          <div id="screen-home" class="space-y-3.5 transition-all">
+          <div id="screen-home" class="h-full flex flex-col gap-3 transition-all">
             
             <!-- Store Profile Header: Language Toggle & Shopkeeper Login / Profile -->
-            <div class="flex items-center justify-between pt-1">
-              <div>
+            <div class="flex items-center justify-between gap-2 pt-1">
+              <div class="min-w-0">
                 <span id="txt-store-tag" class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Kirana Store</span>
-                <h2 id="txt-store-name" class="text-xl font-black text-[#151618] leading-tight">Ganesh Kirana Store</h2>
-                <p id="txt-owner-name" class="text-xs text-slate-500 font-semibold">Owner: Ramesh Bhai</p>
+                <h2 id="txt-store-name" class="text-lg font-black text-[#151618] leading-tight truncate">Ganesh Kirana Store</h2>
+                <p id="txt-owner-name" class="text-xs text-slate-500 font-semibold truncate">Owner: Ramesh Bhai</p>
               </div>
               
-              <div class="flex items-center gap-1.5">
+              <div class="flex items-center gap-1.5 shrink-0">
                 <!-- 1-Tap Language Switch Button (English / Hindi Toggle) -->
-                <button id="btn-lang-toggle" onclick="toggleLanguage()" title="Switch Language" class="h-10 px-2.5 rounded-2xl bg-[#151618] hover:bg-black text-white border border-black/10 shadow-sm flex items-center gap-1.5 active:scale-95 transition-all">
+                <button id="btn-lang-toggle" onclick="toggleLanguage()" title="Switch Language" class="h-10 px-3 rounded-full bg-[#151618] hover:bg-black text-white shadow-sm flex items-center gap-1.5 active:scale-95 transition-all">
                   <svg class="lucide lucide-languages w-4 h-4 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
                   <span id="lbl-curr-lang" class="lbl-curr-lang text-[11px] font-black text-[#D4F639]">EN</span>
                 </button>
 
                 <!-- Shopkeeper Profile / Login Badge -->
-                <button id="btn-user-auth-header" onclick="openAuthScreen()" title="Shopkeeper Account & Login" class="h-10 px-2.5 rounded-2xl bg-white border border-black/10 shadow-sm flex items-center gap-2 hover:bg-slate-50 active:scale-95 transition-all">
+                <button id="btn-user-auth-header" onclick="openAuthScreen()" title="Shopkeeper Account & Login" class="h-10 pl-1.5 pr-3 rounded-full bg-white border border-black/10 shadow-sm flex items-center gap-2 hover:bg-slate-50 active:scale-95 transition-all whitespace-nowrap">
                   <div class="w-6 h-6 rounded-full bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0">
                     <svg class="lucide lucide-user w-3.5 h-3.5 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   </div>
@@ -518,7 +518,7 @@
             </p>
 
             <!-- ================= BUTTON 1: RECEIVE STOCK (GIANT CHUNKY OBSIDIAN BLACK) ================= -->
-            <div onclick="startVendorFlow()" class="cursor-pointer bg-[#151618] hover:bg-slate-900 text-white p-6 rounded-[34px] stripe-pattern chunky-shadow border-2 border-black active:scale-[0.98] transition-all flex flex-col justify-between h-[275px]">
+            <div onclick="startVendorFlow()" class="cursor-pointer bg-[#151618] hover:bg-slate-900 text-white p-5 rounded-[34px] stripe-pattern chunky-shadow border-2 border-black active:scale-[0.98] transition-all flex flex-col justify-between flex-1 min-h-[150px]">
               
               <div class="flex items-start justify-between">
                 <div class="w-16 h-16 rounded-2xl bg-[#D4F639] text-[#151618] flex items-center justify-center shadow-md">
@@ -538,7 +538,7 @@
             </div>
 
             <!-- ================= BUTTON 2: SELL ITEM (GIANT CHUNKY ELECTRIC LIME) ================= -->
-            <div onclick="startSellFlow()" class="cursor-pointer bg-[#D4F639] hover:bg-lime-400 text-[#151618] p-6 rounded-[34px] chunky-shadow border-2 border-black/10 active:scale-[0.98] transition-all flex flex-col justify-between h-[275px]">
+            <div onclick="startSellFlow()" class="cursor-pointer bg-[#D4F639] hover:bg-lime-400 text-[#151618] p-5 rounded-[34px] chunky-shadow border-2 border-black/10 active:scale-[0.98] transition-all flex flex-col justify-between flex-1 min-h-[150px]">
               
               <div class="flex items-start justify-between">
                 <div class="w-16 h-16 rounded-2xl bg-[#151618] text-[#D4F639] flex items-center justify-center shadow-md">
@@ -1402,13 +1402,13 @@
 
             <!-- Dual-Tab Toggle: Today's GPay Stream vs Customer Khata Ledger -->
             <div class="bg-black/5 p-1 rounded-2xl flex items-center gap-1">
-              <button id="btn-tab-sales" onclick="toggleSalesTab('sales')" class="flex-1 py-2 rounded-xl text-xs font-black bg-[#151618] text-[#D4F639] shadow-sm flex items-center justify-center gap-1.5 transition-all">
+              <button id="btn-tab-sales" onclick="toggleSalesTab('sales')" class="flex-1 min-w-0 py-2 rounded-xl text-xs font-black bg-[#151618] text-[#D4F639] shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap transition-all">
                 <svg class="lucide lucide-indian-rupee w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12"/><path d="M6 8h12"/><path d="m6 13 8.5 8"/><path d="M6 13h3"/><path d="M9 13c6.667 0 6.667-10 0-10"/></svg>
                 <span id="txt-tab-sales">Daily Sales</span>
               </button>
-            <button id="btn-tab-khata" onclick="toggleSalesTab('khata')" class="flex-1 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:text-black flex items-center justify-center gap-1.5 transition-all">
+            <button id="btn-tab-khata" onclick="toggleSalesTab('khata')" class="flex-1 min-w-0 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:text-black flex items-center justify-center gap-1.5 whitespace-nowrap transition-all">
               <svg class="lucide lucide-book-user w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><circle cx="12" cy="8" r="2"/><path d="M15 13a3 3 0 1 0-6 0"/></svg>
-              <span id="txt-tab-khata">Customer Credit Ledger</span>
+              <span id="txt-tab-khata">Credit Khata</span>
             </button>
           </div>
 
@@ -1642,136 +1642,117 @@
         </div>
 
                 <!-- ================= 6. SCREEN: KIRANA AI CHATBOT & VOICE ASSISTANT ================= -->
-        <div id="screen-assistant" class="space-y-2.5 pb-28 hidden transition-all">
-          
-          <!-- Screen Header: Kirana AI Assistant -->
-          <div class="flex items-center justify-between pb-2 border-b border-black/10">
-            <div class="flex items-center gap-2">
-              <div class="relative w-8 h-8 rounded-xl bg-[#151618] text-[#D4F639] flex items-center justify-center shadow-sm shrink-0">
-                <svg class="lucide lucide-sparkles w-4 h-4 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-                  <path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
-                </svg>
-                <span class="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-[#F4F4F0] animate-pulse"></span>
+        <div id="screen-assistant" class="space-y-3 pb-32 hidden transition-all">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between gap-2 pt-1">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <div class="w-10 h-10 rounded-2xl bg-[#D4F639] text-[#151618] flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
               </div>
-              <div>
-                <div class="flex items-center gap-1.5">
-                  <h3 id="txt-copilot-head" class="text-sm font-black text-[#151618]">Kirana AI Assistant</h3>
-                  <span class="text-[9px] px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold border border-emerald-300">100% Offline</span>
-                </div>
-                <p id="txt-copilot-badge" class="text-[10px] text-slate-500 font-medium">OriginOS NPU · Hindi & English Voice</p>
+              <div class="min-w-0">
+                <h3 id="txt-copilot-head" class="text-lg font-black text-[#151618] leading-tight truncate">Ask Your Store</h3>
+                <p id="txt-copilot-badge" class="text-[10px] text-slate-500 font-bold truncate">Speak in Hindi or English · works offline</p>
               </div>
             </div>
-            
-            <div class="flex items-center gap-1">
-              <button onclick="resetCopilotChat()" title="Reset Conversation" class="h-8 w-8 rounded-xl bg-white border border-black/10 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer">
-                <svg class="lucide lucide-rotate-ccw w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="resetCopilotChat()" title="Start over" class="w-9 h-9 rounded-full bg-white border border-black/10 text-slate-500 hover:text-black flex items-center justify-center active:scale-95 transition-all cursor-pointer">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
               </button>
-              <button onclick="switchScreen('home')" class="h-8 px-2.5 rounded-xl bg-white border border-black/10 text-slate-600 hover:text-black flex items-center gap-1 text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer">
-                <svg class="lucide lucide-x w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                <span id="txt-copilot-close">Close</span>
+              <button onclick="switchScreen('home')" title="Close" class="w-9 h-9 rounded-full bg-white border border-black/10 text-slate-500 hover:text-black flex items-center justify-center active:scale-95 transition-all cursor-pointer">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <span id="txt-copilot-close" class="hidden">Close</span>
               </button>
             </div>
           </div>
 
-          <!-- Compact 130dB Soundbox Status Pill -->
-          <div class="px-3 py-2 rounded-2xl bg-[#151618] text-white flex items-center justify-between border border-black/20 shadow-sm">
-            <div class="flex items-center gap-2">
-              <div class="w-6 h-6 rounded-lg bg-[#D4F639] text-[#151618] flex items-center justify-center shrink-0">
-                <svg class="lucide lucide-volume-2 w-3.5 h-3.5 text-[#151618]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          <!-- Speaker status -->
+          <div class="px-3.5 py-2.5 rounded-[22px] bg-[#151618] text-white flex items-center justify-between gap-2 stripe-pattern">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <div class="flex items-end gap-0.5 h-5 w-5 shrink-0">
+                <span class="w-1 bg-[#D4F639] rounded-full sound-bar-1"></span><span class="w-1 bg-[#D4F639] rounded-full sound-bar-2"></span><span class="w-1 bg-[#D4F639] rounded-full sound-bar-3"></span><span class="w-1 bg-[#D4F639] rounded-full sound-bar-4"></span>
               </div>
-              <div>
-                <span class="text-[10px] font-black text-white leading-none block">130dB Hardware Soundbox Active</span>
-                <span id="txt-voice-status-sub" class="text-[9px] text-[#D4F639] font-medium">Hands-free voice announcements ready</span>
+              <div class="min-w-0">
+                <span id="txt-voice-status-head" class="text-[11px] font-black text-white leading-tight block truncate">Phone speaker reads answers aloud</span>
+                <span id="txt-voice-status-sub" class="text-[10px] text-[#D4F639] font-bold truncate block">Hands-free voice announcements ready</span>
               </div>
             </div>
-            <button type="button" onclick="replayVoiceBroadcast()" class="px-2 py-0.5 rounded-lg bg-white/10 hover:bg-white/20 text-[#D4F639] font-black text-[9px] flex items-center gap-1 active:scale-95 transition-all cursor-pointer border border-white/10">
-              <svg class="lucide lucide-volume-2 w-2.5 h-2.5 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <button type="button" onclick="replayVoiceBroadcast()" class="h-8 px-3 rounded-full bg-[#D4F639] text-[#151618] font-black text-[10px] flex items-center gap-1 active:scale-95 transition-all cursor-pointer shrink-0">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
               <span id="txt-voice-replay-btn">Replay Voice</span>
             </button>
           </div>
 
-          <!-- Dynamic Chat Message Feed (Conversational stream) -->
-          <div id="copilot-chat-feed" class="space-y-2.5 min-h-[220px]">
+          <!-- Conversation -->
+          <div id="copilot-chat-feed" class="space-y-3">
             <!-- Rendered dynamically by renderInitialChatFeed() -->
           </div>
 
-          <!-- Typing Indicator -->
-          <div id="copilot-typing" class="hidden flex items-start gap-2">
-            <div class="w-6 h-6 rounded-full bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0 shadow-sm text-[10px] font-black">AI</div>
-            <div class="bg-white px-3 py-2 rounded-2xl rounded-tl-sm border border-black/10 shadow-sm flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0s"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0.15s"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0.3s"></span>
-              <span class="text-[10px] text-slate-400 font-bold ml-1">Checking store NPU...</span>
-            </div>
-          </div>
-
-          <!-- Quick Inquiries / Suggested Prompts Chips Carousel -->
-          <div class="pt-1 space-y-1">
-            <div class="flex items-center justify-between px-0.5">
-              <span id="txt-quick-queries-label" class="text-[10px] font-black text-slate-500 uppercase tracking-wider">Quick Inquiries (1-Tap)</span>
-              <span id="txt-frequent-label" class="text-[9px] text-slate-400 font-bold">Frequently Asked</span>
-            </div>
-            
-            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-              <button onclick="handleQuickChip('shortage')" class="px-2.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-black/10 text-[11px] font-bold text-slate-800 shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
-                <svg class="lucide lucide-truck w-3.5 h-3.5 text-rose-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5.2a1 1 0 0 0-.25-.66l-3.3-3.8A1 1 0 0 0 17.7 7H14"/><circle cx="17" cy="18.5" r="2.5"/><circle cx="6.5" cy="18.5" r="2.5"/></svg>
-                <span id="txt-chip-shortage">Rajesh Shortage (-₹56)</span>
-              </button>
-
-              <button onclick="handleQuickChip('udhaar')" class="px-2.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-black/10 text-[11px] font-bold text-slate-800 shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
-                <svg class="lucide lucide-book-user w-3.5 h-3.5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><circle cx="12" cy="8" r="2"/><path d="M15 13a3 3 0 1 0-6 0"/></svg>
-                <span id="txt-chip-udhaar">Sharmaji Credit (₹450)</span>
-              </button>
-
-              <button onclick="handleQuickChip('expiry')" class="px-2.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-black/10 text-[11px] font-bold text-slate-800 shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
-                <svg class="lucide lucide-alert-triangle w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
-                <span id="txt-chip-expiry">Expiring Milk Batch</span>
-              </button>
-
-              <button onclick="handleQuickChip('sales')" class="px-2.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-black/10 text-[11px] font-bold text-slate-800 shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
-                <svg class="lucide lucide-indian-rupee w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12"/><path d="M6 8h12"/><path d="m6 13 8.5 8"/><path d="M6 13h3"/><path d="M9 13c6.667 0 6.667-10 0-10"/></svg>
-                <span id="txt-chip-sales">Today's Sales (₹3,420)</span>
-              </button>
-
-              <button onclick="handleQuickChip('maggi-stock')" class="px-2.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-black/10 text-[11px] font-bold text-slate-800 shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
-                <svg class="lucide lucide-package w-3.5 h-3.5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-                <span id="txt-chip-stock">Maggi Stock</span>
-              </button>
-
-              <button onclick="handleQuickChip('atta-stock')" class="px-2.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-black/10 text-[11px] font-bold text-slate-800 shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
-                <svg class="lucide lucide-boxes w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/><path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/><path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/><path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/></svg>
-                <span id="txt-chip-reorder">Atta Reorder</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Bottom Voice & Text Input Bar (Clean, uncluttered, never covered by floating dock) -->
-          <div class="pt-1">
-            <form onsubmit="submitCopilotText(event)" class="flex items-center gap-1.5 bg-white p-1.5 rounded-2xl border-2 border-black/15 shadow-md">
-              <button type="button" id="btn-copilot-voice-mic" onclick="toggleCopilotVoiceRecording()" title="Speak in Hindi/English" class="w-10 h-10 rounded-xl bg-[#D4F639] hover:bg-lime-400 text-[#151618] flex items-center justify-center shrink-0 shadow-sm active:scale-90 transition-all relative cursor-pointer">
-                <svg class="lucide lucide-mic w-5 h-5 text-[#151618]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-                <span id="voice-ripple" class="hidden absolute inset-0 rounded-xl bg-[#D4F639]/60 animate-ping pointer-events-none"></span>
-              </button>
-              <input type="text" id="copilot-input-field" placeholder="Ask in Hindi or English... (उदा: मैगी का स्टॉक)" class="flex-1 text-xs font-bold text-slate-800 bg-transparent px-2 py-2 focus:outline-none placeholder:text-slate-400">
-              <button type="submit" class="w-10 h-10 rounded-xl bg-[#151618] hover:bg-black text-[#D4F639] flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-all cursor-pointer">
-                <svg class="lucide lucide-send w-4 h-4 text-[#D4F639]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              </button>
-            </form>
-
-            <!-- Active Voice Listening Pill -->
-            <div id="mic-status-banner" class="hidden mt-1.5 px-3 py-1.5 rounded-xl bg-[#151618] text-[#D4F639] flex items-center justify-between text-[10px] font-bold">
-              <span class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                <span id="txt-mic-listening-label">Listening hands-free in Hindi / English...</span>
-              </span>
-              <span class="text-[9px] text-slate-400">Speak now</span>
+          <!-- Looking-up indicator -->
+          <div id="copilot-typing" class="hidden">
+            <div class="inline-flex items-center gap-2 bg-white px-3.5 py-2.5 rounded-[18px] border border-black/[0.08]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#151618] animate-bounce" style="animation-delay: 0s"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#151618] animate-bounce" style="animation-delay: 0.15s"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#151618] animate-bounce" style="animation-delay: 0.3s"></span>
+              <span id="txt-copilot-typing" class="text-[11px] text-slate-500 font-bold ml-1">Checking store records...</span>
             </div>
           </div>
 
         </div>
 
+        </div>
+
+        
+        <!-- ================= PINNED CHAT COMPOSER (assistant only, sits above the dock) ================= -->
+        <div id="copilot-composer" class="absolute inset-x-4 bottom-[96px] z-40 space-y-2 hidden">
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 px-0.5">
+              <button onclick="handleQuickChip('shortage')" class="h-8 px-3 rounded-full bg-white hover:bg-[#D4F639] border border-black/10 text-[11px] font-bold text-[#151618] shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
+                <svg class="lucide lucide-truck w-3.5 h-3.5 text-rose-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5.2a1 1 0 0 0-.25-.66l-3.3-3.8A1 1 0 0 0 17.7 7H14"/><circle cx="17" cy="18.5" r="2.5"/><circle cx="6.5" cy="18.5" r="2.5"/></svg>
+                <span id="txt-chip-shortage">Rajesh Shortage (-₹56)</span>
+              </button>
+
+              <button onclick="handleQuickChip('udhaar')" class="h-8 px-3 rounded-full bg-white hover:bg-[#D4F639] border border-black/10 text-[11px] font-bold text-[#151618] shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
+                <svg class="lucide lucide-book-user w-3.5 h-3.5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><circle cx="12" cy="8" r="2"/><path d="M15 13a3 3 0 1 0-6 0"/></svg>
+                <span id="txt-chip-udhaar">Sharmaji Credit (₹450)</span>
+              </button>
+
+              <button onclick="handleQuickChip('expiry')" class="h-8 px-3 rounded-full bg-white hover:bg-[#D4F639] border border-black/10 text-[11px] font-bold text-[#151618] shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
+                <svg class="lucide lucide-alert-triangle w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+                <span id="txt-chip-expiry">Expiring Milk Batch</span>
+              </button>
+
+              <button onclick="handleQuickChip('sales')" class="h-8 px-3 rounded-full bg-white hover:bg-[#D4F639] border border-black/10 text-[11px] font-bold text-[#151618] shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
+                <svg class="lucide lucide-indian-rupee w-3.5 h-3.5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12"/><path d="M6 8h12"/><path d="m6 13 8.5 8"/><path d="M6 13h3"/><path d="M9 13c6.667 0 6.667-10 0-10"/></svg>
+                <span id="txt-chip-sales">Today's Sales (₹3,420)</span>
+              </button>
+
+              <button onclick="handleQuickChip('maggi-stock')" class="h-8 px-3 rounded-full bg-white hover:bg-[#D4F639] border border-black/10 text-[11px] font-bold text-[#151618] shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
+                <svg class="lucide lucide-package w-3.5 h-3.5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                <span id="txt-chip-stock">Maggi Stock</span>
+              </button>
+
+              <button onclick="handleQuickChip('atta-stock')" class="h-8 px-3 rounded-full bg-white hover:bg-[#D4F639] border border-black/10 text-[11px] font-bold text-[#151618] shadow-sm flex items-center gap-1.5 whitespace-nowrap active:scale-95 transition-all shrink-0 cursor-pointer">
+                <svg class="lucide lucide-boxes w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/><path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/><path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/><path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/><path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/><path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/></svg>
+                <span id="txt-chip-reorder">Atta Reorder</span>
+              </button>
+            </div>
+          <form onsubmit="submitCopilotText(event)" class="flex items-center gap-1.5 bg-[#151618] p-1.5 rounded-full shadow-2xl border-2 border-white/10">
+            <button type="button" id="btn-copilot-voice-mic" onclick="toggleCopilotVoiceRecording()" title="Speak in Hindi/English" class="w-10 h-10 rounded-full bg-[#D4F639] text-[#151618] flex items-center justify-center shrink-0 active:scale-90 transition-all relative cursor-pointer">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+              <span id="voice-ripple" class="hidden absolute inset-0 rounded-full bg-[#D4F639]/60 animate-ping pointer-events-none"></span>
+            </button>
+            <input type="text" id="copilot-input-field" placeholder="Ask in Hindi or English... (e.g. Maggi stock)" class="flex-1 min-w-0 text-xs font-bold text-white bg-transparent px-1.5 py-2 focus:outline-none placeholder:text-slate-400">
+            <button type="submit" title="Send" class="w-10 h-10 rounded-full bg-white text-[#151618] flex items-center justify-center shrink-0 active:scale-95 transition-all cursor-pointer">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+          <div id="mic-status-banner" class="hidden px-3 py-1.5 rounded-full bg-[#151618] text-[#D4F639] flex items-center justify-between text-[10px] font-bold">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+              <span id="txt-mic-listening-label">Listening hands-free in Hindi / English...</span>
+            </span>
+            <span id="txt-mic-speak-now" class="text-[9px] text-slate-400">Speak now</span>
+          </div>
         </div>
 
         <!-- ================= FLOATING CAPSULE DOCK ================= -->
@@ -1803,7 +1784,7 @@
         </div>
 
         <!-- OriginOS 6 Gesture Bar -->
-        <div class="absolute bottom-1 inset-x-0 z-50 flex justify-center pointer-events-none">
+        <div class="gesture-bar absolute bottom-1 inset-x-0 z-50 flex justify-center pointer-events-none">
           <div class="w-28 h-1 bg-black/25 rounded-full"></div>
         </div>
 
@@ -1848,7 +1829,7 @@
         <span class="px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-wider">Haptic Gate: Sale Blocked</span>
         <h3 class="text-xl font-black text-red-700 mt-2">Expired Item Detected!</h3>
         <p class="text-xs text-slate-600 font-semibold mt-1">
-          iQOO 15 X-Axis linear motor rumbled to prevent customer sale of spoiled food.
+          iQOO 15 dual-axis vibration motor buzzed to stop the sale of spoiled food.
         </p>
       </div>
 
@@ -2074,13 +2055,13 @@
         todaySalesLabel: "Today's Sales",
         pendingUdhaarLabel: "Pending Customer Credit",
         tabSales: "Daily Sales",
-        tabKhata: "Customer Credit Ledger",
-        copilotBadge: "OriginOS NPU · Hindi & English Voice",
-        copilotHead: "Kirana AI Assistant",
+        tabKhata: "Credit Khata",
+        copilotBadge: "Speak in Hindi or English · works offline",
+        copilotHead: "Ask Your Store",
         copilotClose: "Close",
         voiceHeroTitle: "130dB Soundbox Active",
         voiceHeroSub: "Ask about shortage, udhaar, milk expiry, or sales",
-        quickQueriesLabel: "Quick Inquiries (1-Tap)",
+        quickQueriesLabel: "Quick questions",
         frequentLabel: "Frequently Asked",
         chipShortage: "Rajesh Shortage (-₹56)",
         chipUdhaar: "Sharmaji Credit (₹450)",
@@ -2088,13 +2069,13 @@
         chipStock: "Maggi Stock",
         chipReorder: "Atta Reorder",
         chipSales: "Today's Sales (₹3,420)",
-        authBadge: "KiranaGuard · Offline Security",
-        authTitle: "KiranaGuard Dukaan Access",
-        authSub: "On-device biometric & M-PIN login for store owner",
+        authBadge: "100% Offline · Secure",
+        authTitle: "Welcome back",
+        authSub: "Unlock your store with M-PIN or fingerprint",
         tabLogin: "Login",
         tabSignup: "Sign Up",
         lblLoginPhone: "Registered Mobile Number",
-        lblLoginMpin: "Enter 6-Digit Store M-PIN",
+        lblLoginMpin: "Enter 6-digit M-PIN",
         txtDemoHint: "(Demo: 123456)",
         btnBioTitle: "Quick 3D Ultrasonic Unlock",
         btnBioSub: "Instant hardware biometric (0.08s)",
@@ -2199,14 +2180,14 @@
         todaySalesLabel: "आज की कुल बिक्री",
         pendingUdhaarLabel: "कुल बकाया उधार",
         tabSales: "दैनिक बिक्री",
-        tabKhata: "ग्राहक उधार बहीखाता",
+        tabKhata: "उधार खाता",
         itemsSoldToday: "आज बिका हुआ सामान",
-        copilotBadge: "ओरिजिनओएस एनपीयू · हिंदी व अंग्रेजी आवाज़",
-        copilotHead: "किराना एआई सहायक",
+        copilotBadge: "हिंदी या अंग्रेजी में बोलें · बिना इंटरनेट",
+        copilotHead: "दुकान से पूछें",
         copilotClose: "बंद करें",
         voiceHeroTitle: "130dB साउंडबॉक्स सक्रिय",
         voiceHeroSub: "डिलीवरी शॉर्टेज, ग्राहक उधार, स्टॉक या एक्सपायरी के बारे में पूछें",
-        quickQueriesLabel: "त्वरित प्रश्न (1-टैप)",
+        quickQueriesLabel: "जल्दी पूछें",
         frequentLabel: "अक्सर पूछे जाने वाले",
         chipShortage: "राजेश शॉर्टेज (-₹56)",
         chipUdhaar: "शर्माजी उधार (₹450)",
@@ -2214,13 +2195,13 @@
         chipStock: "मैगी का स्टॉक",
         chipReorder: "आटा ऑर्डर",
         chipSales: "आज की बिक्री (₹3,420)",
-        authBadge: "किरानागार्ड · ऑफलाइन सुरक्षा",
-        authTitle: "किरानागार्ड दुकान लॉगिन",
-        authSub: "दुकानदार के लिए बायोमेट्रिक व गुप्त एम-पिन लॉगिन",
+        authBadge: "100% ऑफलाइन · सुरक्षित",
+        authTitle: "फिर से स्वागत है",
+        authSub: "एम-पिन या फिंगरप्रिंट से दुकान खोलें",
         tabLogin: "लॉगिन करें",
         tabSignup: "नया खाता बनाएं",
         lblLoginPhone: "पंजीकृत मोबाइल नंबर",
-        lblLoginMpin: "6-अंकों का स्टोर एम-पिन दर्ज करें",
+        lblLoginMpin: "6 अंकों का एम-पिन डालें",
         txtDemoHint: "(डेमो: 123456)",
         btnBioTitle: "3D अल्ट्रासोनिक फिंगरप्रिंट अनलॉक",
         btnBioSub: "त्वरित हार्डवेयर बायोमेट्रिक (0.08 सेकंड)",
@@ -2402,14 +2383,14 @@
       if (tab === 'login') {
         if (tabsContainer) tabsContainer.classList.remove('hidden');
         if (viewLogin) viewLogin.classList.remove('hidden');
-        if (tabBtnLogin) tabBtnLogin.className = "py-2.5 rounded-xl bg-[#151618] text-[#D4F639] transition-all shadow-sm flex items-center justify-center gap-1.5";
-        if (tabBtnSignup) tabBtnSignup.className = "py-2.5 rounded-xl text-slate-600 hover:text-black transition-all flex items-center justify-center gap-1.5";
+        if (tabBtnLogin) tabBtnLogin.className = "py-2 rounded-full bg-white text-[#151618] shadow-sm transition-all cursor-pointer";
+        if (tabBtnSignup) tabBtnSignup.className = "py-2 rounded-full text-slate-500 hover:text-black transition-all cursor-pointer";
         updatePinDotsDisplay();
       } else if (tab === 'signup') {
         if (tabsContainer) tabsContainer.classList.remove('hidden');
         if (viewSignup) viewSignup.classList.remove('hidden');
-        if (tabBtnSignup) tabBtnSignup.className = "py-2.5 rounded-xl bg-[#151618] text-[#D4F639] transition-all shadow-sm flex items-center justify-center gap-1.5";
-        if (tabBtnLogin) tabBtnLogin.className = "py-2.5 rounded-xl text-slate-600 hover:text-black transition-all flex items-center justify-center gap-1.5";
+        if (tabBtnSignup) tabBtnSignup.className = "py-2 rounded-full bg-white text-[#151618] shadow-sm transition-all cursor-pointer";
+        if (tabBtnLogin) tabBtnLogin.className = "py-2 rounded-full text-slate-500 hover:text-black transition-all cursor-pointer";
       } else if (tab === 'profile') {
         if (tabsContainer) tabsContainer.classList.add('hidden');
         if (viewProfile) viewProfile.classList.remove('hidden');
@@ -2428,19 +2409,27 @@
       }
     }
 
-    let currentMpinInput = "123456";
+    // Starts empty so the keypad actually fills the boxes (it used to be pre-filled, so taps did nothing)
+    let currentMpinInput = "";
 
     function updatePinDotsDisplay() {
+      const BOX = "w-11 h-12 rounded-xl flex items-center justify-center text-2xl font-black transition-all ";
       for (let i = 1; i <= 6; i++) {
-        const dot = document.getElementById('pdot-' + i);
-        if (!dot) continue;
+        const box = document.getElementById('pdot-' + i);
+        if (!box) continue;
         if (i <= currentMpinInput.length) {
-          dot.className = "w-4 h-4 rounded-full bg-[#151618] border-2 border-black scale-110 shadow-sm transition-all";
+          box.className = BOX + "bg-[#151618] text-[#D4F639]";
+          box.textContent = "•";
+        } else if (i === currentMpinInput.length + 1) {
+          box.className = BOX + "bg-white border-2 border-[#151618]";
+          box.textContent = "";
         } else {
-          dot.className = "w-4 h-4 rounded-full border-2 border-black/20 bg-slate-100 transition-all";
+          box.className = BOX + "bg-white border border-black/10";
+          box.textContent = "";
         }
       }
     }
+    document.addEventListener('DOMContentLoaded', updatePinDotsDisplay);
 
     function pressKeypadDigit(digit) {
       if (currentMpinInput.length < 6) {
@@ -2477,6 +2466,16 @@
         showSoundboxToast(curLang === 'hi' ? "कृपया पूरा 6-अंकों का पिन दर्ज करें" : "Please enter complete 6-digit M-PIN");
         return;
       }
+      if (currentMpinInput !== currentShopkeeper.mpin) {
+        currentMpinInput = "";
+        updatePinDotsDisplay();
+        const boxes = document.getElementById('pin-boxes');
+        if (boxes) { boxes.classList.add('shake-haptic'); setTimeout(() => boxes.classList.remove('shake-haptic'), 500); }
+        showSoundboxToast(curLang === 'hi' ? "गलत एम-पिन, फिर से डालें" : "Wrong M-PIN, try again");
+        return;
+      }
+      currentMpinInput = "";
+      updatePinDotsDisplay();
 
       currentShopkeeper.isLoggedIn = true;
       updateHeaderAuthBadge();
@@ -2830,7 +2829,174 @@
       if (copilotInput && typeof isCopilotListening !== 'undefined' && !isCopilotListening) {
         copilotInput.placeholder = langKey === 'hi' ? "हिंदी या अंग्रेजी में पूछें... (उदा: मैगी का स्टॉक)" : "Ask in Hindi or English... (e.g. Maggi stock)";
       }
+      const typingTxt = document.getElementById('txt-copilot-typing');
+      if (typingTxt) typingTxt.textContent = langKey === 'hi' ? 'दुकान के रिकॉर्ड देख रहे हैं...' : 'Checking store records...';
+      translateTextNodes(langKey);
     }
+
+
+    // ================= FULL-SCREEN HINDI: translate every remaining UI string =================
+    // Exact labels (product, vendor and brand names stay as printed on the pack).
+    const HI_TEXT = {
+      "100% Offline": "100% ऑफलाइन",
+      "Customer Billing": "ग्राहक बिलिंग",
+      "Cancel": "रद्द करें",
+      "50MP Counter Camera Active": "50MP काउंटर कैमरा चालू",
+      "Counter Camera (Aim at Goods)": "काउंटर कैमरा (सामान की ओर करें)",
+      "Instant multi-item detection & pricing": "एक साथ कई सामान पहचान व दाम",
+      "+ Scan Item": "+ सामान स्कैन करें",
+      "Test Expired Item Scan": "एक्सपायर्ड सामान टेस्ट करें",
+      "Step 1 of 3": "चरण 1 / 3",
+      "1-Tap NFC Check-in": "1-टैप NFC चेक-इन",
+      "Tap Vendor Crate / Badge": "वेंडर का कार्ड / क्रेट छुआएँ",
+      "Select": "चुनें",
+      "Step 2 of 3 · Vendor:": "चरण 2 / 3 · वेंडर:",
+      "Vendor": "वेंडर",
+      "50Hz Anti-Banding Active": "50Hz ट्यूबलाइट फ़िल्टर चालू",
+      "144 FPS Q3 HUD": "144 FPS Q3 डिस्प्ले",
+      "Cold-Chain Guardian:": "कोल्ड-चेन सुरक्षा:",
+      "Perishable dairy detected": "जल्दी खराब होने वाला डेयरी सामान मिला",
+      "Test IR Pulse": "IR सिग्नल टेस्ट करें",
+      "Edit": "बदलें",
+      "Step 3 of 3 · Invoice Reconciliation": "चरण 3 / 3 · बिल मिलान",
+      "Items": "सामान",
+      "Bill OCR read completed offline": "बिल बिना इंटरनेट पढ़ लिया गया",
+      "Bill:": "बिल:",
+      "· Received:": "· मिला:",
+      "5 Short": "5 कम",
+      "NavIC L5 Proof-of-Delivery": "NavIC L5 डिलीवरी प्रमाण",
+      "Sub-Meter GNSS": "सटीक लोकेशन",
+      "Store Database · FIFO Log": "दुकान रिकॉर्ड · पहले आया, पहले बिका",
+      "Close": "बंद करें",
+      "99 Items": "99 सामान",
+      "12 Dates": "12 तारीखें",
+      "FIFO Expiries Tracked": "एक्सपायरी पर नज़र",
+      "OCR Scanned & Verified": "स्कैन व जाँचा गया",
+      "NavIC Geostamped": "NavIC लोकेशन दर्ज",
+      "NavIC L5 Cryptographic Stamp": "NavIC L5 सुरक्षित मुहर",
+      "IR Diode Freezer Synced (-18°C)": "IR से फ्रीज़र सेट (-18°C)",
+      "Auto-Audited to Kirana Ledger": "बहीखाते में अपने-आप दर्ज",
+      "Private Supplier Margins & Debt": "सप्लायर मार्जिन व बकाया (निजी)",
+      "3D Sonic Sensor": "3D सोनिक सेंसर",
+      "Protected by Qualcomm Ultrasonic sensor (works with flour & oil on hands).": "अल्ट्रासोनिक फिंगरप्रिंट से सुरक्षित (आटे या तेल लगे हाथ से भी चलता है).",
+      "Touch 3D Ultrasonic Sensor to Unlock": "खोलने के लिए फिंगरप्रिंट लगाएँ",
+      "Sync with Laptop & Export Excel (Office Kit)": "लैपटॉप से जोड़ें व Excel निकालें (Office Kit)",
+      "Revenue & Ledger · Google Pay Stream": "कमाई व बहीखाता · UPI भुगतान",
+      "38 Sales · 92 Items Sold": "38 बिक्री · 92 सामान बिके",
+      "18 Neighborhood Accounts": "18 मोहल्ले के खाते",
+      "92 Units Total": "कुल 92 नग",
+      "Live Payments & Soundbox Feed": "लाइव भुगतान व साउंडबॉक्स",
+      "Google Pay": "Google Pay",
+      "Walk-in Customer": "आम ग्राहक",
+      "Cash Received": "नकद मिला",
+      "Cash Drawer": "गल्ला",
+      "Rahul (School Student)": "राहुल (स्कूल छात्र)",
+      "130dB Hardware Soundbox Active": "साउंडबॉक्स चालू",
+      "Phone speaker reads answers aloud": "फ़ोन का स्पीकर जवाब बोलकर सुनाता है",
+      "Hands-free voice announcements ready": "बिना हाथ लगाए आवाज़ में जवाब तैयार",
+      "iQOO 15 Hardware Vault": "iQOO 15 सुरक्षित तिजोरी",
+      "Qualcomm 3D Ultrasonic": "3D अल्ट्रासोनिक",
+      "Encrypted SQLite": "सुरक्षित डेटाबेस",
+      "Verified": "सत्यापित",
+      "Qualcomm 3D Ultrasonic Sensor (0.08s)": "3D अल्ट्रासोनिक सेंसर (0.08s)",
+      "Checking store records...": "दुकान के रिकॉर्ड देख रहे हैं...",
+      "Speak now": "अब बोलें",
+      "iQOO 15 High-SPL Soundbox": "iQOO 15 साउंडबॉक्स",
+      "Haptic Gate: Sale Blocked": "कंपन अलर्ट: बिक्री रोकी गई",
+      "Expired Item Detected!": "एक्सपायर्ड सामान मिला!",
+      "iQOO 15 dual-axis vibration motor buzzed to stop the sale of spoiled food.": "iQOO 15 का वाइब्रेशन मोटर हिला ताकि खराब सामान न बिके.",
+      "Product:": "सामान:",
+      "Replace with Fresh Milk Batch (Oct 2026)": "ताज़ा दूध से बदलें (अक्टू 2026)",
+      "Cancel & Remove from Cart": "रद्द करें व बिल से हटाएँ",
+      "iQOO Office Kit: Connected": "iQOO Office Kit: जुड़ गया",
+      "Laptop Trust Mirror Active": "लैपटॉप पर ग्राहक स्क्रीन चालू",
+      "Dual Display": "दो स्क्रीन",
+      "Customer facing monitor shows verified itemized receipt. Private wholesale purchase rates and supplier debts remain strictly on iQOO 15.": "ग्राहक की स्क्रीन पर साफ़ बिल दिखता है. खरीद के दाम व सप्लायर का बकाया सिर्फ़ iQOO 15 पर रहता है.",
+      "Excel Export Generated:": "Excel फ़ाइल बनी:",
+      "Includes NavIC L5 geostamps, shortage rupee deductions & SKU counts.": "NavIC लोकेशन, कमी की कटौती व सामान की गिनती शामिल.",
+      "Correction": "सुधार",
+      "Correct Expiry Date": "एक्सपायरी तारीख सुधारें",
+      "Owner: Ramesh Bhai": "मालिक: Ramesh Bhai",
+      "Credit Khata": "उधार खाता",
+      "Select Vendor (Supplier)": "वेंडर चुनें",
+      "Store": "दुकान",
+      "Send WhatsApp reminders to collect pending balance.": "बकाया वसूलने के लिए WhatsApp याद दिलाएँ.",
+      "Remind All": "सबको याद दिलाएँ",
+      "1-Tap WhatsApp Payment Reminder": "1-टैप WhatsApp भुगतान याद",
+      "+ Add New Customer Udhaar Account": "+ नया उधार खाता जोड़ें"
+    };
+    // Patterns for labels that carry a value after them.
+    const HI_PATTERNS = [
+      [/^Expiry: (.+?) · Cold-Chain$/, 'एक्सपायरी: $1 · ठंडा रखें'],
+      [/^Expiry: (.+?) · Fresh Batch$/, 'एक्सपायरी: $1 · ताज़ा बैच'],
+      [/^Expiry: (.+?) · Shelf Stable$/, 'एक्सपायरी: $1 · लंबा चलने वाला'],
+      [/^Expiry: (.+)$/, 'एक्सपायरी: $1'],
+      [/^Supplier: (.+)$/, 'सप्लायर: $1'],
+      [/^Last Delivery: 2 days ago$/, 'पिछली डिलीवरी: 2 दिन पहले'],
+      [/^Last Delivery: 5 days ago$/, 'पिछली डिलीवरी: 5 दिन पहले'],
+      [/^Last Delivery: Yesterday$/, 'पिछली डिलीवरी: कल'],
+      [/^Invoice #(.+)$/, 'बिल #$1'],
+      [/^(₹[\d,]+) Overdue \(>10 Days\)$/, '$1 बकाया (10+ दिन)'],
+      [/^(\d+) Days Overdue$/, '$1 दिन से बकाया'],
+      [/^(\d+) Days Ago$/, '$1 दिन पहले'],
+      [/^(.+) · Last visit: (.+)$/, '$1 · पिछली बार: $2'],
+      [/^Pending Items: (.+)$/, 'बाकी सामान: $1'],
+      [/^(.+) · Invoice #(.+)$/, '$1 · बिल #$2'],
+      [/^\+(\d+) Units$/, '+$1 नग'],
+      [/^(\d+) packs$/, '$1 पैकेट'],
+      [/^(\d+) bags$/, '$1 बैग'],
+      [/^(\d+) blocks$/, '$1 ब्लॉक'],
+      [/^(\d+) pouches$/, '$1 पाउच'],
+      [/^(\d+) Unique SKUs · (\d+) Units$/, '$1 तरह के सामान · $2 नग'],
+      [/^Bill: (\d+) · Received: (\d+) \(Matched$/, 'बिल: $1 · मिला: $2 (सही'],
+      [/^MRP (₹[\d.,]+) · Fresh \(Exp: (.+)\)$/, 'MRP $1 · ताज़ा (एक्सपायरी: $2)'],
+      [/^(.+) · UPI Ref #(\d+)$/, '$1 · UPI रेफ़ #$2'],
+      [/^(.+) · Cash Drawer$/, '$1 · गल्ला'],
+      [/^(.+) · Paytm Soundbox$/, '$1 · Paytm साउंडबॉक्स'],
+      [/^Printed Expiry: (.+) \(Expired (\d+) days ago!\)$/, 'छपी एक्सपायरी: $1 ($2 दिन पहले एक्सपायर!)'],
+      [/^Batch #(.+) · Telemacro OCR Verified$/, 'बैच #$1 · कैमरे से जाँचा गया'],
+      [/^Geo: (.+) · Time: (.+)$/, 'लोकेशन: $1 · समय: $2'],
+      [/^SHA-256: (\S+) \(Tamper-proof vendor receipt\)$/, 'SHA-256: $1 (बदली न जा सकने वाली रसीद)']
+    ];
+    const hiOriginal = new WeakMap();
+
+    function translateTextNodes(lang) {
+      const root = document.body;
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode: n => (n.parentElement && !n.parentElement.closest('script,style,svg')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+      });
+      let n;
+      while ((n = walker.nextNode())) {
+        if (lang === 'hi') {
+          const raw = n.nodeValue, key = raw.trim();
+          if (!key || !/[A-Za-z]/.test(key)) continue;
+          let out = HI_TEXT[key];
+          if (out === undefined) {
+            for (const [re, to] of HI_PATTERNS) { if (re.test(key)) { out = key.replace(re, to); break; } }
+          }
+          if (out !== undefined && out !== key) {
+            hiOriginal.set(n, raw);
+            n.nodeValue = raw.replace(key, out);
+          }
+        } else if (hiOriginal.has(n)) {
+          n.nodeValue = hiOriginal.get(n);
+          hiOriginal.delete(n);
+        }
+      }
+      document.querySelectorAll('input[placeholder]').forEach(inp => {
+        if (inp.id === 'copilot-input-field') return;
+        if (!inp.dataset.phEn) inp.dataset.phEn = inp.placeholder;
+        inp.placeholder = lang === 'hi' ? (inp.dataset.phEn.replace(/^e\.g\. /, 'उदा: ').replace('Search vendor name or phone...', 'वेंडर का नाम या फ़ोन खोजें...')) : inp.dataset.phEn;
+      });
+    }
+
+    // Re-apply to content the app renders later (chat answers, new rows, toasts)
+    let hiTimer = null;
+    new MutationObserver(() => {
+      if (curLang !== 'hi') return;
+      clearTimeout(hiTimer);
+      hiTimer = setTimeout(() => translateTextNodes('hi'), 30);
+    }).observe(document.body, { childList: true, subtree: true });
 
     // ================= SCREEN SWITCHING & DOCK SYNC =================
     function switchScreen(id) {
@@ -2842,6 +3008,17 @@
 
       const activeEl = document.getElementById('screen-' + id);
       if (activeEl) activeEl.classList.remove('hidden');
+
+      // Auth has no dock, so it doesn't need the dock's bottom padding (removes the stray scroll)
+      const scroller = document.querySelector('#phone-front .overflow-y-auto');
+      if (scroller) {
+        scroller.classList.toggle('pb-24', id !== 'auth');
+        scroller.classList.toggle('pb-4', id === 'auth');
+        scroller.scrollTop = 0;
+      }
+      // Chat composer is pinned above the dock, only on the assistant screen
+      const composer = document.getElementById('copilot-composer');
+      if (composer) composer.classList.toggle('hidden', id !== 'assistant');
 
       // Floating Dock visibility: Hide on auth screen, show on all store screens
       const dock = document.getElementById('floating-dock');
@@ -2898,13 +3075,13 @@
       if (tab === 'sales') {
         if (feed) feed.classList.remove('hidden');
         if (khata) khata.classList.add('hidden');
-        if (btnSales) btnSales.className = 'flex-1 py-2 rounded-xl text-xs font-black bg-[#151618] text-[#D4F639] shadow-sm flex items-center justify-center gap-1.5 transition-all';
-        if (btnKhata) btnKhata.className = 'flex-1 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:text-black flex items-center justify-center gap-1.5 transition-all';
+        if (btnSales) btnSales.className = 'flex-1 min-w-0 whitespace-nowrap py-2 rounded-xl text-xs font-black bg-[#151618] text-[#D4F639] shadow-sm flex items-center justify-center gap-1.5 transition-all';
+        if (btnKhata) btnKhata.className = 'flex-1 min-w-0 whitespace-nowrap py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:text-black flex items-center justify-center gap-1.5 transition-all';
       } else {
         if (feed) feed.classList.add('hidden');
         if (khata) khata.classList.remove('hidden');
-        if (btnKhata) btnKhata.className = 'flex-1 py-2 rounded-xl text-xs font-black bg-[#151618] text-[#D4F639] shadow-sm flex items-center justify-center gap-1.5 transition-all';
-        if (btnSales) btnSales.className = 'flex-1 py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:text-black flex items-center justify-center gap-1.5 transition-all';
+        if (btnKhata) btnKhata.className = 'flex-1 min-w-0 whitespace-nowrap py-2 rounded-xl text-xs font-black bg-[#151618] text-[#D4F639] shadow-sm flex items-center justify-center gap-1.5 transition-all';
+        if (btnSales) btnSales.className = 'flex-1 min-w-0 whitespace-nowrap py-2 rounded-xl text-xs font-bold bg-white text-slate-600 hover:text-black flex items-center justify-center gap-1.5 transition-all';
       }
     }
 
@@ -3278,10 +3455,10 @@
       const isHi = curLang === 'hi';
       const shopkeeperName = (typeof currentShopkeeper !== 'undefined' && currentShopkeeper && currentShopkeeper.name) ? currentShopkeeper.name : (isHi ? 'रमेशजी' : 'Rameshji');
 
-      const greetingTitle = isHi ? `नमस्ते ${shopkeeperName}! 🙏` : `Namaste ${shopkeeperName}! 🙏`;
+      const greetingTitle = isHi ? `नमस्ते ${shopkeeperName}` : `Namaste ${shopkeeperName}`;
       const greetingSub = isHi 
-        ? "मैं आपका किराना एआई सहायक हूँ (100% ऑफलाइन). दुकान की कोई भी जानकारी तुरंत पूछें:"
-        : "I am your Kirana AI Assistant (100% offline). Ask me anything about your store:";
+        ? "स्टॉक, उधार, डिलीवरी, दुकान के बारे में कुछ भी पूछें. सारा डेटा इसी फ़ोन पर रहता है."
+        : "Ask about stock, dues or deliveries. Everything stays on this phone.";
 
       const sampleUserQ = isHi 
         ? "क्या आज राजेश व्होलसेल की डिलीवरी में कोई शॉर्टेज थी?"
@@ -3293,7 +3470,7 @@
         ? "मैगी 2-मिनट (70g) के <b>4 पैकेट कम</b> मिले हैं. बिल में 24 दर्ज थे, लेकिन कैमरे ने केवल 20 गिने."
         : "Found <b>4 packets missing</b> for Maggi 2-Min (70g). Invoice billed 24 units, but camera verified only 20.";
       const botDeductBtn = isHi ? "बिल से ₹56 काटें" : "Deduct ₹56 from Bill";
-      const botListenBtn = isHi ? "🔊 सुनें" : "🔊 Listen";
+      const botListenBtn = isHi ? "सुनें" : "Listen";
 
       const spokenGreetingShortage = isHi 
         ? "राजेश व्होलसेल की पर्ची में 4 मैगी कम मिलीं. बिल से 56 रुपये काटे जा सकते हैं."
@@ -3302,27 +3479,24 @@
       feed.innerHTML = `
         <!-- Bot Welcome Bubble -->
         <div class="flex items-start gap-2">
-          <div class="w-7 h-7 rounded-full bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0 shadow-sm text-xs font-black">
-            AI
-          </div>
-          <div class="bg-white p-3 rounded-2xl rounded-tl-sm border border-black/10 shadow-sm max-w-[88%] text-xs space-y-2">
+          <div class="bg-white p-3.5 rounded-[22px] rounded-tl-md border border-black/[0.08] w-full text-xs space-y-2">
             <div>
               <h4 class="font-black text-[#151618]">${greetingTitle}</h4>
               <p class="text-slate-600 text-[11px] leading-relaxed pt-0.5">${greetingSub}</p>
             </div>
             
             <div class="flex flex-wrap gap-1 pt-0.5">
-              <button type="button" onclick="handleQuickChip('shortage')" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#151618] font-bold text-[10px] flex items-center gap-1 active:scale-95 transition-all cursor-pointer">
-                <span>🚚 ${isHi ? 'राजेश शॉर्टेज' : 'Rajesh Shortage'}</span>
+              <button type="button" onclick="handleQuickChip('shortage')" class="h-7 px-2.5 rounded-full bg-[#F4F4F0] hover:bg-[#D4F639] border border-black/[0.08] text-[#151618] font-bold text-[10px] flex items-center active:scale-95 transition-all cursor-pointer">
+                <span>${isHi ? 'राजेश शॉर्टेज' : 'Rajesh shortage'}</span>
               </button>
-              <button type="button" onclick="handleQuickChip('udhaar')" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#151618] font-bold text-[10px] flex items-center gap-1 active:scale-95 transition-all cursor-pointer">
-                <span>📒 ${isHi ? 'शर्माजी उधार' : 'Sharmaji Udhaar'}</span>
+              <button type="button" onclick="handleQuickChip('udhaar')" class="h-7 px-2.5 rounded-full bg-[#F4F4F0] hover:bg-[#D4F639] border border-black/[0.08] text-[#151618] font-bold text-[10px] flex items-center active:scale-95 transition-all cursor-pointer">
+                <span>${isHi ? 'शर्माजी उधार' : 'Sharmaji udhaar'}</span>
               </button>
-              <button type="button" onclick="handleQuickChip('expiry')" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#151618] font-bold text-[10px] flex items-center gap-1 active:scale-95 transition-all cursor-pointer">
-                <span>⏰ ${isHi ? 'दूध एक्सपायरी' : 'Milk Expiry'}</span>
+              <button type="button" onclick="handleQuickChip('expiry')" class="h-7 px-2.5 rounded-full bg-[#F4F4F0] hover:bg-[#D4F639] border border-black/[0.08] text-[#151618] font-bold text-[10px] flex items-center active:scale-95 transition-all cursor-pointer">
+                <span>${isHi ? 'दूध एक्सपायरी' : 'Milk expiry'}</span>
               </button>
-              <button type="button" onclick="handleQuickChip('sales')" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#151618] font-bold text-[10px] flex items-center gap-1 active:scale-95 transition-all cursor-pointer">
-                <span>💰 ${isHi ? 'आज की बिक्री' : 'Today Sales'}</span>
+              <button type="button" onclick="handleQuickChip('sales')" class="h-7 px-2.5 rounded-full bg-[#F4F4F0] hover:bg-[#D4F639] border border-black/[0.08] text-[#151618] font-bold text-[10px] flex items-center active:scale-95 transition-all cursor-pointer">
+                <span>${isHi ? 'आज की बिक्री' : 'Today sales'}</span>
               </button>
             </div>
           </div>
@@ -3330,21 +3504,15 @@
 
         <!-- Sample Conversation: Shopkeeper Question -->
         <div class="flex items-start justify-end gap-2 pt-0.5">
-          <div class="bg-[#151618] text-white px-3 py-2 rounded-2xl rounded-tr-sm border border-black/10 shadow-sm max-w-[85%] text-xs">
+          <div class="bg-[#151618] text-white px-3.5 py-2.5 rounded-[20px] rounded-tr-md max-w-[85%] text-xs">
             <p class="font-bold text-slate-100">${sampleUserQ}</p>
-            <span class="text-[9px] text-[#D4F639] block text-right pt-0.5">${isHi ? 'दुकानदार · बोलकर पूछा' : 'Shopkeeper · Voice Query'}</span>
-          </div>
-          <div class="w-7 h-7 rounded-full bg-slate-300 text-slate-800 flex items-center justify-center shrink-0 shadow-sm text-xs font-bold">
-            👤
+            <span class="text-[9px] text-[#D4F639] block text-right pt-0.5">${isHi ? 'आपने बोलकर पूछा' : 'You asked by voice'}</span>
           </div>
         </div>
 
         <!-- Sample Conversation: Bot Answer Card -->
         <div class="flex items-start gap-2 pt-0.5">
-          <div class="w-7 h-7 rounded-full bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0 shadow-sm text-xs font-black">
-            AI
-          </div>
-          <div class="bg-white p-3 rounded-2xl rounded-tl-sm border border-black/10 shadow-sm max-w-[88%] text-xs space-y-2">
+          <div class="bg-white p-3.5 rounded-[22px] rounded-tl-md border border-black/[0.08] w-full text-xs space-y-2">
             <div class="flex items-center justify-between pb-1 border-b border-black/5">
               <span class="font-black text-[#151618] flex items-center gap-1 text-[11px]">
                 <svg class="lucide lucide-truck w-3.5 h-3.5 text-rose-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5.2a1 1 0 0 0-.25-.66l-3.3-3.8A1 1 0 0 0 17.7 7H14"/><circle cx="17" cy="18.5" r="2.5"/><circle cx="6.5" cy="18.5" r="2.5"/></svg>
@@ -3357,8 +3525,8 @@
 
             <div class="p-2 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-between text-[11px]">
               <div>
-                <span class="text-slate-500 text-[10px] block font-mono">Invoice #DL-8821</span>
-                <span class="font-bold text-rose-950 font-mono">Billed: 24 | Verified: 20</span>
+                <span class="text-slate-500 text-[10px] block font-mono">${isHi ? 'बिल' : 'Invoice'} #DL-8821</span>
+                <span class="font-bold text-rose-950 font-mono">${isHi ? 'बिल: 24 | गिने: 20' : 'Billed: 24 | Counted: 20'}</span>
               </div>
               <span class="text-sm font-black text-rose-600 font-mono">-₹56.00</span>
             </div>
@@ -3481,25 +3649,24 @@
       const feed = document.getElementById('copilot-chat-feed');
       const typingEl = document.getElementById('copilot-typing');
       const isHi = curLang === 'hi';
-      const userTag = isHi ? "दुकानदार · आवाज़ / टाइप" : "Shopkeeper · Spoken / Typed";
+      const userTag = isHi ? "आपने पूछा" : "You asked";
 
       // Append User Bubble
       if (feed) {
         const userBubble = document.createElement('div');
         userBubble.className = "flex items-start justify-end gap-2 pt-0.5";
         userBubble.innerHTML = `
-          <div class="bg-[#151618] text-white px-3 py-2 rounded-2xl rounded-tr-sm border border-black/10 shadow-sm max-w-[85%] text-xs">
+          <div class="bg-[#151618] text-white px-3.5 py-2.5 rounded-[20px] rounded-tr-md max-w-[85%] text-xs">
             <p class="font-bold text-slate-100">${escapeHtml(queryText)}</p>
             <span class="text-[9px] text-[#D4F639] block text-right pt-0.5">${userTag}</span>
-          </div>
-          <div class="w-7 h-7 rounded-full bg-slate-300 text-slate-800 flex items-center justify-center shrink-0 shadow-sm text-xs font-bold">
-            👤
           </div>
         `;
         feed.appendChild(userBubble);
       }
 
       // Show Typing Indicator
+      const typingTxt = document.getElementById('txt-copilot-typing');
+      if (typingTxt) typingTxt.textContent = isHi ? 'दुकान के रिकॉर्ड देख रहे हैं...' : 'Checking store records...';
       if (typingEl) typingEl.classList.remove('hidden');
       scrollToChatBottom();
 
@@ -3918,15 +4085,12 @@
           const aiBubble = document.createElement('div');
           aiBubble.className = "flex items-start gap-2 pt-0.5";
           aiBubble.innerHTML = `
-            <div class="w-7 h-7 rounded-full bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0 shadow-sm text-xs font-black">
-              AI
-            </div>
-            <div class="bg-white p-3 rounded-2xl rounded-tl-sm border border-black/10 shadow-sm max-w-[88%] text-xs space-y-2">
+            <div class="bg-white p-3.5 rounded-[22px] rounded-tl-md border border-black/[0.08] w-full text-xs space-y-2">
               ${aiHtml}
               <div class="pt-1 flex items-center justify-between text-[9px] text-slate-400 border-t border-black/5 mt-1">
                 <span class="flex items-center gap-1 text-emerald-700 font-bold">
                   <svg class="lucide lucide-shield-check w-3 h-3 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                  <span>${isHi ? 'डेटाबेस सत्यापित' : 'Store Verified'}</span>
+                  <span>${isHi ? 'दुकान के रिकॉर्ड से' : 'From store records'}</span>
                 </span>
                 <button onclick="showSoundboxToast('${spokenMsg.replace(/'/g, "\\'")}')" class="text-slate-600 hover:text-black font-bold flex items-center gap-1 cursor-pointer">
                   <svg class="lucide lucide-volume-2 w-3 h-3 text-[#151618]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
@@ -3972,6 +4136,171 @@
       // Launch directly into Login & SignUp page inside the phone
       openAuthScreen('login');
     }
+  </script>
+
+  <script>
+    // ================= SIDE GUIDE: explains each screen + the iQOO 15 hardware behind it =================
+    (function () {
+      if (window.self !== window.top) return; // inside the website's 3D phone: no side panels
+      const I = {
+        chip: '<rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
+        cam: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/>',
+        zoom: '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/>',
+        sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+        gauge: '<path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/>',
+        ir: '<rect x="7" y="2" width="10" height="20" rx="3"/><path d="M12 6v.01M10 10h4M10 14h4"/><path d="M4 4c-1 1-1 3 0 4M20 4c1 1 1 3 0 4"/>',
+        sat: '<path d="M13 7 9 3 5 7l4 4M17 11l4 4-4 4-4-4M8 12l4 4M16 8l-4 4"/><path d="M19 21a2 2 0 0 0-2-2M22 21a5 5 0 0 0-5-5"/>',
+        nfc: '<path d="M6 8.3a6 6 0 0 1 0 7.4M9.5 5.5a10 10 0 0 1 0 13M13 3a14 14 0 0 1 0 18M17 1a18 18 0 0 1 0 22"/>',
+        vib: '<rect x="7" y="4" width="10" height="16" rx="2"/><path d="M3 8v8M21 8v8"/>',
+        spk: '<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
+        mic: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/>',
+        fp: '<path d="M12 10a2 2 0 0 0-2 2c0 1-.1 2.5-.3 3M14 13c0 2.4 0 6.4-1 9M17.3 21c.1-.6.4-2.3.5-3M2 12a10 10 0 0 1 18-6M21.8 16c.2-2 .1-5.4 0-6M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .3-2M8.7 22c.2-.7.4-1.3.6-2M9 6.8a6 6 0 0 1 9 5.2v2"/>',
+        bat: '<rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2M6 11h6"/>',
+        disp: '<rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/>',
+        laptop: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/>',
+        db: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>'
+      };
+      const HW = {
+        npu:  ['chip', 'Snapdragon 8 Elite Gen 5 · Hexagon NPU', 'Runs the counting, OCR and voice models on the phone. No internet needed.'],
+        q3:   ['gauge', 'Supercomputing Chip Q3', 'Keeps the live counting boxes smooth at up to 144 fps while the NPU works.'],
+        uw:   ['cam', '50MP ultra-wide camera', 'One wide photo covers the whole counter, so every packet is counted at once.'],
+        main: ['cam', '50MP Sony IMX921 main camera', '1/1.56" sensor with OIS: sharp photos of bills and challans in dim shop light.'],
+        tele: ['zoom', '50MP 3x periscope (Sony IMX882)', 'Zooms in to read tiny printed expiry dates without the phone casting a shadow.'],
+        spec: ['sun', 'Color spectrum + triple light sensors', 'Detects tube-light flicker and glare on shiny packets before the photo is taken.'],
+        ir:   ['ir', 'IR blaster', 'Works as a remote: switches the shop freezer to super-freeze when dairy arrives.'],
+        navic:['sat', 'NavIC (India\u2019s satellite system)', 'Stamps every delivery with location and time, so vendors can\u2019t dispute it.'],
+        nfc:  ['nfc', 'NFC', 'The vendor taps an ID card: the right ledger opens with zero typing.'],
+        vib:  ['vib', 'Dual-axis (X + Z) vibration motor', 'A strong buzz you feel in your hand, even in a noisy bazaar.'],
+        spk:  ['spk', 'Dual stereo speakers', 'Read results and payments aloud, like a built-in shop soundbox.'],
+        mic:  ['mic', 'Microphones', 'Pick up questions in Hindi or English across the counter.'],
+        fp:   ['fp', '3D ultrasonic fingerprint', 'Unlocks even with flour, oil or water on the finger.'],
+        bat:  ['bat', '7000 mAh battery', 'A full trading day on the counter, and it keeps going through power cuts.'],
+        disp: ['disp', '6.85" 2K display, up to 144 Hz', 'Very bright (up to 6000 nits local peak), readable under shop lights and daylight.'],
+        kit:  ['laptop', 'iQOO Office Kit', 'Mirrors the phone to a laptop and moves the day\u2019s Excel report across.'],
+        db:   ['db', 'On-device storage', 'Every batch, vendor and rupee is saved on the phone, not on a server.']
+      };
+      const G = {
+        auth: { step: 'Start · Login', title: 'Unlock the store', what: 'The owner opens the app with a 6-digit M-PIN or a fingerprint. Purchase prices and supplier dues stay locked behind it.',
+          tries: ['Type <b>123456</b> on the keypad', 'Or tap the black <b>fingerprint</b> key', 'Switch to <b>Sign Up</b> to register a new store'],
+          save: 'Keeps wholesale margins private from staff and customers.', hw: ['fp', 'vib', 'db'],
+          why: 'The ultrasonic sensor reads through dirty, oily fingers. Optical sensors on most phones fail at a busy counter.' },
+        home: { step: 'Home', title: 'Two big buttons, nothing else', what: 'Built for a 50-year-old shopkeeper with 5 customers waiting: only two choices, Receive stock or Sell item. English or Hindi with one tap.',
+          tries: ['Tap <b>EN</b> to switch the whole app to Hindi', 'Tap <b>Receive Stock</b> when a vendor arrives', 'Tap <b>Sell Item</b> for a customer bill'],
+          save: 'No menus to learn: works for owners who don\u2019t use apps.', hw: ['npu', 'disp', 'bat', 'spk'],
+          why: 'Everything on this home screen works in Airplane Mode because all AI runs on the Snapdragon NPU, not in the cloud.' },
+        'vendor-list': { step: 'Receive stock · 1 of 3', title: 'Who is delivering?', what: 'Pick the vendor, or let the vendor tap their NFC card on the phone. The delivery is stamped with location and time.',
+          tries: ['Tap <b>1-Tap NFC Check-in</b>', 'Or tap <b>Select</b> next to Rajesh Wholesale', 'Tap <b>Add New Vendor</b> to add a supplier'],
+          save: 'A signed proof of delivery the vendor can\u2019t argue with.', hw: ['nfc', 'navic', 'vib'],
+          why: 'NavIC is India\u2019s own satellite system, and iQOO 15 receives it. A tapped card needs no typing during the morning rush.' },
+        'vendor-scan': { step: 'Receive stock · 2 of 3', title: 'Count the delivery', what: 'The camera counts every packet on the counter in one shot. Adjust with - / + if needed. Dairy triggers the freezer automatically.',
+          tries: ['Use <b>- / +</b> to correct a count', 'Tap <b>Test IR Pulse</b> to fire the freezer command', 'Tap <b>Edit</b> to fix an expiry date'],
+          save: 'Catches short deliveries: up to \u20b98-15k lost per month today.', hw: ['uw', 'npu', 'q3', 'spec', 'ir'],
+          why: 'A wide 50MP lens, a light sensor that beats tube-light flicker and an IR blaster together: few phones have all three.' },
+        'vendor-bill': { step: 'Receive stock · 3 of 3', title: 'Bill vs. what arrived', what: 'Photograph the paper bill. The app reads it offline, compares it with the camera count and shows exactly how much money to deduct.',
+          tries: ['Look at the red <b>shortage</b> rows', 'Check the <b>NavIC proof-of-delivery</b> stamp', 'Tap <b>Save</b> to add stock to the ledger'],
+          save: 'Money to deduct is worked out before the delivery boy leaves.', hw: ['main', 'npu', 'navic', 'vib'],
+          why: 'Bill reading and counting both run on the NPU in under a second, with the phone in Airplane Mode.' },
+        sell: { step: 'Sell item', title: 'Bill a customer', what: 'Scan the customer\u2019s items, collect the payment and send a WhatsApp bill. An expired packet is stopped before it is sold.',
+          tries: ['Tap <b>+ Scan Item</b>', 'Tap <b>Test Expired Item Scan</b>: the phone buzzes and blocks it', 'Tap <b>Collect & Send WhatsApp Bill</b>'],
+          save: 'Never sell an expired packet and lose a regular customer.', hw: ['uw', 'tele', 'vib', 'spk'],
+          why: 'The 3x periscope reads faint printed dates, and the vibration motor makes sure the shopkeeper notices even in a loud shop.' },
+        stock: { step: 'Stock', title: 'What\u2019s on the shelves', what: 'Every delivery batch with its expiry date, oldest first. Private supplier rates sit in a fingerprint-locked vault. Export to Excel for the laptop.',
+          tries: ['Switch between <b>Date-wise</b> and <b>Item summary</b>', 'Touch the vault to <b>unlock supplier margins</b>', 'Tap <b>Sync with Laptop</b> (Office Kit)'],
+          save: 'Return near-expiry stock in time for full distributor credit.', hw: ['tele', 'ir', 'fp', 'kit', 'db'],
+          why: 'Office Kit is iQOO\u2019s own phone-to-laptop link, so the day\u2019s audit reaches Excel without cables or cloud.' },
+        'sales-khata': { step: 'Sales & Khata', title: 'Money in, money due', what: 'Today\u2019s sales with UPI and cash, plus the customer credit (udhaar) book with one-tap WhatsApp reminders.',
+          tries: ['Switch to <b>Credit Khata</b>', 'Tap a <b>WhatsApp reminder</b>', 'Check <b>Items sold today</b>'],
+          save: 'Every rupee of udhaar is tracked and followed up.', hw: ['spk', 'kit', 'bat', 'db'],
+          why: 'The stereo speakers announce each payment out loud, so the shop doesn\u2019t need a rented soundbox.' },
+        assistant: { step: 'Ask your store', title: 'Just ask, in Hindi', what: 'Ask a question out loud with busy hands. The answer comes from the store\u2019s own records and is read aloud on the speaker.',
+          tries: ['Tap the lime <b>mic</b> and wait', 'Tap a quick question like <b>Rajesh Shortage</b>', 'Type a question in Hindi or English'],
+          save: 'Answers in seconds without touching a screen or a notebook.', hw: ['mic', 'npu', 'spk'],
+          why: 'Speech recognition and the language model run on the phone, so answers work with no internet and numbers come only from the database.' }
+      };
+      const NAV = [['home', 'Home'], ['vendor-list', 'Receive'], ['vendor-scan', 'Count'], ['vendor-bill', 'Bill'], ['sell', 'Sell'], ['stock', 'Stock'], ['sales-khata', 'Khata'], ['assistant', 'Ask'], ['auth', 'Login']];
+      const $ = id => document.getElementById(id);
+      const svg = k => `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg>`;
+      let current = null;
+
+      function render(id) {
+        const g = G[id] || G.home;
+        if (current === id) return;
+        current = id;
+        $('g-step').textContent = g.step;
+        $('g-title').textContent = g.title;
+        $('g-what').textContent = g.what;
+        $('g-save').textContent = g.save;
+        $('g-why').textContent = g.why;
+        $('g-try').innerHTML = g.tries.map((t, i) => `<li class="flex gap-2.5 items-start"><span class="w-5 h-5 rounded-full bg-[#151618] text-[#D4F639] text-[10px] font-black flex items-center justify-center shrink-0">${i + 1}</span><span class="pt-0.5 leading-snug">${t}</span></li>`).join('');
+        $('g-hw').innerHTML = g.hw.map(k => {
+          const [ic, name, role] = HW[k];
+          return `<div class="p-3.5 bg-white rounded-[22px] border border-black/[0.08] flex gap-3 items-start guide-in">
+            <div class="w-10 h-10 rounded-2xl bg-[#151618] text-[#D4F639] flex items-center justify-center shrink-0">${svg(ic)}</div>
+            <div class="min-w-0"><span class="text-[13px] font-black text-[#151618] block leading-tight">${name}</span><span class="text-[11.5px] text-slate-500 font-medium leading-snug block mt-0.5">${role}</span></div>
+          </div>`;
+        }).join('');
+        $('g-nav').innerHTML = NAV.map(([k, label]) => `<button onclick="${k === 'auth' ? "openAuthScreen('login')" : `switchScreen('${k}')`}" class="h-8 px-3 rounded-full text-[11px] font-black transition-all active:scale-95 ${k === id ? 'bg-[#151618] text-[#D4F639]' : 'bg-white border border-black/10 text-slate-600 hover:border-black hover:text-black'}">${label}</button>`).join('');
+      }
+
+      const original = window.switchScreen;
+      window.switchScreen = function (id) { const r = original.apply(this, arguments); render(id); return r; };
+      const visible = ['auth', 'home', 'sell', 'vendor-list', 'vendor-scan', 'vendor-bill', 'stock', 'sales-khata', 'assistant']
+        .find(k => { const el = $('screen-' + k); return el && !el.classList.contains('hidden'); });
+      render(visible || 'home');
+    })();
+  </script>
+
+  <script>
+    // ================= RESPONSIVE FIT: any monitor, tablet or phone =================
+    (function () {
+      if (window.self !== window.top) return; // the website's 3D phone sizes the app itself
+      const wrap = document.getElementById('phone-chassis-wrapper');
+      const PHONE_W = 410, PHONE_H = 840;      // chassis incl. frame + a little air
+      wrap.style.transition = 'none';         // size instantly (the wrapper had transition-all)
+      function fit() {
+        const vw = window.innerWidth, vh = window.innerHeight;
+        const isPhone = vw <= 540 || (matchMedia('(pointer: coarse)').matches && Math.min(vw, vh) <= 540);
+        document.body.classList.toggle('app-full', isPhone);
+        document.body.classList.toggle('fit-mode', !isPhone);
+        if (isPhone) { wrap.style.transform = ''; return; }
+        // leave room for the side panels when they are showing (>= 1280px)
+        const sideRoom = vw >= 1280 ? 2 * 380 : 0;
+        const s = Math.min(1.4, (vh - 32) / PHONE_H, (vw - sideRoom - 32) / PHONE_W);
+        wrap.style.transformOrigin = 'center center';
+        wrap.style.transform = 'scale(' + Math.max(0.45, s).toFixed(3) + ')';
+        // side panels grow on 2K/4K and shrink on short laptop screens
+        const pz = Math.min(1.35, Math.max(0.78, Math.min(vh / 900, vw / 1600)));
+        document.querySelectorAll('.guide-panel').forEach(el => {
+          el.style.transition = 'none';
+          el.style.transformOrigin = (el.id === 'guide-left' ? 'left' : 'right') + ' center';
+          el.style.transform = 'translateY(-50%) scale(' + pz.toFixed(3) + ')';
+          el.style.maxHeight = Math.round((vh * 0.94) / pz) + 'px';
+        });
+      }
+      fit();
+      window.addEventListener('resize', fit);
+      window.addEventListener('orientationchange', fit);
+    })();
+  </script>
+
+  <script>
+    // ================= POP-UPS LIVE INSIDE THE PHONE =================
+    // Modals and the soundbox toast were fixed to the browser window, so they covered the whole page.
+    (function () {
+      const front = document.getElementById('phone-front');
+      if (!front) return;
+      document.querySelectorAll('body > [id^="modal-"]').forEach(m => {
+        m.classList.remove('fixed');
+        m.classList.add('absolute', 'overflow-y-auto');
+        front.appendChild(m);
+      });
+      const toast = document.getElementById('soundbox-toast');
+      if (toast) {
+        toast.classList.remove('fixed', 'bottom-8', 'max-w-sm', 'mx-auto', 'px-4');
+        toast.classList.add('absolute', 'top-12', 'inset-x-0', 'px-3');
+        front.appendChild(toast);
+      }
+    })();
   </script>
 </body>
 </html>

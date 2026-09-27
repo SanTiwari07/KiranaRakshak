@@ -24,33 +24,33 @@ The direct competition at the Grand Finale consists of the Wildcard winners from
 
 #### 1. Bengaluru City Battle Winners (August 29–30, 2026)
 * **Working Professionals**:
-  * 🏆 **Winner — Team Tokoti (*Tokito Companion*)**: AI interface for electronics engineers. Uses camera vision, voice, and multimodal AI to inspect and debug physical circuit boards, trace components, and explain signal paths.
-  * 🥈 **1st Runner Up — Team ZXRO 77 (*Mira.ai*)**: On-device AI wellness and yoga coach using vision, voice, and local memory for real-time posture correction without cloud streaming.
-  * 🥉 **2nd Runner Up — Team Chai and Code (*PhoneOS AI*)**: Autonomous device agent executing multi-step tasks across apps, local files, and device functions via natural language.
+  * 🏆 **Winner: Team Tokoti (*Tokito Companion*)**: AI interface for electronics engineers. Uses camera vision, voice, and multimodal AI to inspect and debug physical circuit boards, trace components, and explain signal paths.
+  * 🥈 **1st Runner Up: Team ZXRO 77 (*Mira.ai*)**: On-device AI wellness and yoga coach using vision, voice, and local memory for real-time posture correction without cloud streaming.
+  * 🥉 **2nd Runner Up: Team Chai and Code (*PhoneOS AI*)**: Autonomous device agent executing multi-step tasks across apps, local files, and device functions via natural language.
 * **Students**:
-  * 🏆 **Winner — Team Chole Bhature (*SecondSense*)**: Offline sensory substitution tool for the visually impaired using camera, directional audio, and haptics to detect obstacles beyond the reach of a traditional white cane.
-  * 🥈 **1st Runner Up — Team Nexus (*Anchor*)**: Location spoofing and GNSS integrity verifier. Cross-checks raw satellite measurements against physical IMU motion sensors and on-device AI completely offline.
-  * 🥉 **2nd Runner Up — Team Smoke Test (*Kavach*)**: On-device fraud detection engine flagging scam conversational patterns in live calls and detecting fraudulent UPI QR codes/payment links without cloud transmission.
+  * 🏆 **Winner: Team Chole Bhature (*SecondSense*)**: Offline sensory substitution tool for the visually impaired using camera, directional audio, and haptics to detect obstacles beyond the reach of a traditional white cane.
+  * 🥈 **1st Runner Up: Team Nexus (*Anchor*)**: Location spoofing and GNSS integrity verifier. Cross-checks raw satellite measurements against physical IMU motion sensors and on-device AI completely offline.
+  * 🥉 **2nd Runner Up: Team Smoke Test (*Kavach*)**: On-device fraud detection engine flagging scam conversational patterns in live calls and detecting fraudulent UPI QR codes/payment links without cloud transmission.
 
 #### 2. Pune City Battle Winners (September 5–6, 2026)
 * **Working Professionals**:
-  * 🏆 **Winner — Team Chord Capital (*Jammify*)**: Solo music companion allowing musicians to jam with AI-generated dynamic chords and adaptive accompaniment in real time.
-  * 🥈 **1st Runner Up — Team Merge Conflicts (*Pune Tree Rakshak*)**: Civic watchdog app combining camera-verified evidence, government cadastral data, and automated legal notice generation to prevent illegal tree cutting.
-  * 🥉 **2nd Runner Up — Team Knoxx (*DailyFlow*)**: Private on-device contextual memory layer capturing commitments, requests, and deadlines from digital life without cloud storage.
+  * 🏆 **Winner: Team Chord Capital (*Jammify*)**: Solo music companion allowing musicians to jam with AI-generated dynamic chords and adaptive accompaniment in real time.
+  * 🥈 **1st Runner Up: Team Merge Conflicts (*Pune Tree Rakshak*)**: Civic watchdog app combining camera-verified evidence, government cadastral data, and automated legal notice generation to prevent illegal tree cutting.
+  * 🥉 **2nd Runner Up: Team Knoxx (*DailyFlow*)**: Private on-device contextual memory layer capturing commitments, requests, and deadlines from digital life without cloud storage.
 * **Students**:
-  * 🏆 **Winner — Team Redstring (*RightPosture*)**: On-device pose tracking and AI feedback for physiotherapy rehabilitation, enabling remote progress monitoring by clinicians.
-  * 🥈 **1st Runner Up — Team Kensai (*NoCapRX*)**: Personalized medication safety app cross-referencing patient genomics, pharmacogenomics, and handwritten prescription OCR with explainable local AI.
-  * 🥉 **2nd Runner Up — Team Chanakya (*Origo*)**: Offline pedestrian navigation system using motion sensors and dead-reckoning AI to guide users back to their parked car with zero GPS or cameras.
+  * 🏆 **Winner: Team Redstring (*RightPosture*)**: On-device pose tracking and AI feedback for physiotherapy rehabilitation, enabling remote progress monitoring by clinicians.
+  * 🥈 **1st Runner Up: Team Kensai (*NoCapRX*)**: Personalized medication safety app cross-referencing patient genomics, pharmacogenomics, and handwritten prescription OCR with explainable local AI.
+  * 🥉 **2nd Runner Up: Team Chanakya (*Origo*)**: Offline pedestrian navigation system using motion sensors and dead-reckoning AI to guide users back to their parked car with zero GPS or cameras.
 
 #### 3. Chennai City Battle Winners (September 12–13, 2026)
 * **Working Professionals**:
-  * 🏆 **Winner — Team Just Us (*Nila*)**: Zero-cloud baby monitoring assistant using on-device vision and audio AI to detect infant cries, track micro-movements, and identify safety hazards.
-  * 🥈 **1st Runner Up — Team One Man (*Nazar*)**: On-device anti-fraud system detecting phishing messages, suspicious caller speech, and high-risk UPI transactions before payment confirmation.
-  * 🥉 **2nd Runner Up — Team DHANESHVAR's SQUAD (*Assemblix*)**: On-device camera tool identifying hardware parts and guiding users through mechanical assembly and repair with 3D visualization and voice cues.
+  * 🏆 **Winner: Team Just Us (*Nila*)**: Zero-cloud baby monitoring assistant using on-device vision and audio AI to detect infant cries, track micro-movements, and identify safety hazards.
+  * 🥈 **1st Runner Up: Team One Man (*Nazar*)**: On-device anti-fraud system detecting phishing messages, suspicious caller speech, and high-risk UPI transactions before payment confirmation.
+  * 🥉 **2nd Runner Up: Team DHANESHVAR's SQUAD (*Assemblix*)**: On-device camera tool identifying hardware parts and guiding users through mechanical assembly and repair with 3D visualization and voice cues.
 * **Students**:
-  * 🏆 **Winner — Team Atreides (*Consent-Cam*)**: Privacy-preserving camera application that detects nearby broadcasted consent signals (BLE/NFC) and automatically blurs non-consenting faces on-device before storage.
-  * 🥈 **1st Runner Up — Team Apple (*Jugaad Agent*)**: Portable industrial predictive maintenance tool turning an Android phone into a vibration/acoustic analyzer across 13 machine types and 58 industrial faults.
-  * 🥉 **2nd Runner Up — Team LeadMillers (*Saathi*)**: Offline women's health companion for tracking PCOS symptoms with localized peer-to-peer data sharing.
+  * 🏆 **Winner: Team Atreides (*Consent-Cam*)**: Privacy-preserving camera application that detects nearby broadcasted consent signals (BLE/NFC) and automatically blurs non-consenting faces on-device before storage.
+  * 🥈 **1st Runner Up: Team Apple (*Jugaad Agent*)**: Portable industrial predictive maintenance tool turning an Android phone into a vibration/acoustic analyzer across 13 machine types and 58 industrial faults.
+  * 🥉 **2nd Runner Up: Team LeadMillers (*Saathi*)**: Offline women's health companion for tracking PCOS symptoms with localized peer-to-peer data sharing.
 
 #### The "Do Not Clone" List (Saturated Hackathon Patterns):
 * ❌ **Vibro-acoustic machine diagnostics**: Executed comprehensively by *Team Apple (Jugaad Agent)*.

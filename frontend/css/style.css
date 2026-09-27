@@ -24,7 +24,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scrollbar-width: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 body {
@@ -203,7 +204,7 @@ body.live-mode .screen iframe { pointer-events: auto; }
 .phone.fx-fp .fp-scan { opacity: 1; transform: translateX(-50%) scale(1); }
 .phone.fx-fp .fp-scan svg { animation: bootPulse 1.2s ease-in-out infinite; }
 
-/* back: iQOO 15 — AG frosted glass + floating squircle camera module */
+/* back: iQOO 15, AG frosted glass + floating squircle camera module */
 .phone {
   --fl: 56; --fr: 20;                                /* frame lightness: Legend = satin silver */
   --glass-1: #F4F4F1; --glass-2: #E4E5E1; --glass-3: #CFD0CB;
@@ -362,7 +363,7 @@ body.live-mode .screen iframe { pointer-events: auto; }
 /* =====================================================================
    CONTENT
    ===================================================================== */
-main { position: relative; z-index: 3; pointer-events: none; }
+main { position: relative; z-index: 3; pointer-events: none; overflow-x: clip; }
 .copy, .block, .footer { pointer-events: auto; }
 
 .chapter {
@@ -655,4 +656,22 @@ main { position: relative; z-index: 3; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   #float, .halo, .flow-lines path, .pulse { animation: none !important; }
   .rv { opacity: 1; transform: none; }
+}
+
+/* Large monitors (2K / 4K): wider copy and bigger type so the layout doesn't feel empty */
+@media (min-width: 1800px) {
+  body { font-size: 18px; }
+  .copy { width: min(720px, 34vw); }
+  .hero .copy { width: min(860px, 40vw); }
+  .office .copy { width: min(820px, 40vw); }
+  .body, .lede { font-size: 19px; }
+  .display-2 { font-size: clamp(56px, 4.4vw, 104px); }
+  .leaks p, .steps p, .hotspot-list p, .mini-bento p { font-size: 15px; }
+  .block-head { max-width: 1200px; }
+  .nav-links { font-size: 16px; }
+}
+@media (min-width: 2400px) {
+  body { font-size: 20px; }
+  .body, .lede { font-size: 22px; }
+  .btn { font-size: 18px; padding: 18px 32px; }
 }

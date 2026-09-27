@@ -65,7 +65,7 @@ pie title Grand Finale Judging Weight Distribution (Estimated)
 ```
 
 1. **Phone-First Execution (Weight: ~30%)**:
-   * *Core Question*: "Why does this solution need a smartphone — specifically an iQOO 15 — rather than a web app or cloud API?"
+   * *Core Question*: "Why does this solution need a smartphone, specifically an iQOO 15, rather than a web app or cloud API?"
    * Depth of native sensor utilization: Cameras (Main + Periscope + Ultrawide), 6-axis IMU, Color Spectrum sensor, NavIC GNSS, Microphones, IR Blaster, NFC, and Display Co-processor Q3.
    * Disqualification of generic wrappers: Apps that merely display a chatbot UI talking to a remote server receive near-zero scores under this pillar.
 2. **AI Integration (Weight: ~25%)**:

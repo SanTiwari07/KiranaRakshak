@@ -37,7 +37,7 @@
 # 1. Executive Summary & The Core Thesis
 
 ### The One-Line Pitch
-> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi—100% offline."**
+> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi: 100% offline."**
 
 India is powered by over **12 million neighbourhood kirana stores**, driving 85%+ of the country’s retail FMCG commerce. While supermarkets run enterprise ERPs with barcode conveyor belts, the independent Indian kirana owner operates in high-frequency chaos.
 
@@ -80,11 +80,11 @@ All processing runs in **100% Airplane Mode** on the **Snapdragon 8 Elite Hexago
 └──────────────────────────┴─────────────────────────────────────────────┘
 ```
 
-1. **Short Deliveries (₹8,000–₹15,000 / month loss):** Distributors deliver 30–50 crates daily during morning rush hours. A bill says 24 packets of Maggi; the delivery boy unloads 20. The shopkeeper discovers the ₹56 shortage days later—or never. Across 15 vendors, this is an immense cash bleed.
+1. **Short Deliveries (₹8,000–₹15,000 / month loss):** Distributors deliver 30–50 crates daily during morning rush hours. A bill says 24 packets of Maggi; the delivery boy unloads 20. The shopkeeper discovers the ₹56 shortage days later: or never. Across 15 vendors, this is an immense cash bleed.
 2. **Expired Stock Write-Offs (₹5,000–₹10,000 / month loss):** FMCG distributors allow retailers to return unsold goods for 100% credit *if returned 30 days before expiry*. But old stock gets buried under new crates. By the time it is found, it is dead-loss inventory.
 3. **Cold-Chain Spoilage (₹3,000–₹6,000 / month loss):** High-margin dairy (Amul milk, paneer, ice-cream tubs) curdles or melts when counter freezers are turned down or power cuts strike.
 4. **Customer Churn from Expired Sales:** Accidental sales of expired goods lead to severe customer embarrassment, lost goodwill, and food safety liabilities.
-5. **The English & Typing Barrier:** Existing billing software requires continuous typing, barcode scanning for every SKU, and fast internet—completely unusable for a sole proprietor serving 3 customers simultaneously.
+5. **The English & Typing Barrier:** Existing billing software requires continuous typing, barcode scanning for every SKU, and fast internet: completely unusable for a sole proprietor serving 3 customers simultaneously.
 
 ---
 
@@ -124,7 +124,7 @@ journey
       1-Click Excel delivery report exported: 5: Ramesh
 ```
 
-### Scene 1: 9:00 AM — Morning Delivery Audit
+### Scene 1: 9:00 AM · Morning Delivery Audit
 * **Action:** Distributor Rajesh rushes in with cartons and a handwritten bill: *"24 Maggi 2-Min (70g) @ ₹14 = ₹336"*.
 * **1-Tap NFC:** Rajesh taps his delivery ID card on the iQOO 15. The phone vibrates and opens his account.
 * **NavIC L5:** The phone captures sub-meter coordinates, creating an unalterable Proof-of-Delivery tag.
@@ -133,23 +133,23 @@ journey
   > **⚠️ SHORT DELIVERY: Billed 24 | Counted 20 | Short 4 | Vendor owes ₹56.00**
 * **Result:** Ramesh immediately deducts ₹56 from the payment. Cash saved on the spot.
 
-### Scene 2: 11:30 AM — Stocking Dairy & IR Actuation
+### Scene 2: 11:30 AM · Stocking Dairy & IR Actuation
 * **Telemacro Scan:** Ramesh holds an ice-cream tub 25cm away. The 50MP 3x Telemacro reads the faint inkjet date (`EXP: 15-OCT-2026`).
 * **Physical IR Pulse:** The app detects perishable dairy intake. The top-frame **IR Blaster** fires an NEC 38kHz infrared command across the shop, switching the counter deep-freezer to **Super-Freeze mode**.
 
-### Scene 3: 4:00 PM — Expired Sale Blocked
+### Scene 3: 4:00 PM · Expired Sale Blocked
 * A customer brings salt, detergent, and an expired packet of Parle-G from the back shelf.
 * As the cashier adds the batch, Kirana Rakshak checks the SQLite batch registry.
 * **The Block:** The phone emits an **aggressive 500ms haptic buzz** and turns the screen **RED: SALE BLOCKED**. Ramesh replaces the expired packet with fresh stock, protecting customer trust.
 
-### Scene 4: 7:30 PM — Hands-Free Hindi Soundbox
+### Scene 4: 7:30 PM · Hands-Free Hindi Soundbox
 * With flour and spices on his hands, Ramesh asks from across the counter:
   > *"Rajesh vendor ne kitna kam maal diya hai aur is hafte kya expire hoga?"*
 * Whisper STT + Laya 322M parse the intent locally.
 * The **dual high-SPL stereo speakers** announce loudly across the 80dB noisy store:
   > *"Rajesh vendor se 4 packet Maggi kam aaye the, kul chhappan rupaye lene baaki hain. Aur 30 September ko 12 Bourbon expire hone wale hain."*
 
-### Scene 5: 9:30 PM — Office Kit Closing Sync
+### Scene 5: 9:30 PM · Office Kit Closing Sync
 * Ramesh opens his laptop. Kirana Rakshak connects via **iQOO Office Kit**.
 * The phone displays a live merchant audit scorecard, and a complete reconciled day-end `.xlsx` file is transferred to the laptop with one click for GST filing.
 
@@ -522,7 +522,7 @@ flowchart LR
 ```
 
 1. **20 Real FMCG Packets (Maggi Noodles 70g):** Spread across the table to prove the 50MP Ultrawide camera can identify and count them in 1 frame.
-2. **1 Printed Wholesale Invoice:** A real paper bill showing *"Maggi 2-Min 70g — Qty: 24 — Rate: ₹14 — Total: ₹336"*.
+2. **1 Printed Wholesale Invoice:** A real paper bill showing *"Maggi 2-Min 70g, Qty: 24, Rate: ₹14, Total: ₹336"*.
 3. **3 Parle-G Packs (1 Expired):** One packet marked with an expired date (`EXP: 15-AUG-2026`) to trigger the haptic rumble and red sale-block screen.
 4. **1 Standard NFC Tag / Card (NTAG213):** Acts as distributor Rajesh's ID card for 1-tap intake.
 5. **1 Benchtop IR Receiver with an LED:** Lights up when the phone fires its IR blaster, proving physical-world appliance control.
@@ -579,14 +579,14 @@ gantt
 * **Secondary Track / Technical Anchor:** **Open Innovation**
 
 ### Field 3: One-Line Elevator Pitch
-> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi—100% offline."**
+> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi: 100% offline."**
 
 ### Field 4: Problem Statement & Economic Gravity
 India is home to over 12 million neighbourhood kirana stores, powering 85%+ of the country’s retail FMCG distribution. While supermarket chains use million-dollar ERPs and barcode conveyors, the independent Indian kirana owner operates in high-frequency chaos:
 1. **Short Delivery Leakage:** Wholesale distributors deliver 30–50 crates daily during morning rush hours. Shopkeepers cannot manually count every biscuit packet while attending to counter customers. A bill stating 24 units often delivers only 20, leaking ₹8,000–₹15,000 every month in unverified deliveries.
 2. **Expired Stock Write-offs & Spoilage:** Perishable goods get pushed to the dark back of shelves, missing the 30-day distributor return window and causing ₹5,000–₹10,000/month in dead loss. Unmonitored deep-freezers lead to melted ice-cream and curdled dairy during power cuts.
 3. **Consumer Trust & Expired Sales:** Accidental sales of expired goods lead to severe customer friction and loss of neighborhood reputation.
-4. **Cognitive & Language Barrier:** Existing SaaS billing apps demand manual typing, English literacy, continuous internet, and barcode scanning for every individual SKU—unusable for a sole proprietor handling 20 customers simultaneously.
+4. **Cognitive & Language Barrier:** Existing SaaS billing apps demand manual typing, English literacy, continuous internet, and barcode scanning for every individual SKU: unusable for a sole proprietor handling 20 customers simultaneously.
 
 ### Field 5: Proposed Solution
 Kirana Rakshak transforms the shopkeeper’s iQOO 15 into an autonomous, offline computer-vision auditor and physical store guardian:

@@ -22,16 +22,16 @@
 ---
 
 ### Field 3: One-Line Elevator Pitch
-> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi—100% offline."**
+> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi: 100% offline."**
 
 ---
 
 ### Field 4: Problem Statement & Economic Gravity
 India is home to over **12 million neighbourhood kirana stores**, powering 85%+ of the country’s retail FMCG distribution. While supermarket chains use million-dollar ERPs and barcode conveyors, the independent Indian kirana owner (*Ramesh*) operates in high-frequency chaos:
-1. **Short Delivery Leakage:** Wholesale distributors deliver 30–50 crates daily during morning rush hours. Ramesh cannot manually count every biscuit packet or detergent sachet while attending to counter customers. A vendor bill stating 24 units of Maggi often delivers only 20. Ramesh discovers the ₹56 shortage days later—or never. Across 15 vendors, a typical shop leaks **₹8,000–₹15,000 every month** in unverified deliveries.
+1. **Short Delivery Leakage:** Wholesale distributors deliver 30–50 crates daily during morning rush hours. Ramesh cannot manually count every biscuit packet or detergent sachet while attending to counter customers. A vendor bill stating 24 units of Maggi often delivers only 20. Ramesh discovers the ₹56 shortage days later: or never. Across 15 vendors, a typical shop leaks **₹8,000–₹15,000 every month** in unverified deliveries.
 2. **Expired Stock Write-offs & Spoilage:** Perishable packaged goods (dairy, bread, biscuits, snacks) get pushed to the dark back of shelves. By the time they surface, the 30-day distributor return window has elapsed, resulting in dead-loss inventory (**₹5,000–₹10,000/month**). Furthermore, unmonitored counter deep-freezers result in curdled milk and melted ice-creams during power cuts.
 3. **Consumer Trust & Expired Sales:** Accidental sales of expired goods lead to severe customer friction, loss of local goodwill, and food safety liabilities.
-4. **Cognitive & Language Barrier:** Existing SaaS billing apps demand manual typing, English literacy, continuous internet, and barcode scanning for every individual SKU—unusable for a sole proprietor handling 20 customers simultaneously.
+4. **Cognitive & Language Barrier:** Existing SaaS billing apps demand manual typing, English literacy, continuous internet, and barcode scanning for every individual SKU: unusable for a sole proprietor handling 20 customers simultaneously.
 
 Existing software records only what the shopkeeper *types*. **Nobody verifies what physically arrived.**
 

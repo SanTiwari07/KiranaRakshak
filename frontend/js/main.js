@@ -57,7 +57,7 @@
   /* ---------------- phone fit to viewport ---------------- */
   function fit() {
     const h = window.innerHeight, H = Phone.size.H;
-    const f = isMobile() ? Math.min(.62, (h * .5) / H) : Math.min(1, (h * .8) / H);
+    const f = isMobile() ? Math.min(.62, (h * .5) / H) : Math.min(1.35, (h * .74) / H);
     document.documentElement.style.setProperty('--fit', f.toFixed(3));
   }
   fit();
@@ -66,18 +66,18 @@
   /* ---------------- poses ----------------
      x / y in viewport %, rotations in degrees.  m = mobile override.  */
   const POSES = {
-    hero:    { x: 22,  y: 2,  rx: 6,   ry: -24, rz: 4,  s: 1,    m: { x: 26, y: -14, ry: -28, rz: 6, s: .9, o: .28 } },
-    leaks:   { x: 25,  y: 0,  rx: 10,  ry: -58, rz: -2, s: .86,  m: { x: 0, y: -24, ry: -40, s: .8 } },
-    back:    { x: -22, y: 0,  rx: -4,  ry: 196, rz: -6, s: 1.08, m: { x: 0, y: -22, ry: 185, s: 1 } },
-    nfc:     { x: 22,  y: 0,  rx: 4,   ry: -16, rz: -3, s: 1,    m: { x: 0, y: -24, ry: -10 } },
-    bill:    { x: -22, y: 0,  rx: 4,   ry: 18,  rz: 3,  s: 1,    m: { x: 0, y: -24, ry: 10 } },
-    ir:      { x: 22,  y: 10, rx: -38, ry: -14, rz: 4,  s: .9,   m: { x: 0, y: -16, rx: -30, s: .85 } },
-    expired: { x: -21, y: 0,  rx: 0,   ry: 12,  rz: -2, s: 1.04, m: { x: 0, y: -24, ry: 6 } },
-    voice:   { x: 22,  y: -6, rx: 30,  ry: -14, rz: -3, s: .92,  m: { x: 0, y: -28, rx: 24, s: .85 } },
-    vault:   { x: -22, y: 0,  rx: 3,   ry: 20,  rz: 2,  s: 1,    m: { x: 0, y: -24, ry: 10 } },
-    office:  { x: -30, y: 4,  rx: 8,   ry: 30,  rz: 0,  s: .7,   m: { x: 0, y: -26, ry: 20, s: .7 } },
+    hero:    { x: 22,  y: 2,  rx: 6,   ry: -24, rz: 4,  s: 1,    m: { x: 26, y: -10, ry: -28, rz: 6, s: .9, o: .28 } },
+    leaks:   { x: 25,  y: 0,  rx: 10,  ry: -58, rz: -2, s: .86,  m: { x: 0, y: -16, ry: -40, s: .8 } },
+    back:    { x: -22, y: 0,  rx: -4,  ry: 196, rz: -6, s: 1.08, m: { x: 0, y: -15, ry: 185, s: 1 } },
+    nfc:     { x: 22,  y: 0,  rx: 4,   ry: -16, rz: -3, s: 1,    m: { x: 0, y: -16, ry: -10 } },
+    bill:    { x: -22, y: 0,  rx: 4,   ry: 18,  rz: 3,  s: 1,    m: { x: 0, y: -16, ry: 10 } },
+    ir:      { x: 22,  y: 10, rx: -38, ry: -14, rz: 4,  s: .9,   m: { x: 0, y: -11, rx: -30, s: .85 } },
+    expired: { x: -21, y: 0,  rx: 0,   ry: 12,  rz: -2, s: 1.04, m: { x: 0, y: -16, ry: 6 } },
+    voice:   { x: 22,  y: -6, rx: 30,  ry: -14, rz: -3, s: .92,  m: { x: 0, y: -18, rx: 24, s: .85 } },
+    vault:   { x: -22, y: 0,  rx: 3,   ry: 20,  rz: 2,  s: 1,    m: { x: 0, y: -16, ry: 10 } },
+    office:  { x: -30, y: 4,  rx: 8,   ry: 30,  rz: 0,  s: .7,   m: { x: 0, y: -17, ry: 20, s: .7 } },
     hidden:  { x: -30, y: -30, rx: 20, ry: 70,  rz: -10, s: .5, o: 0, m: { x: 0, y: -60, s: .4, o: 0 } },
-    live:    { x: 20,  y: 0,  rx: 0,   ry: -8,  rz: 0,  s: 1,    m: { x: 0, y: -22, ry: 0, s: 1 } }
+    live:    { x: 20,  y: 0,  rx: 0,   ry: -8,  rz: 0,  s: 1,    m: { x: 0, y: -15, ry: 0, s: 1 } }
   };
   const pick = (name) => {
     const p = POSES[name] || POSES.hero;
@@ -359,13 +359,13 @@
   const HW = [
     { t: 1, i: 'chip', n: 'Snapdragon 8 Elite Gen 5 · Hexagon NPU', r: 'Runs YOLO11n, PaddleOCR, Whisper and Laya side by side in INT8.', w: 'Sub-300 ms end-to-end audit with the radios off.', f: 'Features 1 · 2 · 12', wide: true },
     { t: 1, i: 'remote', n: 'IR blaster', r: 'Sends NEC 38 kHz commands to the shop freezer and AC.', w: 'The phone becomes an IoT bridge with no smart plug.', f: 'Feature 7' },
-    { t: 1, i: 'sat', n: 'NavIC', r: 'Geo-stamps every delivery with a hashed proof.', w: "India's own constellation — tuned for Indian streets.", f: 'Feature 8' },
+    { t: 1, i: 'sat', n: 'NavIC', r: 'Geo-stamps every delivery with a hashed proof.', w: "India's own constellation, tuned for Indian streets.", f: 'Feature 8' },
     { t: 2, i: 'cam', n: '50MP UW + 3× periscope', r: 'Ultra-wide counts the whole counter; telemacro reads dot-matrix dates.', w: 'Two lenses, two jobs, one Camera2 session.', f: 'Features 1 · 4', wide: true },
     { t: 2, i: 'sun', n: 'Color Spectrum sensor', r: 'Measures 50 Hz flicker and colour temperature before each shot.', w: 'No banding or glare on shiny Maggi and Kurkure foil.', f: 'Feature 6' },
     { t: 2, i: 'gauge', n: 'Supercomputing Chip Q3', r: 'Keeps the 144 Hz live counting overlay smooth.', w: 'Display work stays off the NPU while it infers.', f: 'Feature 10' },
-    { t: 3, i: 'vib', n: 'Dual-axis X+Z motor', r: 'Double-knock for shortage, 500 ms rumble for expired — X and Z axes in one motor.', w: 'Felt in the hand in an 80 dB bazaar.', f: 'Features 3 · 5' },
+    { t: 3, i: 'vib', n: 'Dual-axis X+Z motor', r: 'Double-knock for shortage, 500 ms rumble for expired, X and Z axes in one motor.', w: 'Felt in the hand in an 80 dB bazaar.', f: 'Features 3 · 5' },
     { t: 3, i: 'bat', n: '7000 mAh + vapour chamber', r: 'A full trading day on the counter stand.', w: 'Keeps working through power cuts without throttling.', f: 'All features' },
-    { t: 3, i: 'spk', n: 'Stereo speakers', r: 'Reads Hindi answers and delivery results out loud.', w: 'A built-in shop soundbox — no rental device.', f: 'Feature 13' },
+    { t: 3, i: 'spk', n: 'Stereo speakers', r: 'Reads Hindi answers and delivery results out loud.', w: 'A built-in shop soundbox, no rental device.', f: 'Feature 13' },
     { t: 3, i: 'fp', n: '3D ultrasonic fingerprint', r: 'Locks purchase rates and supplier dues.', w: 'Reads through flour, oil and water on fingers.', f: 'Feature 11' },
     { t: 4, i: 'laptop', n: 'iQOO Office Kit', r: 'Customer bill on a second screen, Excel at closing.', w: 'The Green Light cross-device requirement, covered.', f: 'Feature 14', wide: true },
     { t: 4, i: 'nfc', n: 'NFC', r: 'Vendor badge tap opens the right ledger.', w: 'Zero typing during the morning rush.', f: 'Feature 9', wide: true }

@@ -17,8 +17,8 @@ A real Indian kirana shopkeeper (like Ramesh Bhai, age 52) has flour on his hand
 Kirana Rakshak follows **4 Golden Senior-Ergonomic Rules**:
 
 1. **Strictly 2 Giant Buttons on the Home Screen (Zero Clutter):** The home screen contains ONLY TWO massive, unmistakable action blocks taking up the full screen height:
-   * 🟢 **`SELL ITEM (SCAN & BILL)`** — Giant chunky card (`215px` tall) in **Electric Lime (`#D4F639`)** with deep black text, high-contrast shopping cart icon, and direct tap target.
-   * ⚫ **`RECEIVE STOCK (FROM VENDOR)`** — Giant chunky card (`215px` tall) in **Deep Obsidian Black (`#151618`)** with lime accent crate icon, diagonal stripe texture, and direct tap target.
+   * 🟢 **`SELL ITEM (SCAN & BILL)`**: Giant chunky card (`215px` tall) in **Electric Lime (`#D4F639`)** with deep black text, high-contrast shopping cart icon, and direct tap target.
+   * ⚫ **`RECEIVE STOCK (FROM VENDOR)`**: Giant chunky card (`215px` tall) in **Deep Obsidian Black (`#151618`)** with lime accent crate icon, diagonal stripe texture, and direct tap target.
    * *No extra cards, no confusing menus, no distracting secondary buttons.* A 50-year-old shopkeeper sees only two giant choices.
 2. **Restricted Bilingual System (English Primary + Hindi):**
    * Keep only **English (Primary, active by default)** and **Hindi**.

@@ -2,7 +2,7 @@
 ## Kirana Rakshak · Team HoloTrio · iQOO Hackathon 2026 Grand Finale
 
 **Target Persona:** *Ramesh Bhai* (Age 52), *Gupta Ji* (Age 58), *Suresh Uncle* (Age 47).  
-**Core Problem:** Modern apps look like Silicon Valley SaaS tools—tiny text, abstract icons, low-contrast gray colors, English jargon, and dozens of confusing options. A 52-year-old shopkeeper who is serving 5 customers at once will abandon such an app in under 2 minutes.
+**Core Problem:** Modern apps look like Silicon Valley SaaS tools: tiny text, abstract icons, low-contrast gray colors, English jargon, and dozens of confusing options. A 52-year-old shopkeeper who is serving 5 customers at once will abandon such an app in under 2 minutes.
 
 ---
 

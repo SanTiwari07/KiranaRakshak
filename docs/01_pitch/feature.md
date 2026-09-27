@@ -43,7 +43,7 @@
 ### 2. Wholesale Bill Parsing (On-Device OCR)
 * **What it is:** Reads handwritten, thermal, or dot-matrix wholesale delivery challans and invoices.
 * **How it works:** Uses **PaddleOCR-Mobile v4 / Google ML Kit** running locally in Airplane Mode to detect text bounding boxes, parse product names, and extract billed quantities and wholesale rates using regex coordinate matching.
-* **Why it matters:** The shopkeeper doesn't need to type in vendor bills or line items—just photograph the paper slip.
+* **Why it matters:** The shopkeeper doesn't need to type in vendor bills or line items: just photograph the paper slip.
 
 ### 3. Automated Discrepancy & Reconciliation Engine
 * **What it is:** Compares the physical goods counted against the billed quantities on the invoice.

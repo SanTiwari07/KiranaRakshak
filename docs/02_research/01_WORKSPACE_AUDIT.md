@@ -1,5 +1,5 @@
 # 01_WORKSPACE_AUDIT.md
-## iQOO Hackathon 2026 Grand Finale — Comprehensive Workspace Audit
+## iQOO Hackathon 2026 Grand Finale: Comprehensive Workspace Audit
 
 **Audit Date**: September 25, 2026  
 **Auditor**: Senior Hackathon Research Strategist & Hardware-Aware AI Architect  

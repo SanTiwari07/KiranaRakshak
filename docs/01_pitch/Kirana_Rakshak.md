@@ -203,20 +203,20 @@ pie title Hackathon Build Effort Allocation
     "P2: Office Kit Display & Excel Export" : 15
 ```
 
-### P0 — MUST WORK (Red Light Phase, Hours 0–18)
+### P0: MUST WORK (Red Light Phase, Hours 0–18)
 1. 50MP Ultrawide multi-packet detection & counting (YOLO11n INT8).
 2. Printed wholesale invoice OCR & reconciliation engine.
 3. Local SQLite (Room) inventory schema with discrepancy logging.
 4. 3x Telemacro dot-matrix date parsing & checkout sale blocking with X-axis haptics.
 5. On-device Hindi voice query using deterministic SQLite fact generation.
 
-### P1 — MUST HAVE (Hours 18–24)
+### P1: MUST HAVE (Hours 18–24)
 6. Color Spectrum Sensor & 50Hz anti-banding exposure tuning for foil packaging.
 7. Top-Frame IR Blaster transmitter for deep-freezer / appliance actuation.
 8. Omnidirectional NFC 1-tap distributor check-in.
 9. NavIC L5 sub-meter Proof-of-Delivery stamping.
 
-### P2 — DIFFERENTIATOR (Green Light Phase, Hours 24–28)
+### P2: DIFFERENTIATOR (Green Light Phase, Hours 24–28)
 10. iQOO Office Kit dual-display presentation (Cashier HUD on phone, Customer Screen on laptop).
 11. One-click Excel audit report sync.
 12. Supercomputing Chip Q3 144Hz AR bounding box HUD polish.

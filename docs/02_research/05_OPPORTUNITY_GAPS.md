@@ -91,7 +91,7 @@ True hackathon winners pair two disparate hardware subsystems to produce emergen
 
 ---
 
-### Part 3: "Smartphone as X" — Archetype Opportunity Gaps
+### Part 3: "Smartphone as X": Archetype Opportunity Gaps
 
 To stand out in the judging rounds, an idea should fit a powerful, intuitive archetype:
 
