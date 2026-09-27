@@ -65,8 +65,8 @@ flowchart TD
         VPROF --> CAM2["Bill Photo Capture (PaddleOCR Mobile)"]
         CAM2 --> OCR["Extract Billed SKU Quantities"]
         YOLO & OCR --> RECON{"Physical Count == Billed Qty?"}
-        RECON -->|Mismatch| SHORT["⚠️ SHORT DELIVERY FLAGGED<br>₹ Owed by Vendor Stamped"]
-        RECON -->|Match| MATCH["✅ Delivery Matched"]
+        RECON -->|Mismatch| SHORT["SHORT DELIVERY FLAGGED<br>₹ Owed by Vendor Stamped"]
+        RECON -->|Match| MATCH["Delivery Matched"]
     end
 
     subgraph S2["② INVENTORY & PHYSICAL ACTUATION (IR Blaster)"]
@@ -81,7 +81,7 @@ flowchart TD
     subgraph S3["③ CHECKOUT & THEFT INTERCEPTION (Q3 + Haptics)"]
         CUST["Customer Brings Goods to Till"] --> Q3_HUD["Live 144Hz Neural Bounding Box HUD<br><i>Supercomputing Chip Q3</i>"]
         Q3_HUD --> POS_CHK{"Item Batch Expired?"}
-        POS_CHK -->|EXPIRED| BUZZ["📳 Violent Dual-Pulse Haptic Rumble<br><i>X-Axis Linear Motor</i><br>🛑 RED MODAL: SALE BLOCKED"]
+        POS_CHK -->|EXPIRED| BUZZ["Violent Dual-Pulse Haptic Rumble<br><i>X-Axis Linear Motor</i><br>RED MODAL: SALE BLOCKED"]
         POS_CHK -->|VALID| ADD_CART["Add to Cart → Mirror to Customer Screen<br><i>iQOO Office Kit</i>"]
         ADD_CART --> SOLD["Sale Logged, Stock Decremented"]
     end
@@ -175,7 +175,7 @@ flowchart LR
   * Presenter taps a mock distributor NFC card to the back of the phone. The phone instantly loads *"Rajesh - Nestle Distributor"*.
   * Snaps the 1.5m table using the **50MP Ultrawide Camera**.
   * Snaps the printed bill. Within 300ms, the phone triggers a **double-knock haptic pulse** and flashes:
-    > **⚠️ SHORT DELIVERY DETECTED**  
+    > **SHORT DELIVERY DETECTED**  
     > **Billed: 24 Maggi | Counted: 20 Maggi | Short: 4 units | Amount Owed: ₹56**  
     > *NavIC L5 Geostamp: 12.9716° N, 77.5946° E (Bengaluru Bazaar Verified)*
 * **[0:40 - 1:05] Catch 2: Cold-Chain Physical Actuation (IR Blaster):**
@@ -184,7 +184,7 @@ flowchart LR
 * **[1:05 - 1:30] Catch 3: Expired Sale Interception (Haptics):**
   * Presenter acts as a customer buying 2 valid items and 1 expired Parle-G.
   * Cashier scans them. The iQOO 15 emits an **aggressive continuous haptic buzz** and blocks the screen:
-    > **🛑 SALE BLOCKED: PARLE-G BATCH #84 EXPIRED ON 15-AUG-2026**
+    > **SALE BLOCKED: PARLE-G BATCH #84 EXPIRED ON 15-AUG-2026**
 * **[1:30 - 1:45] Catch 4: Spoken Hindi Query (Built-in Soundbox):**
   * Presenter taps mic: *"Rajesh vendor ne kitna kam maal diya?"*
   * High-SPL stereo speakers broadcast in Hindi: *"Rajesh vendor se 4 packet Maggi kam aaye the, kul chhappan rupaye lene baaki hain."*

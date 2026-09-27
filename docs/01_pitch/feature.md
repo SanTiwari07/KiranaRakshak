@@ -8,7 +8,7 @@
 
 ---
 
-# 📦 PART 1: COMPLETE CATALOG OF ALL 14 FEATURES
+# PART 1: COMPLETE CATALOG OF ALL 14 FEATURES
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -125,7 +125,7 @@
 
 ---
 
-# 🏆 PART 2: FEATURE RANKING BASED ON iQOO HARDWARE DEPTH
+# PART 2: FEATURE RANKING BASED ON iQOO HARDWARE DEPTH
 
 This ranking evaluates each feature across three criteria:
 1. **Hardware Exclusivity:** How rare is this hardware on modern smartphones? (Can an iPhone, Samsung, or laptop do it?)
@@ -166,7 +166,7 @@ graph TD
 
 ---
 
-## 🥇 TIER 1: The "Unfair Advantage" Hardware (Ranks 1 – 3)
+## TIER 1: The "Unfair Advantage" Hardware (Ranks 1 – 3)
 *These features are virtually impossible to run on generic competitor phones or cloud web apps.*
 
 | Rank | Feature | Hardware Subsystem | Why It Ranks at the Top |
@@ -177,7 +177,7 @@ graph TD
 
 ---
 
-## 🥈 TIER 2: Deep Optical & Display Silicon Synergy (Ranks 4 – 6)
+## TIER 2: Deep Optical & Display Silicon Synergy (Ranks 4 – 6)
 *These features leverage the camera optics and dedicated companion co-processor.*
 
 | Rank | Feature | Hardware Subsystem | Why It Ranks High |
@@ -188,7 +188,7 @@ graph TD
 
 ---
 
-## 🥉 TIER 3: Tactile, Acoustic & Thermal Durability (Ranks 7 – 10)
+## TIER 3: Tactile, Acoustic & Thermal Durability (Ranks 7 – 10)
 *Hardware that solves practical physical store challenges.*
 
 | Rank | Feature | Hardware Subsystem | Real-World Hardware Value |
@@ -200,7 +200,7 @@ graph TD
 
 ---
 
-## 🏅 TIER 4: Connectivity & Ecosystem Workflows (Ranks 11 – 12)
+## TIER 4: Connectivity & Ecosystem Workflows (Ranks 11 – 12)
 *Enables the hackathon's cross-device rules.*
 
 | Rank | Feature | Hardware Subsystem | Real-World Hardware Value |
@@ -210,7 +210,7 @@ graph TD
 
 ---
 
-# 📊 PART 3: OFFICIAL HACKATHON EVALUATION SCORECARD
+# PART 3: OFFICIAL HACKATHON EVALUATION SCORECARD
 
 Evaluating **Kirana Rakshak** against the **5 Official Grand Finale Judging Pillars**:
 
@@ -238,7 +238,7 @@ Evaluating **Kirana Rakshak** against the **5 Official Grand Finale Judging Pill
 
 ---
 
-## 🔗 Related Project Documents
+## Related Project Documents
 
 * **Master Concept & Story:** [Kirana_Rakshak.md](Kirana_Rakshak.md)
 * **Official Portal Submission Package:** [PHASE_1_SUBMISSION_PORTAL.md](PHASE_1_SUBMISSION_PORTAL.md)

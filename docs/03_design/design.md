@@ -1,4 +1,4 @@
-# 🎨 Kirana Rakshak App Design System (`design.md`)
+# Kirana Rakshak App Design System (`design.md`)
 
 This document is the complete UI/UX style guide and design system for **Kirana Rakshak** on the **iQOO 15** (OriginOS 6 / Android 16). 
 
@@ -8,7 +8,7 @@ All childish emojis have been replaced with **clean vector icons (Lucide Icon st
 
 ---
 
-## 🎯 1. Design Philosophy: 40–60 Year Old Kirana Shopkeeper Ergonomics
+## 1. Design Philosophy: 40–60 Year Old Kirana Shopkeeper Ergonomics
 
 A real Indian kirana shopkeeper (like Ramesh Bhai, age 52) has flour on his hands, presbyopia (+2.0D eyesight without reading glasses on the counter), 5 impatient customers shouting orders across the counter, and zero time or patience to hunt through nested menus, tiny icons, or complicated billing screens.
 
@@ -17,8 +17,8 @@ A real Indian kirana shopkeeper (like Ramesh Bhai, age 52) has flour on his hand
 Kirana Rakshak follows **4 Golden Senior-Ergonomic Rules**:
 
 1. **Strictly 2 Giant Buttons on the Home Screen (Zero Clutter):** The home screen contains ONLY TWO massive, unmistakable action blocks taking up the full screen height:
-   * 🟢 **`SELL ITEM (SCAN & BILL)`**: Giant chunky card (`215px` tall) in **Electric Lime (`#D4F639`)** with deep black text, high-contrast shopping cart icon, and direct tap target.
-   * ⚫ **`RECEIVE STOCK (FROM VENDOR)`**: Giant chunky card (`215px` tall) in **Deep Obsidian Black (`#151618`)** with lime accent crate icon, diagonal stripe texture, and direct tap target.
+   * **`SELL ITEM (SCAN & BILL)`**: Giant chunky card (`215px` tall) in **Electric Lime (`#D4F639`)** with deep black text, high-contrast shopping cart icon, and direct tap target.
+   * **`RECEIVE STOCK (FROM VENDOR)`**: Giant chunky card (`215px` tall) in **Deep Obsidian Black (`#151618`)** with lime accent crate icon, diagonal stripe texture, and direct tap target.
    * *No extra cards, no confusing menus, no distracting secondary buttons.* A 50-year-old shopkeeper sees only two giant choices.
 2. **Restricted Bilingual System (English Primary + Hindi):**
    * Keep only **English (Primary, active by default)** and **Hindi**.
@@ -26,7 +26,7 @@ Kirana Rakshak follows **4 Golden Senior-Ergonomic Rules**:
    * Single language active at a time; zero bracketed bilingual clutter on buttons.
 3. **Editable AI Values (Merchant in Full Control):**
    * Quantity adjustments via prominent `[-]` and `[+]` tactile buttons on every row (e.g. reduce 10 Maggi to 5).
-   * 1-tap `[Edit ✏️]` button beside every detected expiry date to manually override camera OCR errors.
+   * 1-tap `[Edit]` button beside every detected expiry date to manually override camera OCR errors.
    * Automatic invoice reconciliation flagging vendor shortages for bill deductions.
 4. **Familiar Behance Hardware Aesthetic:**
    * High-contrast **Electric Lime (`#D4F639`)** + **Deep Obsidian Black (`#151618`)**.
@@ -34,7 +34,7 @@ Kirana Rakshak follows **4 Golden Senior-Ergonomic Rules**:
 
 ---
 
-## 🎨 2. Color Palette (Behance Theme Tokens)
+## 2. Color Palette (Behance Theme Tokens)
 
 | Color Role | Hex Code | Visual Style | Where It Is Used |
 | :--- | :--- | :--- | :--- |
@@ -48,7 +48,7 @@ Kirana Rakshak follows **4 Golden Senior-Ergonomic Rules**:
 
 ---
 
-## 🔘 3. Button Shapes and Geometry
+## 3. Button Shapes and Geometry
 
 ### A. The 2 Giant Hero Action Blocks (`215px` Height)
 The home screen is dominated exclusively by the 2 core daily actions:
@@ -61,7 +61,7 @@ On every scanned item row, large `32px x 32px` buttons allow instant quantity re
 * `[+]` Button: Increments count.
 * Centered bold mono counter for immediate visual feedback.
 
-### C. 1-Tap Expiry Date Correction (`[Edit ✏️]`)
+### C. 1-Tap Expiry Date Correction (`[Edit]`)
 Adjacent to every detected expiry date is an active blue underline button that pops up an intuitive date picker/editor if the camera misreads packet text.
 
 ### D. The Original Floating Capsule Dock
@@ -72,11 +72,11 @@ Deep obsidian black capsule (`#151618`) floating above the bottom edge:
 
 ---
 
-## 🔤 4. Easy English Words (No Confusing Tech Jargon)
+## 4. Easy English Words (No Confusing Tech Jargon)
 
 We replaced all complicated developer terms with simple words that any shopkeeper understands in one second:
 
-| ❌ Complicated Developer Term | ✅ Easy Everyday English | 🇮🇳 Hindi / Hinglish Meaning |
+| Complicated Developer Term | Easy Everyday English | Hindi / Hinglish Meaning |
 | :--- | :--- | :--- |
 | *Intake Audit Ledger* | **Check Delivery** | माल चेक करें |
 | *Discrepancy Reconciliation Flagged* | **Missing Items Found** | कम सामान मिला |
@@ -92,30 +92,30 @@ We replaced all complicated developer terms with simple words that any shopkeepe
 
 ---
 
-## 📐 5. Icon System: Lucide Vector Outline Icons
+## 5. Icon System: Lucide Vector Outline Icons
 
 Instead of random colored emojis, Kirana Rakshak uses clean 1.5px–2px stroke **Lucide vector icons**:
 
-| Screen / Feature | Old Emoji | Lucide Icon Name | Visual Representation |
-| :--- | :---: | :--- | :--- |
-| **Delivery Intake** | 📦 | `package` | Clean square box outline |
-| **Camera Viewfinder** | 📷 | `camera` | Classic camera outline |
-| **Missing Item Alert** | ⚠️ | `alert-triangle` | Triangle with exclamation |
-| **Expired Sale Stop** | 🛑 | `shield-alert` / `octagon-x` | Octagon stop shield |
-| **Voice Assistant** | 🎙️ | `mic` | Studio microphone outline |
-| **Speaker / Soundbox** | 🔊 | `volume-2` | Loudspeaker with sound waves |
-| **Store Name** | 🏪 | `store` | Kirana storefront roof |
-| **Notification Bell** | 🔔 | `bell` | Bell with alert badge |
-| **Arrow Action** | ↗ | `arrow-up-right` | Clean 45-degree arrow |
-| **Confirm / Done** | ✓ | `check` | Checkmark |
-| **Cancel / Close** | ✕ | `x` | Dismiss cross |
-| **Location / GPS** | 📍 | `map-pin` | Geographic pin |
-| **Flash / Speed** | ⚡ | `zap` | High-voltage electric bolt |
-| **Bill / Receipt** | 📄 | `receipt` / `file-text` | Clean folded bill document |
+| Screen / Feature | Lucide Icon Name | Visual Representation |
+| :--- | :--- | :--- |
+| **Delivery Intake** | `package` | Clean square box outline |
+| **Camera Viewfinder** | `camera` | Classic camera outline |
+| **Missing Item Alert** | `alert-triangle` | Triangle with exclamation |
+| **Expired Sale Stop** | `shield-alert` / `octagon-x` | Octagon stop shield |
+| **Voice Assistant** | `mic` | Studio microphone outline |
+| **Speaker / Soundbox** | `volume-2` | Loudspeaker with sound waves |
+| **Store Name** | `store` | Kirana storefront roof |
+| **Notification Bell** | `bell` | Bell with alert badge |
+| **Arrow Action** | `arrow-up-right` | Clean 45-degree arrow |
+| **Confirm / Done** | `check` | Checkmark |
+| **Cancel / Close** | `x` | Dismiss cross |
+| **Location / GPS** | `map-pin` | Geographic pin |
+| **Flash / Speed** | `zap` | High-voltage electric bolt |
+| **Bill / Receipt** | `receipt` / `file-text` | Clean folded bill document |
 
 ---
 
-## 📱 6. Screen-by-Screen Layout Guide
+## 6. Screen-by-Screen Layout Guide
 
 ### Screen 1: Check Delivery (Audit Dashboard)
 * **Top Bar:** Shop name (`store` icon), Shopkeeper name (*Ramesh Bhai*), Quick Add (`plus` icon), Notification Bell (`bell` icon with red dot).
@@ -183,7 +183,7 @@ Instead of random colored emojis, Kirana Rakshak uses clean 1.5px–2px stroke *
 
 ---
 
-## 💻 7. Ready-to-Use Jetpack Compose Kotlin Code
+## 7. Ready-to-Use Jetpack Compose Kotlin Code
 
 Copy-paste these exact design tokens into your Android Studio project under `ui/theme/`:
 
@@ -259,7 +259,7 @@ fun KiranaRakshakTheme(content: @Composable () -> Unit) {
 
 ---
 
-## 📱 7. Authentic iQOO 15 Flagship Physical Form Factor & Chassis
+## 7. Authentic iQOO 15 Flagship Physical Form Factor & Chassis
 
 The UI prototype renders directly inside an accurate **iQOO 15 flagship smartphone frame**:
 
@@ -284,7 +284,7 @@ The UI prototype renders directly inside an accurate **iQOO 15 flagship smartpho
    * **Earpiece:** Micro-slit speaker grill flush with the top glass seam.
 
 4. **Rear Chassis ("Monster Halo" Camera Module):**
-   * Accessible via the 1-tap **`[ 🔄 View iQOO 15 Back (Monster Halo) ]`** toggle:
+   * Accessible via the 1-tap **`[ View iQOO 15 Back (Monster Halo) ]`** toggle:
      * **50MP Sony IMX921 VCS True Color Main Camera** (1/1.56", OIS)
      * **50MP Ultra-Wide Camera** (119° FOV, whole-counter delivery scanning)
      * **50MP Sony IMX882 3x Periscope Telemacro** (inkjet expiry reading from 25cm)
@@ -293,7 +293,7 @@ The UI prototype renders directly inside an accurate **iQOO 15 flagship smartpho
 
 ---
 
-## 🔗 Related Project Files
+## Related Project Files
 * **Grand Master Blueprint:** [master.md](../01_pitch/master.md)
 * **Core Proposal:** [Kirana_Rakshak.md](../01_pitch/Kirana_Rakshak.md)
 * **Interactive UI Prototype (iQOO 15):** [kiranaguard_behance_ui.html](../../prototype/kirana_rakshak_ui.html)

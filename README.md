@@ -56,7 +56,7 @@ Existing apps only record what the shopkeeper **types**. Kirana Rakshak checks w
 
 ---
 
-## 📱 Why only an iQOO 15
+## Why only an iQOO 15
 
 > **A shop audit needs sensors, not servers.**
 > Every step of the workflow depends on a specific part of the iQOO 15. Most ordinary phones, iPhones and laptops don't have these parts.
@@ -67,23 +67,23 @@ Existing apps only record what the shopkeeper **types**. Kirana Rakshak checks w
 
 ### The hardware, and the job each part does
 
-| | iQOO 15 hardware | Spec | Job in Kirana Rakshak |
-| :-: | --- | --- | --- |
-| 🧠 | **Snapdragon 8 Elite Gen 5 · Hexagon NPU** | 3 nm Oryon CPU (2× 4.32 GHz + 6× 3.53 GHz), Hexagon NPU 80+ TOPS, INT4/INT8/FP16 | Runs YOLO11n, PaddleOCR, Whisper and Laya side by side in INT8. Sub-300 ms audit with the radios off. |
-| ⚡ | **Supercomputing Chip Q3** | Dedicated display co-processor | Draws the 144 Hz AR bounding-box HUD over 30+ packets without taking cycles from the NPU. |
-| 📡 | **IR Blaster** | Top-frame emitter, 36–56 kHz, NEC / RC5 / RC6 | Fires a 38 kHz command that puts the shop's deep-freezer into super-freeze. The phone acts as the remote, with no smart plug. |
-| 🛰️ | **NavIC L5 dual-band GNSS** | GPS L1+L5, **NavIC L5**, Galileo, BeiDou, QZSS | Geo-tags every delivery with a SHA-256 hashed, tamper-proof proof-of-delivery. |
-| 🔭 | **50 MP 3× Periscope telemacro** | Sony IMX882, 1/1.95", 73 mm, OIS, 15 cm macro | Reads faint dot-matrix expiry dates from 25 cm away without the phone's shadow on the packet. |
-| 📐 | **50 MP Ultra-wide** | Samsung JN1, 1/2.76", 119° FoV | Fits the whole 1.5 m counter (30 packets) in one frame, no stitching. |
-| 📷 | **50 MP Main** | Sony IMX921 VCS, 1/1.56", f/1.68, OIS | Sharp bill and challan photos in dim shop light. |
-| 🌈 | **Color Spectrum Sensor + Triple ALS** | CCT (Kelvin), 50/60 Hz flicker detection | Locks 50 Hz anti-banding so tube-light flicker and foil glare don't blind the camera. |
-| 📳 | **X-axis linear haptic motor** | Sub-10 ms response, 150–220 Hz | A 500 ms rumble blocks an expired sale. In an 80 dB bazaar, a vibration in the hand is noticed where a beep is not. |
-| 🔊 | **Dual stereo speakers** | Symmetrical, smart PA | A built-in "Kirana Soundbox" that reads Hindi answers aloud and saves ₹125/month in soundbox rent. |
-| 🎙️ | **Triple MEMS mic array** | Beamforming, 96 kHz / 24-bit | Picks up Hindi / Hinglish questions across a noisy counter. |
-| 🪪 | **NFC** | ISO 14443 A/B, ISO 15693, HCE | 1-tap distributor check-in. The vendor ledger opens in < 100 ms. |
-| 👆 | **3D Ultrasonic fingerprint** | Qualcomm 3D Sonic Gen 2 | Locks purchase rates and supplier debts. Works through flour, dust and oil on the shopkeeper's fingers. |
-| 🔋 | **7000 mAh Si-C battery + vapor chamber** | 100 W FlashCharge, 7000+ mm² VC | 12 hours on the counter below 37 °C, through power cuts. |
-| 💻 | **iQOO Office Kit** | Phone ↔ PC mirroring, drag-and-drop, shared clipboard | Shows the customer bill on a second screen and sends a reconciled Excel sheet to the laptop in one click. |
+| iQOO 15 hardware | Spec | Job in Kirana Rakshak |
+| --- | --- | --- |
+| **Snapdragon 8 Elite Gen 5 · Hexagon NPU** | 3 nm Oryon CPU (2× 4.32 GHz + 6× 3.53 GHz), Hexagon NPU 80+ TOPS, INT4/INT8/FP16 | Runs YOLO11n, PaddleOCR, Whisper and Laya side by side in INT8. Sub-300 ms audit with the radios off. |
+| **Supercomputing Chip Q3** | Dedicated display co-processor | Draws the 144 Hz AR bounding-box HUD over 30+ packets without taking cycles from the NPU. |
+| **IR Blaster** | Top-frame emitter, 36–56 kHz, NEC / RC5 / RC6 | Fires a 38 kHz command that puts the shop's deep-freezer into super-freeze. The phone acts as the remote, with no smart plug. |
+| **NavIC L5 dual-band GNSS** | GPS L1+L5, **NavIC L5**, Galileo, BeiDou, QZSS | Geo-tags every delivery with a SHA-256 hashed, tamper-proof proof-of-delivery. |
+| **50 MP 3× Periscope telemacro** | Sony IMX882, 1/1.95", 73 mm, OIS, 15 cm macro | Reads faint dot-matrix expiry dates from 25 cm away without the phone's shadow on the packet. |
+| **50 MP Ultra-wide** | Samsung JN1, 1/2.76", 119° FoV | Fits the whole 1.5 m counter (30 packets) in one frame, no stitching. |
+| **50 MP Main** | Sony IMX921 VCS, 1/1.56", f/1.68, OIS | Sharp bill and challan photos in dim shop light. |
+| **Color Spectrum Sensor + Triple ALS** | CCT (Kelvin), 50/60 Hz flicker detection | Locks 50 Hz anti-banding so tube-light flicker and foil glare don't blind the camera. |
+| **X-axis linear haptic motor** | Sub-10 ms response, 150–220 Hz | A 500 ms rumble blocks an expired sale. In an 80 dB bazaar, a vibration in the hand is noticed where a beep is not. |
+| **Dual stereo speakers** | Symmetrical, smart PA | A built-in "Kirana Soundbox" that reads Hindi answers aloud and saves ₹125/month in soundbox rent. |
+| **Triple MEMS mic array** | Beamforming, 96 kHz / 24-bit | Picks up Hindi / Hinglish questions across a noisy counter. |
+| **NFC** | ISO 14443 A/B, ISO 15693, HCE | 1-tap distributor check-in. The vendor ledger opens in < 100 ms. |
+| **3D Ultrasonic fingerprint** | Qualcomm 3D Sonic Gen 2 | Locks purchase rates and supplier debts. Works through flour, dust and oil on the shopkeeper's fingers. |
+| **7000 mAh Si-C battery + vapor chamber** | 100 W FlashCharge, 7000+ mm² VC | 12 hours on the counter below 37 °C, through power cuts. |
+| **iQOO Office Kit** | Phone ↔ PC mirroring, drag-and-drop, shared clipboard | Shows the customer bill on a second screen and sends a reconciled Excel sheet to the laptop in one click. |
 
 <div align="center">
 <img src="assets/screenshots/site_matrix.png" alt="Hardware synergy map: 12 parts of the iQOO 15, each one has a job" width="100%" />
@@ -100,7 +100,7 @@ Existing apps only record what the shopkeeper **types**. Kirana Rakshak checks w
 
 ---
 
-## 🕘 A day at the counter
+## A day at the counter
 
 A day at *Shree Ganesh Kirana* with Ramesh Bhai, and the iQOO 15 hardware used at each step.
 
@@ -178,7 +178,7 @@ The customer bill is mirrored to a second screen while cost prices stay private 
 
 ---
 
-## ✈️ Pull the plug. Nothing changes.
+## Pull the plug. Nothing changes.
 
 Five models share the Snapdragon 8 Elite Gen 5 NPU. **No OpenAI, no AWS, no Firebase.** Everything runs in Airplane Mode.
 
@@ -189,10 +189,10 @@ Five models share the Snapdragon 8 Elite Gen 5 NPU. **No OpenAI, no AWS, no Fire
 ```mermaid
 flowchart LR
     subgraph IN["iQOO 15 sensors"]
-        CAM["📷 Ultra-wide 119° + 3× Telemacro"]
-        NFC["🪪 NFC + 🛰️ NavIC L5"]
-        MIC["🎙️ Triple mic array"]
-        ALS["🌈 Color Spectrum + ALS"]
+        CAM["Ultra-wide 119° + 3× Telemacro"]
+        NFC["NFC + NavIC L5"]
+        MIC["Triple mic array"]
+        ALS["Color Spectrum + ALS"]
     end
     subgraph NPU["Snapdragon 8 Elite Gen 5 · Hexagon NPU"]
         YOLO["YOLO11n INT8"]
@@ -202,10 +202,10 @@ flowchart LR
     end
     DB[("SQLite ledger<br/>batches · vendors")]
     subgraph OUT["iQOO 15 actuators"]
-        HAP["📳 Haptic gate"]
-        IR["📡 IR Blaster → freezer"]
-        SPK["🔊 Stereo soundbox"]
-        OK["💻 Office Kit → laptop"]
+        HAP["Haptic gate"]
+        IR["IR Blaster → freezer"]
+        SPK["Stereo soundbox"]
+        OK["Office Kit → laptop"]
     end
     CAM --> YOLO & OCR
     ALS --> CAM
@@ -219,7 +219,7 @@ flowchart LR
 
 ---
 
-## 🚀 Run it
+## Run it
 
 This repo contains the **showcase website** (a scroll-driven 3D iQOO 15) and the **app prototype** that runs inside the phone on the site.
 
@@ -236,7 +236,7 @@ Then open:
 
 ---
 
-## 📂 Folder map
+## Folder map
 
 ```
 KiranaRakshak/
@@ -276,6 +276,6 @@ KiranaRakshak/
 
 Built for the **iQOO Hackathon 2026** Grand Finale, Bengaluru
 
-<sub>🛡️ Made for India's 12 million kiranas, running on one iQOO 15.</sub>
+<sub>Made for India's 12 million kiranas, running on one iQOO 15.</sub>
 
 </div>

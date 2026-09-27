@@ -130,7 +130,7 @@ journey
 * **NavIC L5:** The phone captures sub-meter coordinates, creating an unalterable Proof-of-Delivery tag.
 * **Color Spectrum Calibrated Photo:** Ramesh snaps the counter with the 50MP Ultrawide lens (119° FOV). The Color Spectrum Sensor kills 50Hz tube-light flicker.
 * **The Catch (<300ms):** YOLO11n counts 20 packets. PaddleOCR reads 24 on the bill. The phone double-knocks with haptic feedback:
-  > **⚠️ SHORT DELIVERY: Billed 24 | Counted 20 | Short 4 | Vendor owes ₹56.00**
+  > **SHORT DELIVERY: Billed 24 | Counted 20 | Short 4 | Vendor owes ₹56.00**
 * **Result:** Ramesh immediately deducts ₹56 from the payment. Cash saved on the spot.
 
 ### Scene 2: 11:30 AM · Stocking Dairy & IR Actuation
@@ -168,8 +168,8 @@ flowchart TD
         VPROF --> CAM2["Bill Photo Capture (PaddleOCR Mobile)"]
         CAM2 --> OCR["Extract Billed SKU Quantities"]
         YOLO & OCR --> RECON{"Physical Count == Billed Qty?"}
-        RECON -->|Mismatch| SHORT["⚠️ SHORT DELIVERY FLAGGED<br>₹ Owed by Vendor Stamped"]
-        RECON -->|Match| MATCH["✅ Delivery Matched"]
+        RECON -->|Mismatch| SHORT["SHORT DELIVERY FLAGGED<br>₹ Owed by Vendor Stamped"]
+        RECON -->|Match| MATCH["Delivery Matched"]
     end
 
     subgraph S2["② INVENTORY & PHYSICAL ACTUATION (IR Blaster)"]
@@ -184,7 +184,7 @@ flowchart TD
     subgraph S3["③ CHECKOUT & THEFT INTERCEPTION (Q3 + Haptics)"]
         CUST["Customer Brings Goods to Till"] --> Q3_HUD["Live 144Hz Neural Bounding Box HUD<br><i>Supercomputing Chip Q3</i>"]
         Q3_HUD --> POS_CHK{"Item Batch Expired?"}
-        POS_CHK -->|EXPIRED| BUZZ["📳 Violent Dual-Pulse Haptic Rumble<br><i>X-Axis Linear Motor</i><br>🛑 RED MODAL: SALE BLOCKED"]
+        POS_CHK -->|EXPIRED| BUZZ["Violent Dual-Pulse Haptic Rumble<br><i>X-Axis Linear Motor</i><br>RED MODAL: SALE BLOCKED"]
         POS_CHK -->|VALID| ADD_CART["Add to Cart → Mirror to Customer Screen<br><i>iQOO Office Kit</i>"]
         ADD_CART --> SOLD["Sale Logged, Stock Decremented"]
     end
@@ -345,7 +345,7 @@ graph TD
 └─────────────────────┴──────────────────────┴─────────────┴─────────────┘
 ```
 
-* **Cloud APIs:** ❌ **ZERO.** (No OpenAI, Anthropic, AWS, or Firebase).
+* **Cloud APIs:** **ZERO.** (No OpenAI, Anthropic, AWS, or Firebase).
 * **Airplane Mode Safe:** Operates with Wi-Fi OFF and Cellular OFF.
 * **Deterministic Fact Engine:** The local SLM never generates numbers; it phrases verified SQLite query results into fluent Hindi, eliminating hallucinations.
 
@@ -494,7 +494,7 @@ flowchart LR
   Presenter puts the iQOO 15 into **Airplane Mode (Wi-Fi OFF, Cellular OFF)**. Introduces Ramesh's daily reality: *"Distributor arrives with 20 items, charges for 24, and leaves. Ramesh loses ₹56 in 10 seconds."*
 * **[0:15 – 0:40] Catch 1: NFC Tap & Short Delivery Live Audit:**
   Presenter taps a mock distributor NFC card. The phone loads *"Rajesh - Nestle"*. Snaps the table with the **50MP Ultrawide Camera** (calibrated via Color Spectrum Sensor). Snaps the bill. Within 300ms:
-  **"⚠️ SHORT DELIVERY DETECTED: Bill says 24 Maggi. Counted 20. Short: 4. Vendor owes ₹56."**  
+  **"SHORT DELIVERY DETECTED: Bill says 24 Maggi. Counted 20. Short: 4. Vendor owes ₹56."**  
   *Stamps NavIC L5 sub-meter coordinates.*
 * **[0:40 – 1:00] Catch 2: Cold-Chain Physical Actuation (IR Blaster):**
   Presenter logs dairy/ice-cream intake. The phone triggers its **Top-Frame IR Blaster** to pulse a signal to a benchtop IR receiver, lighting up an LED on the judging table.

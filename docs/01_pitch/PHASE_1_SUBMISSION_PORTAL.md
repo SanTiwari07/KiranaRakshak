@@ -48,7 +48,7 @@ flowchart LR
     C --> E[On-Device YOLO11n Multi-Packet Counting]
     D --> F[On-Device PaddleOCR Extraction]
     E & F --> G[Reconciliation Engine]
-    G -->|Mismatch| H[⚠️ Shortage Flagged: ₹ Owed Stamped]
+    G -->|Mismatch| H[Shortage Flagged: ₹ Owed Stamped]
     G -->|Match| I[Verified Stock into Local SQLite]
     I --> J[IR Blaster: Pulse Deep Freezer / Chiller]
     I --> K[Sale Interception: Expiry Block + Haptic Buzz]
@@ -135,7 +135,7 @@ Kirana Rakshak fully implements the hackathon’s **Red Light vs. Green Light** 
   Presenter puts the iQOO 15 in **Airplane Mode (Wi-Fi OFF, Cellular OFF)**. Introduces Ramesh's reality: *"Distributor arrives with 20 items, charges for 24, and leaves. Ramesh loses ₹56 in 10 seconds."*
 * **[0:15 – 0:40] Catch 1: NFC Tap & Short Delivery Live Audit:**
   Presenter taps a mock distributor NFC card. The phone loads *"Rajesh - Nestle"*. Snaps the table with the **50MP Ultrawide Camera** (calibrated via Color Spectrum Sensor). Snaps the bill. Within 300ms, the screen flashes:
-  **"⚠️ SHORT DELIVERY DETECTED: Bill says 24 Maggi. Counted 20. Short: 4. Vendor owes ₹56."**  
+  **"SHORT DELIVERY DETECTED: Bill says 24 Maggi. Counted 20. Short: 4. Vendor owes ₹56."**  
   *Stamps NavIC L5 sub-meter coordinates.*
 * **[0:40 – 1:00] Catch 2: Cold-Chain Physical Actuation (IR Blaster):**
   Presenter logs dairy/ice-cream intake. The phone triggers its **Top-Frame IR Blaster** to pulse a signal to a benchtop IR receiver, demonstrating physical cooling actuation.

@@ -1,4 +1,4 @@
-# 👓 UX Research: Designing for 40–60 Year Old Indian Kirana Shopkeepers
+# UX Research: Designing for 40–60 Year Old Indian Kirana Shopkeepers
 ## Kirana Rakshak · Team HoloTrio · iQOO Hackathon 2026 Grand Finale
 
 **Target Persona:** *Ramesh Bhai* (Age 52), *Gupta Ji* (Age 58), *Suresh Uncle* (Age 47).  
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 1. The Physical & Cognitive Reality of a 40–60 Year Old Kirana Merchant
+## 1. The Physical & Cognitive Reality of a 40–60 Year Old Kirana Merchant
 
 ### A. Presbyopia & Deteriorating Eyesight (40+ Age Effect)
 * **No Spectacles on Counter:** 85%+ of Indian shopkeepers over 45 have presbyopia (+1.5D to +2.5D), but they **do not wear reading glasses** while working because they are constantly alternating between looking at customers 2 meters away and looking down at the counter.
@@ -31,12 +31,12 @@
 * **The Mental Models They Already Love & Trust:**
   1. **WhatsApp:** A giant green voice note microphone button that you simply hold to talk, and large contact avatars.
   2. **Paytm / PhonePe Soundbox:** A physical loudspeaker that shouts out loud in Hindi: *"Paytm par pachaas rupaye prapt hue"*. It requires **zero button taps** and 100% audio trust.
-  3. **Khatabook / OKCredit:** Two giant colored blocks: **🟢 "₹ Diye" (Gave)** and **🔴 "₹ Liye" (Took)**.
+  3. **Khatabook / OKCredit:** Two giant colored blocks: **"₹ Diye" (Gave)** and **"₹ Liye" (Took)**.
   4. **Electronic Weighing Scale:** Giant glowing 7-segment red/green LED digits that can be read from 3 meters away.
 
 ---
 
-## 🎨 2. The 5 Golden Rules of "Bharat Kirana" UI Design
+## 2. The 5 Golden Rules of "Bharat Kirana" UI Design
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -52,8 +52,8 @@
 
 ### Rule 1: 3-Second Comprehension (Strictly 2 Giant Hero Cards on Home Screen)
 The home screen must not look like an analytics dashboard. It must look like a physical machine with ONLY two giant switches:
-* 🟢 **SWITCH 1 (Electric Lime #D4F639):** **SELL ITEM (SCAN & BILL)**
-* ⚫ **SWITCH 2 (Deep Obsidian Black #151618):** **RECEIVE STOCK (FROM VENDOR)**
+* **SWITCH 1 (Electric Lime #D4F639):** **SELL ITEM (SCAN & BILL)**
+* **SWITCH 2 (Deep Obsidian Black #151618):** **RECEIVE STOCK (FROM VENDOR)**
 * *No extra clutter, no secondary menus crowding the home screen.*
 
 ### Rule 2: Single Language at a Time (English Primary + Hindi Option)
@@ -95,7 +95,7 @@ Judges need to see the iQOO 15 hardware depth, but the shopkeeper needs to see h
 
 ---
 
-## 📐 3. The New Ergonomic Screen Blueprint
+## 3. The New Ergonomic Screen Blueprint
 
 ### Home Screen (Counter Mode):
 1. **Header:** Shop Name (*Ganesh Kirana*) + Today's Profit (*₹1,840 Saved Today*).
