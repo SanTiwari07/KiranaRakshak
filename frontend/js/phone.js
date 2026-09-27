@@ -54,24 +54,22 @@
           <div class="lens main" data-hs="main"><b></b><i></i></div>
           <div class="lens tele" data-hs="tele"><b></b><i></i></div>
           <div class="lens uw" data-hs="uw"><b></b><i></i></div>
-          <div class="flash"></div>
-          <div class="spectrum" data-hs="spec"></div>
-          <div class="mic-hole"></div>
-          <span class="lens-txt t1">50M OIS</span>
-          <span class="lens-txt t2">PERISCOPE 3X</span>
+          <div class="lens flash-well" data-hs="spec"><span class="flash"></span><span class="spectrum"></span></div>
+          <span class="lens-txt">100X<small>TELE LENS</small></span>
         </div>
         <span class="hs" data-for="uw">1</span>
         <span class="hs" data-for="tele">2</span>
         <span class="hs" data-for="main">3</span>
         <span class="hs" data-for="spec">4</span>
       </div>
-      <svg class="checker" viewBox="0 0 30 40" aria-hidden="true">
-        <path d="M3 4l8 5-8 5 8 5" stroke="#2F7FD8"/>
-        <path d="M11 4l8 5-8 5 8 5" stroke="#1B2350"/>
-        <path d="M19 4l8 5-8 5 8 5" stroke="#E0282E"/>
-        <rect x="4" y="26" width="5" height="5" fill="#2F7FD8"/><rect x="9" y="31" width="5" height="5" fill="#1B2350"/>
-        <rect x="14" y="26" width="5" height="5" fill="#E0282E"/><rect x="19" y="31" width="5" height="5" fill="#F07F1E"/>
+      <svg class="checker" viewBox="0 0 20 28" aria-hidden="true">
+        <rect x="12" y="0" width="4" height="4" fill="#F6C21C"/><rect x="16" y="4" width="4" height="4" fill="#F6C21C"/>
+        <rect x="8" y="4" width="4" height="4" fill="#F39A1E"/><rect x="12" y="8" width="4" height="4" fill="#F39A1E"/>
+        <rect x="4" y="8" width="4" height="4" fill="#EC6A1F"/><rect x="8" y="12" width="4" height="4" fill="#E0282E"/>
+        <rect x="0" y="12" width="4" height="4" fill="#E0282E"/><rect x="4" y="16" width="4" height="4" fill="#1B1B1F"/>
+        <rect x="0" y="20" width="4" height="4" fill="#1B1B1F"/><rect x="8" y="20" width="4" height="4" fill="#1B1B1F"/>
       </svg>
+      <div class="monster"><span>Monster</span><span>Inside</span></div>
       <div class="wordmark v">iQOO</div>
       <div class="wordmark h">iQOO</div>
     </div>
