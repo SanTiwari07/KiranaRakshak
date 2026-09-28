@@ -1,6 +1,6 @@
 /* =====================================================================
-   Chaukas · 3D iQOO 15 (pure CSS 3D) + live prototype bridge
-   The screen is the real app: ../prototype/chaukas_ui.html in an iframe.
+   Kounter · 3D iQOO 15 (pure CSS 3D) + live prototype bridge
+   The screen is the real app: ../prototype/kounter_ui.html in an iframe.
    ===================================================================== */
 (function () {
   'use strict';
@@ -10,7 +10,7 @@
   const APP_W = 375;                                  // virtual viewport the prototype is laid out in
   const SCALE = (W - 2 * BEZEL) / APP_W;
   const APP_H = Math.round((H - 2 * BEZEL) / SCALE);
-  const APP_URL = '../prototype/chaukas_ui.html';
+  const APP_URL = '../prototype/kounter_ui.html';
 
   const mount = document.getElementById('phone-mount');
   if (!mount) return;
@@ -37,11 +37,11 @@
     <!-- FRONT: glass + live app -->
     <div class="face front">
       <div class="screen">
-        <iframe id="app-frame" title="Chaukas live prototype" src="${APP_URL}#home"
+        <iframe id="app-frame" title="Kounter live prototype" src="${APP_URL}#home"
           width="${APP_W}" height="${APP_H}" loading="eager"
           style="width:${APP_W}px;height:${APP_H}px;transform:scale(${SCALE})"></iframe>
         <div class="fp-scan"><svg viewBox="0 0 48 48"><path d="M14 30c0-6 4-11 10-11s10 5 10 11M18 34c0-4 2-9 6-9s6 4 6 9M24 30v8M10 22c3-6 8-9 14-9s11 3 14 9M16 12c2-1 5-2 8-2s6 1 8 2"/></svg><span>3D Ultrasonic · verified</span></div>
-        <div class="screen-boot"><svg viewBox="0 0 64 64"><path d="M8 20v-8a4 4 0 0 1 4-4h8M44 8h8a4 4 0 0 1 4 4v8M56 44v8a4 4 0 0 1-4 4h-8M20 56h-8a4 4 0 0 1-4-4v-8" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(14 14) scale(.5625)"><path d="M5 32C13 19 22 13 32 13s19 6 27 19c-8 13-17 19-27 19S13 45 5 32z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><circle cx="32" cy="32" r="9" fill="currentColor" stroke="none"/></g></svg><span>Chaukas</span></div>
+        <div class="screen-boot"><svg viewBox="0 0 64 64"><circle cx="10" cy="10" r="4.6" fill="currentColor"/><circle cx="21" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="10" r="4.6" fill="currentColor"/><circle cx="10" cy="21" r="4.6" fill="currentColor"/><circle cx="21" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="21" r="4.6" fill="currentColor"/><circle cx="54" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="32" r="4.6" fill="currentColor"/><circle cx="21" cy="32" r="4.6" fill="currentColor"/><circle cx="32" cy="32" r="4.6" fill="#FF5722"/><circle cx="43" cy="32" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="32" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="43" r="4.6" fill="currentColor"/><circle cx="21" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="43" r="4.6" fill="currentColor"/><circle cx="54" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="54" r="4.6" fill="currentColor"/><circle cx="21" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="54" r="4.6" fill="currentColor"/></svg><span>Kounter</span></div>
         <div class="glare"></div>
       </div>
     </div>

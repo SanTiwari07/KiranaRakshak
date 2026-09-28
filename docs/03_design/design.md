@@ -1,6 +1,6 @@
-# Chaukas App Design System (`design.md`)
+# Kounter App Design System (`design.md`)
 
-This document is the complete UI/UX style guide and design system for **Chaukas** on the **iQOO 15** (OriginOS 6 / Android 16). 
+This document is the complete UI/UX style guide and design system for **Kounter** on the **iQOO 15** (OriginOS 6 / Android 16). 
 
 It establishes a high-contrast, lightning-fast utilitarian design language engineered for everyday Indian shop, godown and factory-store owners. 
 
@@ -14,7 +14,7 @@ A real Indian shopkeeper (like Ramesh Bhai, age 52) has flour on his hands, pres
 
 *(See full research foundation in [`SHOPKEEPER_UX_RESEARCH.md`](../02_research/SHOPKEEPER_UX_RESEARCH.md))*
 
-Chaukas follows **4 Golden Senior-Ergonomic Rules**:
+Kounter follows **4 Golden Senior-Ergonomic Rules**:
 
 1. **Strictly 2 Giant Buttons on the Home Screen (Zero Clutter):** The home screen contains ONLY TWO massive, unmistakable action blocks taking up the full screen height:
    * **`SELL ITEM (SCAN & BILL)`**: Giant chunky card (`215px` tall) in **Electric Lime (`#D4F639`)** with deep black text, high-contrast shopping cart icon, and direct tap target.
@@ -94,7 +94,7 @@ We replaced all complicated developer terms with simple words that any shopkeepe
 
 ## 5. Icon System: Lucide Vector Outline Icons
 
-Instead of random colored emojis, Chaukas uses clean 1.5px–2px stroke **Lucide vector icons**:
+Instead of random colored emojis, Kounter uses clean 1.5px–2px stroke **Lucide vector icons**:
 
 | Screen / Feature | Lucide Icon Name | Visual Representation |
 | :--- | :--- | :--- |
@@ -189,7 +189,7 @@ Copy-paste these exact design tokens into your Android Studio project under `ui/
 
 ### `Color.kt`
 ```kotlin
-package com.chaukas.app.ui.theme
+package com.kounter.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -209,13 +209,13 @@ val LightDivider = Color(0x0F000000)
 
 ### `Shape.kt`
 ```kotlin
-package com.chaukas.app.ui.theme
+package com.kounter.app.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
-val ChaukasShapes = Shapes(
+val KounterShapes = Shapes(
     small = RoundedCornerShape(16.dp),    // Badges & Filter chips
     medium = RoundedCornerShape(24.dp),   // Sub-cards & dialogs
     large = RoundedCornerShape(32.dp),    // Bento grid cards & Viewfinder
@@ -225,13 +225,13 @@ val ChaukasShapes = Shapes(
 
 ### `Theme.kt`
 ```kotlin
-package com.chaukas.app.ui.theme
+package com.kounter.app.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-private val ChaukasLightColorScheme = lightColorScheme(
+private val KounterLightColorScheme = lightColorScheme(
     primary = DeepCharcoal,
     onPrimary = CardWhite,
     primaryContainer = ElectricLime,
@@ -247,11 +247,11 @@ private val ChaukasLightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun ChaukasTheme(content: @Composable () -> Unit) {
+fun KounterTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = ChaukasLightColorScheme,
-        shapes = ChaukasShapes,
-        typography = ChaukasTypography,
+        colorScheme = KounterLightColorScheme,
+        shapes = KounterShapes,
+        typography = KounterTypography,
         content = content
     )
 }
@@ -270,7 +270,7 @@ The UI prototype renders directly inside an accurate **iQOO 15 flagship smartpho
 
 2. **Physical Hardware Rails:**
    * **Top Rail (Hardware Sensors & Acoustics):**
-     * **IR Blaster Diode:** Dedicated circular infrared emitter on the top frame used by Chaukas to actuate and lock store deep-freezers into super-freeze mode.
+     * **IR Blaster Diode:** Dedicated circular infrared emitter on the top frame used by Kounter to actuate and lock store deep-freezers into super-freeze mode.
      * **Secondary Noise-Canceling Microphone:** Dedicated acoustic pin-hole for hands-free Hindi voice filtering in noisy bazaars.
      * **Top Stereo Speaker Vent:** High-SPL acoustic chamber forming a symmetrical 130dB Soundbox with the bottom speaker.
    * **Right Rail (Physical Tactile Controls):**
@@ -295,7 +295,7 @@ The UI prototype renders directly inside an accurate **iQOO 15 flagship smartpho
 
 ## Related Project Files
 * **Grand Master Blueprint:** [master.md](../01_pitch/master.md)
-* **Core Proposal:** [Chaukas.md](../01_pitch/Chaukas.md)
-* **Interactive UI Prototype (iQOO 15):** [chaukas_ui.html](../../prototype/chaukas_ui.html)
+* **Core Proposal:** [Kounter.md](../01_pitch/Kounter.md)
+* **Interactive UI Prototype (iQOO 15):** [kounter_ui.html](../../prototype/kounter_ui.html)
 * **Hardware & Sensor Dossier:** [iQOO_15_Hackathon_Hardware_Dossier.md](../02_research/iQOO_15_Hackathon_Hardware_Dossier.md)
 * **Engineering Specs:** [TECHNICAL_SPEC_AND_ROADMAP.md](../04_engineering/TECHNICAL_SPEC_AND_ROADMAP.md)

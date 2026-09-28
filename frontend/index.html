@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaukas · Built on iQOO 15</title>
-  <meta name="description" content="Chaukas turns the iQOO 15 into an offline AI guard for stock in Indian shops, factory stores and godowns: it counts deliveries, blocks expired sales, controls the freezer over IR and answers in Hindi.">
+  <title>Kounter · Built on iQOO 15</title>
+  <meta name="description" content="Kounter turns the iQOO 15 into an offline AI guard for stock in Indian shops, factory stores and godowns: it counts deliveries, blocks expired sales, controls the freezer over IR and answers in Hindi.">
   <meta name="theme-color" content="#0B0C0E">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23151618'/%3E%3Cg transform='translate(6 6) scale(.8125)'%3E%3Cpath d='M8 20v-8a4 4 0 0 1 4-4h8M44 8h8a4 4 0 0 1 4 4v8M56 44v8a4 4 0 0 1-4 4h-8M20 56h-8a4 4 0 0 1-4-4v-8' fill='none' stroke='%23D4F639' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg transform='translate(14 14) scale(.5625)'%3E%3Cpath d='M5 32C13 19 22 13 32 13s19 6 27 19c-8 13-17 19-27 19S13 45 5 32z' fill='none' stroke='%23D4F639' stroke-width='8' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23D4F639' stroke='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Crect width='64' height='64' rx='16' fill='%23151618'/%3E%3Cg transform='translate(9 9) scale(.71875)'%3E%3Ccircle cx='10' cy='10' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='21' cy='10' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='32' cy='10' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='43' cy='10' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='54' cy='10' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='10' cy='21' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='21' cy='21' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='32' cy='21' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='43' cy='21' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='54' cy='21' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='10' cy='32' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='21' cy='32' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='32' cy='32' r='4.6' fill='%23FF5722'/%3E%3Ccircle cx='43' cy='32' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='54' cy='32' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='10' cy='43' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='21' cy='43' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='32' cy='43' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='43' cy='43' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='54' cy='43' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='10' cy='54' r='4.6' fill='%23D4F639'/%3E%3Ccircle cx='21' cy='54' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='32' cy='54' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='43' cy='54' r='4.6' fill='%23D4F639' fill-opacity='.16'/%3E%3Ccircle cx='54' cy='54' r='4.6' fill='%23D4F639'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
   <!-- ============ LOADER ============ -->
   <div id="loader">
     <div class="loader-mark">
-      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 20v-8a4 4 0 0 1 4-4h8M44 8h8a4 4 0 0 1 4 4v8M56 44v8a4 4 0 0 1-4 4h-8M20 56h-8a4 4 0 0 1-4-4v-8" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(14 14) scale(.5625)"><path d="M5 32C13 19 22 13 32 13s19 6 27 19c-8 13-17 19-27 19S13 45 5 32z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><circle cx="32" cy="32" r="9" fill="currentColor" stroke="none"/></g></svg>
-      <span>CHAUKAS</span>
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="10" cy="10" r="4.6" fill="currentColor"/><circle cx="21" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="10" r="4.6" fill="currentColor"/><circle cx="10" cy="21" r="4.6" fill="currentColor"/><circle cx="21" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="21" r="4.6" fill="currentColor"/><circle cx="54" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="32" r="4.6" fill="currentColor"/><circle cx="21" cy="32" r="4.6" fill="currentColor"/><circle cx="32" cy="32" r="4.6" fill="#FF5722"/><circle cx="43" cy="32" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="32" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="43" r="4.6" fill="currentColor"/><circle cx="21" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="43" r="4.6" fill="currentColor"/><circle cx="54" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="54" r="4.6" fill="currentColor"/><circle cx="21" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="54" r="4.6" fill="currentColor"/></svg>
+      <span>KOUNTER</span>
     </div>
     <div class="loader-bar"><i></i></div>
     <p class="loader-note mono">Booting Hexagon NPU · 0 cloud calls</p>
@@ -32,8 +32,8 @@
   <!-- ============ NAV ============ -->
   <header class="nav">
     <a href="#hero" class="brand">
-      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 20v-8a4 4 0 0 1 4-4h8M44 8h8a4 4 0 0 1 4 4v8M56 44v8a4 4 0 0 1-4 4h-8M20 56h-8a4 4 0 0 1-4-4v-8" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(14 14) scale(.5625)"><path d="M5 32C13 19 22 13 32 13s19 6 27 19c-8 13-17 19-27 19S13 45 5 32z" fill="none" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/><circle cx="32" cy="32" r="9" fill="currentColor" stroke="none"/></g></svg>
-      <span>CHAUKAS</span>
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="10" cy="10" r="4.6" fill="currentColor"/><circle cx="21" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="10" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="10" r="4.6" fill="currentColor"/><circle cx="10" cy="21" r="4.6" fill="currentColor"/><circle cx="21" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="21" r="4.6" fill="currentColor"/><circle cx="54" cy="21" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="32" r="4.6" fill="currentColor"/><circle cx="21" cy="32" r="4.6" fill="currentColor"/><circle cx="32" cy="32" r="4.6" fill="#FF5722"/><circle cx="43" cy="32" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="32" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="43" r="4.6" fill="currentColor"/><circle cx="21" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="43" r="4.6" fill="currentColor"/><circle cx="54" cy="43" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="10" cy="54" r="4.6" fill="currentColor"/><circle cx="21" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="32" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="43" cy="54" r="4.6" fill="currentColor" fill-opacity=".16"/><circle cx="54" cy="54" r="4.6" fill="currentColor"/></svg>
+      <span>KOUNTER</span>
     </a>
     <nav class="nav-links">
       <a href="#ch-nfc">Story</a>
@@ -74,9 +74,9 @@
       <div class="copy">
         <p class="eyebrow mono"><span class="pulse"></span>iQOO Hackathon 2026</p>
         <h1 class="display">
-          <span class="line"><span class="lime-text">CHAUKAS</span></span>
+          <span class="line"><span class="lime-text">KOUNTER</span></span>
         </h1>
-        <p class="hindi">चौकस · always watching your stock</p>
+        <p class="hindi">हर माल गिना हुआ · every item, counted</p>
         <p class="lede">The iQOO 15 that <b>counts every delivery</b>, <b>blocks expired sales</b>, <b>commands the freezer</b> and <b>answers in Hindi</b>, also in Airplane Mode.</p>
         <div class="cta-row">
           <a href="#leaks" class="btn btn-lime">Scroll the story <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
@@ -119,7 +119,7 @@
       <div class="copy">
         <p class="eyebrow mono orange-text">02 · Why only an iQOO 15</p>
         <h2 class="display-2">A shop audit needs <span class="orange-text">sensors</span>, not servers.</h2>
-        <p class="body">Chaukas is not an app that happens to run on a phone. Every step of the workflow is anchored to a specific piece of iQOO 15 hardware, most of which ordinary phones, iPhones and laptops simply do not have.</p>
+        <p class="body">Kounter is not an app that happens to run on a phone. Every step of the workflow is anchored to a specific piece of iQOO 15 hardware, most of which ordinary phones, iPhones and laptops simply do not have.</p>
         <ul class="hotspot-list">
           <li data-hs="uw"><span class="hs-n mono">1</span><div><b>50MP Ultra-wide · 119°</b><p>1/2.76" sensor. The whole 1.5 m counter in one frame, 30 packets, no stitching.</p></div></li>
           <li data-hs="tele"><span class="hs-n mono">2</span><div><b>50MP 3× Periscope telemacro</b><p>Sony IMX882, 1/1.95". Reads faint dot-matrix expiry dates from 25 cm, without the phone's shadow.</p></div></li>
@@ -235,7 +235,7 @@ irManager.<span class="k">transmit</span>(<span class="n">38000</span>, SUPER_FR
         <p class="body">During the day the phone works alone. At closing, Office Kit mirrors a clean customer bill to a second screen (cost prices stay private on the phone) and pushes a reconciled Excel sheet to the laptop in one click.</p>
         <div class="laptop">
           <div class="laptop-screen">
-            <div class="lap-bar mono"><i></i><i></i><i></i><span>Chaukas_Audit_27Sep.xlsx</span></div>
+            <div class="lap-bar mono"><i></i><i></i><i></i><span>Kounter_Audit_27Sep.xlsx</span></div>
             <table class="mono">
               <thead><tr><th>Vendor</th><th>Item</th><th>Bill</th><th>Got</th><th>Deduct</th></tr></thead>
               <tbody>
@@ -351,7 +351,7 @@ irManager.<span class="k">transmit</span>(<span class="n">38000</span>, SUPER_FR
       <div class="copy">
         <p class="eyebrow mono"><span class="pulse"></span>13 · Live prototype</p>
         <h2 class="display-2">Your turn. <span class="lime-text">Tap the phone.</span></h2>
-        <p class="body">The screen on the right is the real Chaukas prototype, not a video. Tap through it, or jump straight to a moment. Drag the phone's frame to turn it around.</p>
+        <p class="body">The screen on the right is the real Kounter prototype, not a video. Tap through it, or jump straight to a moment. Drag the phone's frame to turn it around.</p>
         <div class="jump-grid">
           <button data-jump="home">Home</button>
           <button data-jump="nfc">NFC vendor tap</button>
@@ -364,7 +364,7 @@ irManager.<span class="k">transmit</span>(<span class="n">38000</span>, SUPER_FR
           <button data-jump="legend">Legend · white</button>
           <button data-jump="alpha">Alpha · black</button>
         </div>
-        <a class="btn btn-ghost" href="../prototype/chaukas_ui.html" target="_blank" rel="noopener">Open prototype full screen ↗</a>
+        <a class="btn btn-ghost" href="../prototype/kounter_ui.html" target="_blank" rel="noopener">Open prototype full screen ↗</a>
       </div>
     </section>
 

@@ -1,4 +1,4 @@
-# Chaukas · Engineering Technical Specification & Implementation Roadmap
+# Kounter · Engineering Technical Specification & Implementation Roadmap
 ## Autonomous On-Device Retail Loss-Prevention Engine on iQOO 15
 
 **Target Device:** iQOO 15 Flagship (Snapdragon 8 Elite Gen 5, OriginOS 6 / Android 16)  
@@ -72,7 +72,7 @@ flowchart TD
 ### 2.1 Color Spectrum Sensor & 50Hz Anti-Banding Exposure Calibration
 Indian shops and factory floors are illuminated by 50Hz magnetic/electronic ballast fluorescent tube lights, and packaged goods are wrapped in glossy metallized plastic (e.g., Maggi, Kurkure, Lays foil). 
 
-Chaukas reads the ambient Correlated Color Temperature (CCT) and 50Hz light flicker via Camera2 vendor metadata:
+Kounter reads the ambient Correlated Color Temperature (CCT) and 50Hz light flicker via Camera2 vendor metadata:
 ```kotlin
 val captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE)
 // Enforce 50Hz anti-banding to prevent dark rolling scan lines
@@ -88,7 +88,7 @@ if (ambientLux < 150f) {
 ```
 
 ### 2.2 Top-Frame IR Blaster Appliance Actuation (`ConsumerIrManager`)
-The iQOO 15 retains an integrated consumer infrared transmitter. Chaukas uses Android's `ConsumerIrManager` to actuate non-smart commercial cooling appliances and alert alarms without third-party IoT bridges:
+The iQOO 15 retains an integrated consumer infrared transmitter. Kounter uses Android's `ConsumerIrManager` to actuate non-smart commercial cooling appliances and alert alarms without third-party IoT bridges:
 ```kotlin
 val irManager = context.getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
 if (irManager.hasIrEmitter()) {
@@ -104,7 +104,7 @@ if (irManager.hasIrEmitter()) {
 ```
 
 ### 2.3 NavIC L5 Dual-Frequency Proof-of-Delivery (PoD)
-Chaukas enforces cryptographic proof of vendor presence using India's native NavIC L5 satellite band:
+Kounter enforces cryptographic proof of vendor presence using India's native NavIC L5 satellite band:
 ```kotlin
 val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
     .setMinUpdateIntervalMillis(500)

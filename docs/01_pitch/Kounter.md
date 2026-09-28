@@ -1,7 +1,7 @@
-# Chaukas: The iQOO 15 Offline AI Loss-Prevention System for Indian Retail
+# Kounter: The iQOO 15 Offline AI Loss-Prevention System for Indian Retail
 ## Team HoloTrio · Master Concept & Execution Plan · iQOO Hackathon 2026 Grand Finale
 
-**Working Title:** Chaukas  
+**Working Title:** Kounter  
 **Team:** HoloTrio (Sanskar Tiwari, Shambhavi Patil & Kanishka Salgude)  
 **Target Hardware:** iQOO 15 (Snapdragon 8 Elite Gen 5 + Supercomputing Chip Q3 + OriginOS 6)  
 **Track:** Primary: **Productivity** | Secondary Anchor: **Open Innovation**  
@@ -13,15 +13,15 @@
 
 A typical Indian shop owner (*Ramesh*) loses ₹15,000 to ₹25,000 every month to five invisible leaks: short wholesale deliveries, expired stock rotting at the back of shelves, missed vendor return deadlines, accidental sales of expired goods, and blind inventory guessing.
 
-Existing SaaS billing solutions fail because they only record what the shopkeeper manually types in English. **Chaukas verifies what physically arrives and what physically leaves.** 
+Existing SaaS billing solutions fail because they only record what the shopkeeper manually types in English. **Kounter verifies what physically arrives and what physically leaves.** 
 
-By transforming the **iQOO 15** into an autonomous, 100% offline physical auditor, Chaukas:
+By transforming the **iQOO 15** into an autonomous, 100% offline physical auditor, Kounter:
 1. **Audits Deliveries:** 1-tap NFC vendor check-in + 50MP Ultrawide photo of crates + OCR of the vendor bill → flags short delivery in ₹ within 300ms.
 2. **Eliminates Glare & Flicker:** Calibrates exposure via the **Color Spectrum Sensor** to defeat 50Hz tube lights and reflective metallic packaging.
 3. **Stops Expired Sales:** Reads printed dot-matrix expiry dates via the **50MP 3x Telemacro**, intercepting expired sales with a violent **X-Axis linear haptic buzz**.
 4. **Physically Controls the Shop:** Uses the hardware **IR Blaster** to lock counter deep-freezers into freezing mode when perishable stock is received.
 5. **Geographically Locks Invoices:** Uses native **NavIC L5 GNSS** to generate tamper-proof Proof-of-Delivery (PoD) stamps in dense bazaar lanes.
-6. **Answers in Natural Hindi:** Quantized on-device speech model + local intent routing + SQLite facts → zero-hallucination verbal answers, broadcast via the high-SPL stereo speakers as a **built-in Chaukas Soundbox**.
+6. **Answers in Natural Hindi:** Quantized on-device speech model + local intent routing + SQLite facts → zero-hallucination verbal answers, broadcast via the high-SPL stereo speakers as a **built-in Kounter Soundbox**.
 
 All of this runs in **100% Airplane Mode** on the **Snapdragon 8 Elite Hexagon NPU**, bridging to laptops during the Green Light phase via **iQOO Office Kit**.
 
@@ -52,7 +52,7 @@ All of this runs in **100% Airplane Mode** on the **Snapdragon 8 Elite Hexagon N
 
 ---
 
-## 3. The 5-Step Unified Chaukas Workflow
+## 3. The 5-Step Unified Kounter Workflow
 
 ```mermaid
 flowchart TD
@@ -92,7 +92,7 @@ flowchart TD
         LAYA --> SQL["Deterministic Parameterized SQL Fetch"]
         SQL --> SAVE
         SQL --> BLUE["BlueLM-1.5B / Local Hindi Response"]
-        BLUE --> SBOX["130dB High-SPL Stereo Broadcast<br><i>Built-in Chaukas Soundbox</i>"]
+        BLUE --> SBOX["130dB High-SPL Stereo Broadcast<br><i>Built-in Kounter Soundbox</i>"]
     end
 
     SOLD --> SAVE
@@ -102,9 +102,9 @@ flowchart TD
 
 ## 4. Deep iQOO 15 Hardware & Sensor Synergy
 
-Chaukas is architected to exploit the hardware features of the **iQOO 15**:
+Kounter is architected to exploit the hardware features of the **iQOO 15**:
 
-| iQOO 15 Hardware Primitive | Specific Role in Chaukas | Technical Justification (Why Generic Phones Fail) |
+| iQOO 15 Hardware Primitive | Specific Role in Kounter | Technical Justification (Why Generic Phones Fail) |
 | :--- | :--- | :--- |
 | **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs multi-tenant INT8 models in parallel (YOLO11n + PaddleOCR + Whisper + Laya). | Delivers **<250ms latency in 100% Airplane Mode** using Qualcomm micro-tile fused execution. |
 | **Supercomputing Chip Q3** | Drives the **144Hz Real-Time Neural HUD** overlaying AR bounding boxes over 30+ items. | Decouples display rendering from NPU/GPU tensor computation; zero touch lag or UI stutter. |
@@ -115,7 +115,7 @@ Chaukas is architected to exploit the hardware features of the **iQOO 15**:
 | **NavIC L5 Dual-Band GNSS** | Creates tamper-proof **Cryptographic Proof-of-Delivery (PoD)** tags with sub-meter accuracy. | Pierces tin roofs and dense urban bazaars where US GPS drifts by 40+ meters. |
 | **X-Axis Linear Haptic Motor** | Triggers distinct tactile pulses (e.g., aggressive 500ms rumble on expired sale block). | Critical in 80dB noisy Indian bazaars where audio beeps are completely drowned out. |
 | **Omnidirectional NFC** | 1-Tap distributor check-in via wholesale crate RFID or delivery driver badge. | Eliminates manual typing or menu navigation during the morning rush. |
-| **Dual High-SPL Stereo Speakers** | Acts as an on-device **Chaukas Soundbox**, broadcasting Hindi audit facts at high volume. | Replaces rented third-party soundboxes (saving the merchant ₹125/month). |
+| **Dual High-SPL Stereo Speakers** | Acts as an on-device **Kounter Soundbox**, broadcasting Hindi audit facts at high volume. | Replaces rented third-party soundboxes (saving the merchant ₹125/month). |
 | **7000 mAh Si-C Battery + 7000mm² VC** | Sustains 12+ hours of continuous camera & NPU counter duty at <37°C. | Survives rural/semi-urban power cuts without thermal throttling. |
 | **3D Ultrasonic Fingerprint** | Locks vendor cost sheets, profit margins, and dispute logs behind biometric auth. | Works reliably through dust, flour, and oil on the shopkeeper's hands. |
 
@@ -123,7 +123,7 @@ Chaukas is architected to exploit the hardware features of the **iQOO 15**:
 
 ## 5. iQOO Office Kit Cross-Device Synergy (Red vs. Green Light)
 
-Chaukas matches the hackathon's phased competition rules:
+Kounter matches the hackathon's phased competition rules:
 
 ```mermaid
 flowchart LR
@@ -147,7 +147,7 @@ flowchart LR
    * **Phone Screen (Cashier HUD):** Displays wholesale purchase prices, vendor margin sheets, discrepancy flags, and internal alerts.
    * **External Laptop / Monitor (Customer Display):** Office Kit mirrors a clean, transparent customer screen showing only verified retail MRP, itemized weights, and total cart value.
 2. **Instant Excel Reconciliation Push:**
-   * At day-end, Chaukas exports a compiled `.xlsx` delivery audit report directly to the shop laptop via Office Kit clipboard sync for instant GST filing.
+   * At day-end, Kounter exports a compiled `.xlsx` delivery audit report directly to the shop laptop via Office Kit clipboard sync for instant GST filing.
 
 ---
 

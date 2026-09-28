@@ -1,6 +1,6 @@
 /* =====================================================================
-   Chaukas · showcase site
-   Lime = Chaukas software · Orange = iQOO 15 hardware
+   Kounter · showcase site
+   Lime = Kounter software · Orange = iQOO 15 hardware
    ===================================================================== */
 :root {
   --lime: #D4F639;
@@ -189,7 +189,7 @@ body.live-mode .screen iframe { pointer-events: auto; }
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
   transition: opacity .6s ease .3s, visibility .6s .3s;
 }
-.screen-boot svg { width: 54px; height: 54px; fill: none; stroke: currentColor; stroke-width: 4.5; stroke-linejoin: round; animation: bootPulse 1.4s ease-in-out infinite; }
+.screen-boot svg { width: 54px; height: 54px; animation: bootPulse 1.4s ease-in-out infinite; }
 .screen-boot span { font-family: var(--display); letter-spacing: .08em; color: var(--text); }
 @keyframes bootPulse { 50% { opacity: .35; } }
 .phone.booted .screen-boot { opacity: 0; visibility: hidden; }

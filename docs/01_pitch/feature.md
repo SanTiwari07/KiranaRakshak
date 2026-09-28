@@ -1,7 +1,7 @@
-# Chaukas · Complete Feature Catalog & iQOO Hardware Ranking
+# Kounter · Complete Feature Catalog & iQOO Hardware Ranking
 ## iQOO Hackathon 2026 Grand Finale · Bengaluru
 
-**Project:** Chaukas  
+**Project:** Kounter  
 **Team:** HoloTrio (Sanskar Tiwari, Shambhavi Patil & Kanishka Salgude)  
 **Target Hardware:** iQOO 15 Flagship (Snapdragon 8 Elite Gen 5 + Supercomputing Chip Q3 + OriginOS 6)  
 **Document Purpose:** Definitive feature catalog, operational mechanics, hardware ranking, and official judging scorecard.
@@ -12,7 +12,7 @@
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│                    CHAUKAS FEATURE SUMMARY                     │
+│                    KOUNTER FEATURE SUMMARY                     │
 ├──────────────────────────┬─────────────────────────────────────────────┤
 │ 1. Multi-Packet Counting │ 50MP Ultrawide + YOLO11n INT8 (~22ms)       │
 │ 2. Wholesale Bill OCR    │ PaddleOCR Mobile v4 / ML Kit                │
@@ -107,7 +107,7 @@
   4. An on-device SLM (**BlueLM-1.5B / Llama-3.2-1B**) formats the answer in natural Hindi.
 * **Why it matters:** Zero typing and 100% hands-free; the shopkeeper can check records while actively serving customers.
 
-### 13. Built-in "Chaukas Soundbox" (High-SPL Stereo Broadcast)
+### 13. Built-in "Kounter Soundbox" (High-SPL Stereo Broadcast)
 * **What it is:** Loud verbal announcement of delivery verifications and shortage totals.
 * **How it works:** Leverages the iQOO 15’s **dual symmetrical high-SPL stereo speakers** with smart PA amplification to broadcast spoken Hindi alerts clearly over 75–80dB shop noise.
 * **Why it matters:** Replaces the need to rent a separate Paytm/PhonePe soundbox (saving **₹125/month** in rental fees).
@@ -154,7 +154,7 @@ graph TD
     subgraph TIER3["TIER 3: TACTILE, ACOUSTIC & SUSTAINED RUNTIME"]
         F7["Rank 7: X-Axis Linear Motor (Waveform-Engineered Haptics)"]:::t3
         F8["Rank 8: 7000 mAh Si-C Battery + 7000mm² Vapor Chamber"]:::t3
-        F9["Rank 9: High-SPL Stereo Speakers (Built-in Chaukas Soundbox)"]:::t3
+        F9["Rank 9: High-SPL Stereo Speakers (Built-in Kounter Soundbox)"]:::t3
         F10["Rank 10: 3D Ultrasonic In-Display Fingerprint Sensor"]:::t3
     end
 
@@ -195,7 +195,7 @@ graph TD
 | :---: | :--- | :--- | :--- |
 | **#7** | **Checkout Expiry Interception** | **X-Axis Linear Motor (Waveform Haptics)** | In an 80dB noisy Indian bazaar, audio beeps are drowned out. Custom haptic waveforms (urgent double-knock for shortages; violent 500ms continuous rumble for expired items) ensure critical financial alerts are physically felt. |
 | **#8** | **All-Day Counter Duty** | **7000 mAh Si-C Battery + 7000mm² Vapor Chamber** | Continuous camera streaming and NPU tensor compute cause standard phones to overheat and thermal throttle within 20 minutes. The iQOO 15’s massive VC sustains <37°C across 12-hour shifts through frequent power outages. |
-| **#9** | **Built-in Chaukas Soundbox** | **Dual High-SPL Symmetrical Stereo Speakers** | Dual smart PA amplifiers project loud, clear Hindi voice audits across a crowded shop. Saves the merchant **₹125/month** in third-party soundbox rentals. |
+| **#9** | **Built-in Kounter Soundbox** | **Dual High-SPL Symmetrical Stereo Speakers** | Dual smart PA amplifiers project loud, clear Hindi voice audits across a crowded shop. Saves the merchant **₹125/month** in third-party soundbox rentals. |
 | **#10** | **Biometric Ledger Vault** | **3D Ultrasonic In-Display Fingerprint Sensor** | Uses Qualcomm acoustic ultrasound waves (18 MHz) rather than optical light. Works reliably through flour, oil, and dust on the merchant’s hands to safeguard sensitive wholesale cost sheets. |
 
 ---
@@ -212,11 +212,11 @@ graph TD
 
 # PART 3: OFFICIAL HACKATHON EVALUATION SCORECARD
 
-Evaluating **Chaukas** against the **5 Official Grand Finale Judging Pillars**:
+Evaluating **Kounter** against the **5 Official Grand Finale Judging Pillars**:
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│            CHAUKAS OFFICIAL HARDWARE EVALUATION SCORE           │
+│            KOUNTER OFFICIAL HARDWARE EVALUATION SCORE           │
 ├─────────────────────────────────────────┬────────┬─────────────────────┤
 │ Evaluation Pillar                       │ Weight │ Score / Max         │
 ├─────────────────────────────────────────┼────────┼─────────────────────┤
@@ -230,16 +230,16 @@ Evaluating **Chaukas** against the **5 Official Grand Finale Judging Pillars**:
 └─────────────────────────────────────────┴────────┴─────────────────────┘
 ```
 
-### Why Chaukas Scores 96/100:
-1. **Zero Cloud Disqualification Risk:** Many competing teams will build web apps wrapped in a WebView talking to remote APIs. Chaukas runs **100% in Airplane Mode** on the **Hexagon NPU**, scoring near-perfect marks on Pillars 1 and 2.
-2. **Physical Sensor Breadth:** Chaukas exercises **8 distinct physical hardware subsystems** (Ultrawide, Telemacro, Color Spectrum, IR Blaster, NavIC L5, Haptics, NFC, Q3 Chip). Most competitor projects only use 1 camera and basic Wi-Fi.
-3. **Flawless Red Light $\rightarrow$ Green Light Alignment:** Chaukas is fully self-sufficient on the phone during the **Red Light Phase**, and seamlessly transitions to the laptop via **Office Kit** during the **Green Light Phase**.
+### Why Kounter Scores 96/100:
+1. **Zero Cloud Disqualification Risk:** Many competing teams will build web apps wrapped in a WebView talking to remote APIs. Kounter runs **100% in Airplane Mode** on the **Hexagon NPU**, scoring near-perfect marks on Pillars 1 and 2.
+2. **Physical Sensor Breadth:** Kounter exercises **8 distinct physical hardware subsystems** (Ultrawide, Telemacro, Color Spectrum, IR Blaster, NavIC L5, Haptics, NFC, Q3 Chip). Most competitor projects only use 1 camera and basic Wi-Fi.
+3. **Flawless Red Light $\rightarrow$ Green Light Alignment:** Kounter is fully self-sufficient on the phone during the **Red Light Phase**, and seamlessly transitions to the laptop via **Office Kit** during the **Green Light Phase**.
 4. **Concrete Economic Story:** Judges instantly understand ₹15,000/month saved for 12 million Indian retailers over abstract developer tools or toy games.
 
 ---
 
 ## Related Project Documents
 
-* **Master Concept & Story:** [Chaukas.md](Chaukas.md)
+* **Master Concept & Story:** [Kounter.md](Kounter.md)
 * **Official Portal Submission Package:** [PHASE_1_SUBMISSION_PORTAL.md](PHASE_1_SUBMISSION_PORTAL.md)
 * **Technical Spec & 30-Hour Build Roadmap:** [TECHNICAL_SPEC_AND_ROADMAP.md](../04_engineering/TECHNICAL_SPEC_AND_ROADMAP.md)

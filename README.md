@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/logos/logo_app_icon.svg" alt="Chaukas logo" width="96" />
+<img src="assets/logos/logo_app_icon.svg" alt="Kounter logo" width="96" />
 
-# Chaukas
+# Kounter
 
-### चौकस · always watching your stock, built on the **iQOO 15**
+### हर माल गिना हुआ · every item counted, built on the **iQOO 15**
 
 **The iQOO 15 counts every delivery, blocks expired sales, controls the freezer and answers in Hindi, also in Airplane Mode.**
 
@@ -20,7 +20,7 @@
 
 <br/>
 
-<img src="assets/screenshots/site_hero.png" alt="Chaukas showcase website: hero with the iQOO 15 running the app" width="100%" />
+<img src="assets/screenshots/site_hero.png" alt="Kounter showcase website: hero with the iQOO 15 running the app" width="100%" />
 
 </div>
 
@@ -48,7 +48,7 @@ India has **63 million small businesses** (shops, godowns, factory stores). Each
 | 4 | Expired sales | One expired packet sold ruins years of customer trust. | trust |
 | 5 | Typing & English UIs | Billing apps need typing during a 20-customer rush. | errors |
 
-Existing apps only record what the shopkeeper **types**. Chaukas checks what **physically arrives and leaves the shop**, using hardware that only the iQOO 15 puts in one pocket.
+Existing apps only record what the shopkeeper **types**. Kounter checks what **physically arrives and leaves the shop**, using hardware that only the iQOO 15 puts in one pocket.
 
 <div align="center">
 <img src="assets/screenshots/site_leaks.png" alt="The five leaks" width="100%" />
@@ -67,7 +67,7 @@ Existing apps only record what the shopkeeper **types**. Chaukas checks what **p
 
 ### The hardware, and the job each part does
 
-| iQOO 15 hardware | Spec | Job in Chaukas |
+| iQOO 15 hardware | Spec | Job in Kounter |
 | --- | --- | --- |
 | **Snapdragon 8 Elite Gen 5 · Hexagon NPU** | 3 nm Oryon CPU (2× 4.32 GHz + 6× 3.53 GHz), Hexagon NPU 80+ TOPS, INT4/INT8/FP16 | Runs YOLO11n, PaddleOCR, Whisper and Laya side by side in INT8. Sub-300 ms audit with the radios off. |
 | **Supercomputing Chip Q3** | Dedicated display co-processor | Draws the 144 Hz AR bounding-box HUD over 30+ packets without taking cycles from the NPU. |
@@ -78,7 +78,7 @@ Existing apps only record what the shopkeeper **types**. Chaukas checks what **p
 | **50 MP Main** | Sony IMX921 VCS, 1/1.56", f/1.68, OIS | Sharp bill and challan photos in dim shop light. |
 | **Color Spectrum Sensor + Triple ALS** | CCT (Kelvin), 50/60 Hz flicker detection | Locks 50 Hz anti-banding so tube-light flicker and foil glare don't blind the camera. |
 | **X-axis linear haptic motor** | Sub-10 ms response, 150–220 Hz | A 500 ms rumble blocks an expired sale. In an 80 dB bazaar, a vibration in the hand is noticed where a beep is not. |
-| **Dual stereo speakers** | Symmetrical, smart PA | A built-in "Chaukas Soundbox" that reads Hindi answers aloud and saves ₹125/month in soundbox rent. |
+| **Dual stereo speakers** | Symmetrical, smart PA | A built-in "Kounter Soundbox" that reads Hindi answers aloud and saves ₹125/month in soundbox rent. |
 | **Triple MEMS mic array** | Beamforming, 96 kHz / 24-bit | Picks up Hindi / Hinglish questions across a noisy counter. |
 | **NFC** | ISO 14443 A/B, ISO 15693, HCE | 1-tap distributor check-in. The vendor ledger opens in < 100 ms. |
 | **3D Ultrasonic fingerprint** | Qualcomm 3D Sonic Gen 2 | Locks purchase rates and supplier debts. Works through flour, dust and oil on the shopkeeper's fingers. |
@@ -230,7 +230,7 @@ python -m http.server 5173
 Then open:
 
 - **Website:** http://localhost:5173/frontend/
-- **App UI on its own:** http://localhost:5173/prototype/chaukas_ui.html
+- **App UI on its own:** http://localhost:5173/prototype/kounter_ui.html
 
 > Serve the whole folder (not `frontend/` alone). The website loads the app from `../prototype/`.
 
@@ -239,17 +239,17 @@ Then open:
 ## Folder map
 
 ```
-KiranaRakshak/
+Kounter/
 ├── README.md
 ├── index.html                 forwards to frontend/ (so the site root works)
 ├── frontend/                  showcase website (scroll-driven 3D iQOO 15)
 │   ├── index.html
-│   ├── css/  js/  assets/
+│   ├── css/  js/
 │   └── IMPLEMENTATION_PLAN.md
 ├── prototype/
-│   └── chaukas_ui.html the app UI (runs inside the website's phone)
+│   └── kounter_ui.html the app UI (runs inside the website's phone)
 ├── docs/
-│   ├── 01_pitch/              master.md, Chaukas.md, feature.md,
+│   ├── 01_pitch/              master.md, Kounter.md, feature.md,
 │   │                          PHASE_1_SUBMISSION_PORTAL.md, problem-statement.txt
 │   ├── 02_research/           iQOO 15 hardware dossier, capability map,
 │   │                          hackathon research, market analysis,
@@ -260,7 +260,7 @@ KiranaRakshak/
 └── assets/
     ├── screenshots/           website screenshots used in this README
     ├── iqoo.jpg               portal problem-statement screenshot
-    └── logos/                 logo concepts (PNG)
+    └── logos/                 Kounter mark + app icon (SVG, PNG)
 ```
 
 **Go deeper into the hardware:**

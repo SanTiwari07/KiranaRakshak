@@ -1,5 +1,5 @@
 /* =====================================================================
-   Chaukas · scroll story
+   Kounter · scroll story
    Every phone pose is a scrubbed tween tied to scroll position.
    ===================================================================== */
 (function () {

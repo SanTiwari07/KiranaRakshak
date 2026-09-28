@@ -23,7 +23,7 @@ async function icon(Comp, color, size = 256) {
 (async () => {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5
-  pres.title = "Chaukas · iQOO Hackathon 2026 · Team HoloTrio";
+  pres.title = "Kounter · iQOO Hackathon 2026 · Team HoloTrio";
   pres.author = "Team HoloTrio";
   const W = 13.333, H = 7.5;
 
@@ -33,7 +33,7 @@ async function icon(Comp, color, size = 256) {
   function chrome(s, n, { light = false } = {}) {
     s.background = { color: light ? EGG : INK };
     s.addImage({ path: IMG(light ? "iqoo_black.png" : "iqoo_white.png"), x: W - 0.6 - 0.26 * IQOO_W, y: 0.42, w: 0.26 * IQOO_W, h: 0.26 });
-    s.addText("iQOO HACKATHON 2026  ·  TEAM HOLOTRIO  ·  CHAUKAS", {
+    s.addText("iQOO HACKATHON 2026  ·  TEAM HOLOTRIO  ·  KOUNTER", {
       x: 0.6, y: H - 0.5, w: 8, h: 0.3, fontFace: BODY, fontSize: 9, bold: true, charSpacing: 2,
       color: light ? "6B6E68" : MUTED, margin: 0, isTextBox: true,
     });
@@ -73,7 +73,7 @@ async function icon(Comp, color, size = 256) {
     ], { x: 0.5 + 0.95 * MK + 0.55, y: 0.45, w: 3.6, h: 0.85, fontFace: BODY, fontSize: 11, margin: 0, valign: "middle", isTextBox: true });
 
     s.addImage({ path: IMG("app_icon.png"), x: 0.6, y: 1.8, w: 1.25, h: 1.25 });
-    s.addText("CHAUKAS", { x: 0.6, y: 3.6, w: 7.5, h: 1.2, fontFace: HEAD, fontSize: 72, color: LIME, margin: 0, isTextBox: true });
+    s.addText("KOUNTER", { x: 0.6, y: 3.6, w: 7.5, h: 1.2, fontFace: HEAD, fontSize: 72, color: LIME, margin: 0, isTextBox: true });
     s.addText("Offline AI loss-prevention for India's shops, godowns and factory stores — powered entirely by the iQOO 15.", {
       x: 0.6, y: 5.1, w: 6.8, h: 0.7, fontFace: BODY, fontSize: 16, color: TEXT, margin: 0, isTextBox: true,
     });
@@ -96,7 +96,7 @@ async function icon(Comp, color, size = 256) {
     phone(s, "home.png", 10.35, 0.95, 5.9);
     pill(s, "TRACK · PRODUCTIVITY", 8.3, 6.95 - 0.1, 2.3, ORANGE, WHITE);
     pill(s, "100% ON-DEVICE", 10.75, 6.95 - 0.1, 1.9, LIME, OBS);
-    s.addNotes("Chaukas by Team HoloTrio for the iQOO Hackathon 2026 Grand Finale, Bengaluru. Primary track: Productivity; technical anchor: Open Innovation (local models, zero cloud).");
+    s.addNotes("Kounter by Team HoloTrio for the iQOO Hackathon 2026 Grand Finale, Bengaluru. Primary track: Productivity; technical anchor: Open Innovation (local models, zero cloud).");
   }
 
   // ================= 2. PROBLEM =================
@@ -182,7 +182,7 @@ async function icon(Comp, color, size = 256) {
       s.addText(h, { x: tx, y: 2.65, w: 1.85, h: 0.75, fontFace: BODY, fontSize: 15, bold: true, color: OBS, margin: 0, valign: "top", isTextBox: true });
       s.addText(d, { x: tx, y: 3.25, w: 1.85, h: 2.2, fontFace: BODY, fontSize: 11, color: "45474A", margin: 0, valign: "top", isTextBox: true });
     });
-    s.addText("Screens captured from prototype/chaukas_ui.html", { x: 0.6, y: 6.25, w: 8, h: 0.3, fontFace: BODY, fontSize: 10, italic: true, color: "6B6E68", margin: 0, isTextBox: true });
+    s.addText("Screens captured from prototype/kounter_ui.html", { x: 0.6, y: 6.25, w: 8, h: 0.3, fontFace: BODY, fontSize: 10, italic: true, color: "6B6E68", margin: 0, isTextBox: true });
   }
 
   // ================= 5. SELL + VOICE =================
@@ -195,7 +195,7 @@ async function icon(Comp, color, size = 256) {
     const pts = [
       [lu.LuScanLine, "Multi-item scan billing", "YOLO11n on the NPU identifies several items in one frame; the WhatsApp bill goes to the customer."],
       [lu.LuVibrate, "Expired item? Sale blocked", "Distinct X-axis haptic pattern cuts through an 80 dB bazaar where beeps get lost."],
-      [lu.LuAudioLines, "Built-in Chaukas Soundbox", "Answers are read aloud on the stereo speakers — replaces a ₹125/month rented soundbox."],
+      [lu.LuAudioLines, "Built-in Kounter Soundbox", "Answers are read aloud on the stereo speakers — replaces a ₹125/month rented soundbox."],
       [lu.LuWifiOff, "Everything stays on the phone", "Works in Airplane Mode. Vendor margins and khata never leave the device."],
     ];
     for (let i = 0; i < pts.length; i++) {
@@ -389,7 +389,7 @@ async function icon(Comp, color, size = 256) {
     });
     // native bar chart: monthly leakage before/after (illustrative midpoints)
     s.addChart(pres.charts.BAR, [{ name: "₹ lost / month", labels: ["Short deliveries", "Expired stock"], values: [11500, 7500] },
-                                 { name: "With Chaukas (target)", labels: ["Short deliveries", "Expired stock"], values: [1500, 1500] }], {
+                                 { name: "With Kounter (target)", labels: ["Short deliveries", "Expired stock"], values: [1500, 1500] }], {
       x: 0.6, y: 4.3, w: 7.2, h: 2.2, barDir: "bar", barGrouping: "clustered", chartColors: ["FF5722", "151618"],
       showValue: true, dataLabelPosition: "outEnd", dataLabelFontSize: 9, dataLabelColor: "45474A", dataLabelFormatCode: "₹#,##0",
       catAxisLabelColor: "45474A", catAxisLabelFontSize: 10, valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" },
@@ -432,7 +432,7 @@ async function icon(Comp, color, size = 256) {
     s.background = { color: INK };
     s.addShape(pres.shapes.OVAL, { x: 7.9, y: 0.6, w: 5.8, h: 5.8, fill: { color: ORANGE, transparency: 85 }, line: { color: ORANGE, transparency: 60, width: 1 } });
     s.addImage({ path: IMG("hk_mark_white.png"), x: 0.5, y: 0.45, w: 0.85 * 520 / 159, h: 0.85 });
-    s.addText("CHAUKAS", { x: 0.6, y: 1.9, w: 8, h: 0.5, fontFace: BODY, fontSize: 14, bold: true, charSpacing: 4, color: LIME, margin: 0, isTextBox: true });
+    s.addText("KOUNTER", { x: 0.6, y: 1.9, w: 8, h: 0.5, fontFace: BODY, fontSize: 14, bold: true, charSpacing: 4, color: LIME, margin: 0, isTextBox: true });
     s.addText("Every delivery counted.\nEvery rupee protected.", { x: 0.6, y: 2.45, w: 8.0, h: 1.9, fontFace: HEAD, fontSize: 36, color: WHITE, margin: 0, valign: "top", isTextBox: true });
     s.addText("Offline. On-device. Built on the iQOO 15.", { x: 0.6, y: 4.4, w: 8, h: 0.5, fontFace: BODY, fontSize: 16, color: TEXT, margin: 0, isTextBox: true });
     s.addText([
@@ -444,7 +444,7 @@ async function icon(Comp, color, size = 256) {
     s.addText("Thank you", { x: 9.0, y: 4.95, w: 3.6, h: 0.6, fontFace: HEAD, fontSize: 24, color: WHITE, align: "center", margin: 0, isTextBox: true });
   }
 
-  const out = path.join(__dirname, "Chaukas_iQOO_Hackathon_2026.pptx");
+  const out = path.join(__dirname, "Kounter_iQOO_Hackathon_2026.pptx");
   await pres.writeFile({ fileName: out });
   console.log("wrote", out);
 })();

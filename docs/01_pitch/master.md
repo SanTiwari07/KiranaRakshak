@@ -1,4 +1,4 @@
-# Chaukas · Grand Master Document
+# Kounter · Grand Master Document
 ## Autonomous On-Device Retail Loss-Prevention & Cold-Chain Engine on iQOO 15
 ### iQOO Hackathon 2026 Grand Finale · Bengaluru
 
@@ -17,7 +17,7 @@
 # TABLE OF CONTENTS
 1. [Executive Summary & The Core Thesis](#1-executive-summary--the-core-thesis)
 2. [The Problem: 5 Leaks Where Indian Small Businesses Lose Money](#2-the-problem-5-leaks-where-indian-small-businesses-lose-money)
-3. [The Solution: Chaukas System Overview](#3-the-solution-chaukas-system-overview)
+3. [The Solution: Kounter System Overview](#3-the-solution-kounter-system-overview)
 4. [A Day in the Life: End-to-End User Story (Ramesh Bhai)](#4-a-day-in-the-life-end-to-end-user-story-ramesh-bhai)
 5. [The 5-Step Unified Architecture & Workflow Diagram](#5-the-5-step-unified-architecture--workflow-diagram)
 6. [Complete Catalog of All 14 Features](#6-complete-catalog-of-all-14-features)
@@ -43,9 +43,9 @@ India is powered by over **63 million small businesses (MSMEs)**: neighbourhood 
 
 Existing SaaS billing and inventory apps fail because they only record what the shopkeeper *types*. In the middle of rush-hour trading, shopkeepers do not have time to type.
 
-**Chaukas fundamentally changes the paradigm: We verify what physically arrives and what physically leaves.** 
+**Kounter fundamentally changes the paradigm: We verify what physically arrives and what physically leaves.** 
 
-By transforming the **iQOO 15** into an autonomous, offline edge-AI auditor and physical store guardian, Chaukas:
+By transforming the **iQOO 15** into an autonomous, offline edge-AI auditor and physical store guardian, Kounter:
 * **Audits Wholesale Deliveries in <300ms:** Matches physical packet counts against vendor challans via 50MP Ultrawide computer vision + on-device OCR.
 * **Calibrates Against 50Hz Glare:** Uses the **Color Spectrum Sensor** to defeat tube-light flicker and specular reflections on foil packaging.
 * **Stops Expired Sales via Haptics:** Reads inkjet dot-matrix expiry dates via the **50MP 3x Telemacro**, intercepting sales with an aggressive **X-Axis linear haptic buzz**.
@@ -88,9 +88,9 @@ All processing runs in **100% Airplane Mode** on the **Snapdragon 8 Elite Hexago
 
 ---
 
-# 3. The Solution: Chaukas System Overview
+# 3. The Solution: Kounter System Overview
 
-Chaukas runs on an iQOO 15 mounted on a counter stand. It executes three fundamental jobs:
+Kounter runs on an iQOO 15 mounted on a counter stand. It executes three fundamental jobs:
 1. **Verify Every Important Delivery:** Photo of goods + photo of invoice $\rightarrow$ physical count vs. billed count $\rightarrow$ instant shortage flag in rupees.
 2. **Protect Against Expiry & Spoilage:** Macro scan of printed expiry $\rightarrow$ automated distributor return alert $\rightarrow$ violent haptic vibration blocking expired sales $\rightarrow$ IR blaster locking freezer cooling.
 3. **Talk to the Shopkeeper in Spoken Hindi:** Voice query in Hindi $\rightarrow$ on-device intent understanding $\rightarrow$ deterministic local SQLite query $\rightarrow$ spoken answer via high-SPL stereo speakers.
@@ -101,7 +101,7 @@ Chaukas runs on an iQOO 15 mounted on a counter stand. It executes three fundame
 
 ```mermaid
 journey
-    title A Day at Shree Ganesh Traders with Chaukas
+    title A Day at Shree Ganesh Traders with Kounter
     section 9:00 AM Delivery
       Distributor arrives with crates: 3: Ramesh
       1-Tap NFC check-in & NavIC stamp: 5: iQOO 15
@@ -139,7 +139,7 @@ journey
 
 ### Scene 3: 4:00 PM · Expired Sale Blocked
 * A customer brings salt, detergent, and an expired packet of Parle-G from the back shelf.
-* As the cashier adds the batch, Chaukas checks the SQLite batch registry.
+* As the cashier adds the batch, Kounter checks the SQLite batch registry.
 * **The Block:** The phone emits an **aggressive 500ms haptic buzz** and turns the screen **RED: SALE BLOCKED**. Ramesh replaces the expired packet with fresh stock, protecting customer trust.
 
 ### Scene 4: 7:30 PM · Hands-Free Hindi Soundbox
@@ -150,7 +150,7 @@ journey
   > *"Rajesh vendor se 4 packet Maggi kam aaye the, kul chhappan rupaye lene baaki hain. Aur 30 September ko 12 Bourbon expire hone wale hain."*
 
 ### Scene 5: 9:30 PM · Office Kit Closing Sync
-* Ramesh opens his laptop. Chaukas connects via **iQOO Office Kit**.
+* Ramesh opens his laptop. Kounter connects via **iQOO Office Kit**.
 * The phone displays a live merchant audit scorecard, and a complete reconciled day-end `.xlsx` file is transferred to the laptop with one click for GST filing.
 
 ---
@@ -195,7 +195,7 @@ flowchart TD
         LAYA --> SQL["Deterministic Parameterized SQL Fetch"]
         SQL --> SAVE
         SQL --> BLUE["BlueLM-1.5B / Local Hindi Response"]
-        BLUE --> SBOX["130dB High-SPL Stereo Broadcast<br><i>Built-in Chaukas Soundbox</i>"]
+        BLUE --> SBOX["130dB High-SPL Stereo Broadcast<br><i>Built-in Kounter Soundbox</i>"]
     end
 
     SOLD --> SAVE
@@ -241,7 +241,7 @@ Locks sensitive wholesale purchase rates and supplier debt sheets behind Qualcom
 ### 12. Conversational Hindi Voice Assistant
 On-device Whisper STT + Laya Multilingual 322M parses spoken Hindi/Hinglish questions into deterministic SQLite queries with zero cloud latency.
 
-### 13. Built-in "Chaukas Soundbox" (High-SPL Stereo Speakers)
+### 13. Built-in "Kounter Soundbox" (High-SPL Stereo Speakers)
 Broadcasts Hindi delivery verifications and shortage totals at up to 130dB SPL via dual symmetrical stereo speakers with smart PA amplifiers, saving ₹125/month rental fees.
 
 ### 14. Dual-Screen Trust Mirror & 1-Click Excel Sync (iQOO Office Kit)
@@ -251,7 +251,7 @@ Projects a clean, verified customer receipt to an external laptop via the Androi
 
 # 7. iQOO 15 Hardware & Sensor Synergy Matrix
 
-| iQOO 15 Hardware Primitive | Specific Role in Chaukas | Why Generic Phones / Cloud Cannot Compete |
+| iQOO 15 Hardware Primitive | Specific Role in Kounter | Why Generic Phones / Cloud Cannot Compete |
 | :--- | :--- | :--- |
 | **Snapdragon 8 Elite Gen 5 (Hexagon NPU V79)** | Runs multi-tenant INT8 models in parallel (YOLO11n + PaddleOCR + Whisper + Laya). | Delivers **<250ms end-to-end verification** in 100% Airplane Mode using fused micro-tile execution. |
 | **Supercomputing Chip Q3** | Drives **144Hz Real-Time AR Bounding Box HUD** over 30+ items. | Decouples display rendering from NPU/GPU; completely prevents UI touch lag during heavy AI inference. |
@@ -262,7 +262,7 @@ Projects a clean, verified customer receipt to an external laptop via the Androi
 | **NavIC L5 Dual-Band GNSS** | Generates tamper-proof **Cryptographic Proof-of-Delivery (PoD)** tags. | Sub-meter Indian satellite tracking penetrates corrugated tin roofs and dense urban bazaar gullies. |
 | **X-Axis Linear Haptic Motor** | Distinct tactile pulses (e.g., sharp double-knock for shortage; aggressive buzz for expired item). | Critical in 80dB noisy Indian bazaars where audio beeps are completely drowned out. |
 | **Omnidirectional NFC** | 1-Tap distributor check-in via crate RFID or delivery driver badge. | Eliminates manual typing or menu navigation during the morning rush. |
-| **Dual High-SPL Stereo Speakers** | Operates as an on-device **Chaukas Soundbox** broadcasting Hindi audit summaries. | Saves the merchant ₹125/month rental fees for third-party soundboxes. |
+| **Dual High-SPL Stereo Speakers** | Operates as an on-device **Kounter Soundbox** broadcasting Hindi audit summaries. | Saves the merchant ₹125/month rental fees for third-party soundboxes. |
 | **7000 mAh Si-C Battery + 7000mm² VC** | Enables continuous 12-hour counter operation at <37°C. | Survives frequent power outages without thermal throttling or camera frame drops. |
 | **3D Ultrasonic Fingerprint Sensor** | Protects purchase prices, vendor margin sheets, and supplier dispute logs. | Operates reliably even with wet, flour-dusted, or oily merchant fingers. |
 
@@ -292,7 +292,7 @@ graph TD
     subgraph TIER3["TIER 3: TACTILE, ACOUSTIC & SUSTAINED RUNTIME"]
         F7["Rank 7: X-Axis Linear Motor (Waveform-Engineered Haptics)"]:::t3
         F8["Rank 8: 7000 mAh Si-C Battery + 7000mm² Vapor Chamber"]:::t3
-        F9["Rank 9: High-SPL Stereo Speakers (Built-in Chaukas Soundbox)"]:::t3
+        F9["Rank 9: High-SPL Stereo Speakers (Built-in Kounter Soundbox)"]:::t3
         F10["Rank 10: 3D Ultrasonic In-Display Fingerprint Sensor"]:::t3
     end
 
@@ -313,7 +313,7 @@ graph TD
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│            CHAUKAS OFFICIAL HARDWARE EVALUATION SCORE           │
+│            KOUNTER OFFICIAL HARDWARE EVALUATION SCORE           │
 ├─────────────────────────────────────────┬────────┬─────────────────────┤
 │ Evaluation Pillar                       │ Weight │ Score / Max         │
 ├─────────────────────────────────────────┼────────┼─────────────────────┤
@@ -572,7 +572,7 @@ gantt
 # 16. Official Phase 1 Portal Submission Copy (Copy-Paste Ready)
 
 ### Field 1: Project Title
-**Chaukas: The Offline AI Loss-Prevention & Cold-Chain System for Indian Retail Powered by iQOO 15**
+**Kounter: The Offline AI Loss-Prevention & Cold-Chain System for Indian Retail Powered by iQOO 15**
 
 ### Field 2: Track Selection
 * **Primary Track:** **Productivity**
@@ -589,7 +589,7 @@ India is home to over 63 million small businesses (MSMEs): neighbourhood shops, 
 4. **Cognitive & Language Barrier:** Existing SaaS billing apps demand manual typing, English literacy, continuous internet, and barcode scanning for every individual SKU: unusable for a sole proprietor handling 20 customers simultaneously.
 
 ### Field 5: Proposed Solution
-Chaukas transforms the shopkeeper’s iQOO 15 into an autonomous, offline computer-vision auditor and physical store guardian:
+Kounter transforms the shopkeeper’s iQOO 15 into an autonomous, offline computer-vision auditor and physical store guardian:
 1. **Physical Delivery Verification:** Vendor checks in with 1-tap NFC. NavIC L5 captures sub-meter coordinates for tamper-proof Proof-of-Delivery. Color Spectrum Sensor eliminates 50Hz tube-light glare. The 50MP Ultrawide camera snaps the goods, and YOLO11n INT8 counts packets in ~22ms while PaddleOCR parses the invoice, instantly flagging shortages in rupees.
 2. **Physical Store Actuation:** The top-frame IR Blaster autonomously pulses the shop deep-freezer into super-freeze mode when perishable dairy is received.
 3. **Automated Expiry Watch:** The 50MP 3x Telemacro scans printed dot-matrix expiry dates. Expired items scanned at checkout trigger an aggressive X-axis linear haptic rumble and block the sale.
@@ -604,7 +604,7 @@ Chaukas transforms the shopkeeper’s iQOO 15 into an autonomous, offline comput
 * **NavIC L5 Dual-Band GNSS:** Sub-meter Indian satellite Proof-of-Delivery.
 * **X-Axis Linear Haptics:** Distinct tactile alerts in loud 80dB shops.
 * **Omnidirectional NFC:** 1-Tap distributor crate check-in.
-* **Dual High-SPL Speakers:** Built-in Chaukas Soundbox saving ₹125/month rent.
+* **Dual High-SPL Speakers:** Built-in Kounter Soundbox saving ₹125/month rent.
 * **7000 mAh Battery + VC:** 12-hour continuous counter operation at <37°C.
 * **3D Ultrasonic Fingerprint:** Biometric auth through dusty, oily merchant hands.
 
@@ -617,5 +617,5 @@ Chaukas transforms the shopkeeper’s iQOO 15 into an autonomous, offline comput
 ## 17. UI/UX Design System & Interactive Prototype Reference
 
 * **Dedicated Design Documentation:** [design.md](../03_design/design.md) *(Full style guide: High-contrast utilitarian theme, Lucide vector icons, simple English words, bento cards, and Jetpack Compose tokens)*
-* **Interactive Browser Prototype:** [chaukas_ui.html](../../prototype/chaukas_ui.html) *(Testable offline mockup with Lucide icons, simple English, paired pill buttons, and 5 interactive screens)*
+* **Interactive Browser Prototype:** [kounter_ui.html](../../prototype/kounter_ui.html) *(Testable offline mockup with Lucide icons, simple English, paired pill buttons, and 5 interactive screens)*
 

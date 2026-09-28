@@ -1,4 +1,4 @@
-# Chaukas · Official Phase 1 Idea Submission Package
+# Kounter · Official Phase 1 Idea Submission Package
 ## iQOO Hackathon 2026 Grand Finale (Bengaluru)
 
 **Team Name:** HoloTrio  
@@ -11,7 +11,7 @@
 ---
 
 ### Field 1: Project Title
-**Chaukas: The Offline AI Loss-Prevention & Cold-Chain System for Indian Retail Powered by iQOO 15**
+**Kounter: The Offline AI Loss-Prevention & Cold-Chain System for Indian Retail Powered by iQOO 15**
 
 ---
 
@@ -38,7 +38,7 @@ Existing software records only what the shopkeeper *types*. **Nobody verifies wh
 ---
 
 ### Field 5: Proposed Solution & Core Workflow
-Chaukas transforms the shopkeeper’s **iQOO 15** into an autonomous, offline computer-vision auditor and physical store guardian:
+Kounter transforms the shopkeeper’s **iQOO 15** into an autonomous, offline computer-vision auditor and physical store guardian:
 
 ```mermaid
 flowchart LR
@@ -60,9 +60,9 @@ flowchart LR
    * The **Color Spectrum Sensor** measures 50Hz tube-light flicker and CCT Kelvin, eliminating glare from shiny metallized foil packets.
    * The owner snaps **one photo** using the 50MP Ultrawide lens. **YOLO11n INT8** on the Hexagon NPU detects and counts all packaged goods simultaneously.
    * The owner snaps the vendor’s bill. On-device OCR parses billed quantities.
-   * Chaukas compares counted vs. billed: *"Vendor Bill: 24 Maggi | Received: 20 Maggi | Short: 4 (₹56 owed)."*
+   * Kounter compares counted vs. billed: *"Vendor Bill: 24 Maggi | Received: 20 Maggi | Short: 4 (₹56 owed)."*
 2. **Physical Store Actuation (Cold-Chain Guardian):**
-   * If perishable dairy or ice-cream stock is registered, Chaukas uses the **integrated top-frame IR Blaster** to pulse the counter freezer/cooler into super-freeze mode.
+   * If perishable dairy or ice-cream stock is registered, Kounter uses the **integrated top-frame IR Blaster** to pulse the counter freezer/cooler into super-freeze mode.
 3. **Automated Expiry Watch & Checkout Interception (Expiry Guard):**
    * The 3x periscope macro lens scans printed dot-matrix expiry stamps during intake.
    * If an expired item is scanned at checkout, the iQOO 15 fires an **aggressive X-axis linear haptic rumble** and flashes **RED: SALE BLOCKED**.
@@ -74,7 +74,7 @@ flowchart LR
 
 ### Field 6: Deep iQOO 15 Hardware & Sensor Synergy
 
-| iQOO 15 Hardware Primitive | Specific Role in Chaukas | Why Generic Phones / Cloud Cannot Compete |
+| iQOO 15 Hardware Primitive | Specific Role in Kounter | Why Generic Phones / Cloud Cannot Compete |
 | :--- | :--- | :--- |
 | **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs simultaneous INT8 vision models (YOLO11n), OCR, Whisper STT, and Laya intent classification in parallel. | Delivers **<250ms end-to-end verification** entirely in Airplane Mode with zero cloud API costs. |
 | **Supercomputing Chip Q3** | Drives **144Hz Real-Time AR Bounding Box HUD** over 30+ items. | Offloads display rendering from NPU/GPU; completely prevents UI touch lag during heavy AI inference. |
@@ -85,14 +85,14 @@ flowchart LR
 | **NavIC L5 Dual-Band GNSS** | Generates tamper-proof **Cryptographic Proof-of-Delivery (PoD)** tags. | Sub-meter Indian satellite tracking penetrates corrugated tin roofs and dense urban bazaar gullies. |
 | **X-Axis Linear Haptic Motor** | Distinct tactile pulses (e.g., sharp double-knock for shortage; aggressive buzz for expired item). | Critical in 80dB noisy Indian bazaars where audio beeps are completely drowned out. |
 | **Omnidirectional NFC** | 1-Tap distributor check-in via crate RFID or delivery driver badge. | Eliminates manual typing or menu navigation during the morning rush. |
-| **Dual High-SPL Stereo Speakers** | Operates as an on-device **Chaukas Soundbox** broadcasting Hindi audit summaries. | Saves the merchant ₹125/month rental fees for third-party soundboxes. |
+| **Dual High-SPL Stereo Speakers** | Operates as an on-device **Kounter Soundbox** broadcasting Hindi audit summaries. | Saves the merchant ₹125/month rental fees for third-party soundboxes. |
 | **7000 mAh Si-C Battery + 7000mm² VC** | Enables continuous 12-hour counter operation at <37°C. | Survives frequent power outages without thermal throttling or camera frame drops. |
 | **3D Ultrasonic Fingerprint Sensor** | Protects purchase prices, vendor margin sheets, and supplier dispute logs. | Operates reliably even with wet, flour-dusted, or oily merchant fingers. |
 
 ---
 
 ### Field 7: iQOO Office Kit Cross-Device Architecture
-Chaukas fully implements the hackathon’s **Red Light vs. Green Light** evaluation paradigm:
+Kounter fully implements the hackathon’s **Red Light vs. Green Light** evaluation paradigm:
 * **Red Light Phase (Phone-First Standalone):** The complete audit, counting, OCR, SQLite database, haptic alerts, and Hindi voice agent run 100% natively on the iQOO 15 in Airplane Mode.
 * **Green Light Phase (Laptop + Phone Dual Screen via Office Kit):**
   1. **Customer-Facing Verification Screen (Android `Presentation` API):** The phone projects a clean, real-time itemized bill to an external laptop/monitor facing the customer, building trust while hiding merchant cost margins.
