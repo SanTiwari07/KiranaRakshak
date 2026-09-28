@@ -1,5 +1,5 @@
 /* =====================================================================
-   Kirana Rakshak · scroll story
+   Chaukas · scroll story
    Every phone pose is a scrubbed tween tied to scroll position.
    ===================================================================== */
 (function () {

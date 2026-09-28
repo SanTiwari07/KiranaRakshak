@@ -1,4 +1,4 @@
-# Kirana Rakshak · Official Phase 1 Idea Submission Package
+# Chaukas · Official Phase 1 Idea Submission Package
 ## iQOO Hackathon 2026 Grand Finale (Bengaluru)
 
 **Team Name:** HoloTrio  
@@ -11,7 +11,7 @@
 ---
 
 ### Field 1: Project Title
-**Kirana Rakshak: The Offline AI Loss-Prevention & Cold-Chain System for Indian Retail Powered by iQOO 15**
+**Chaukas: The Offline AI Loss-Prevention & Cold-Chain System for Indian Retail Powered by iQOO 15**
 
 ---
 
@@ -22,12 +22,12 @@
 ---
 
 ### Field 3: One-Line Elevator Pitch
-> **"A kirana doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi: 100% offline."**
+> **"A small business doesn't need another manual billing app. It needs an iQOO 15 that photographs physical deliveries, matches them against vendor bills, stops expired sales with haptic alerts, physically controls shop cooling via the IR blaster, and answers inventory questions in spoken Hindi: 100% offline."**
 
 ---
 
 ### Field 4: Problem Statement & Economic Gravity
-India is home to over **12 million neighbourhood kirana stores**, powering 85%+ of the country’s retail FMCG distribution. While supermarket chains use million-dollar ERPs and barcode conveyors, the independent Indian kirana owner (*Ramesh*) operates in high-frequency chaos:
+India is home to over **63 million small businesses (MSMEs)**: neighbourhood shops, wholesalers, workshops and small factories. While large enterprises use million-dollar ERPs and barcode conveyors, the independent Indian business owner (*Ramesh*) operates in high-frequency chaos:
 1. **Short Delivery Leakage:** Wholesale distributors deliver 30–50 crates daily during morning rush hours. Ramesh cannot manually count every biscuit packet or detergent sachet while attending to counter customers. A vendor bill stating 24 units of Maggi often delivers only 20. Ramesh discovers the ₹56 shortage days later: or never. Across 15 vendors, a typical shop leaks **₹8,000–₹15,000 every month** in unverified deliveries.
 2. **Expired Stock Write-offs & Spoilage:** Perishable packaged goods (dairy, bread, biscuits, snacks) get pushed to the dark back of shelves. By the time they surface, the 30-day distributor return window has elapsed, resulting in dead-loss inventory (**₹5,000–₹10,000/month**). Furthermore, unmonitored counter deep-freezers result in curdled milk and melted ice-creams during power cuts.
 3. **Consumer Trust & Expired Sales:** Accidental sales of expired goods lead to severe customer friction, loss of local goodwill, and food safety liabilities.
@@ -38,7 +38,7 @@ Existing software records only what the shopkeeper *types*. **Nobody verifies wh
 ---
 
 ### Field 5: Proposed Solution & Core Workflow
-Kirana Rakshak transforms the shopkeeper’s **iQOO 15** into an autonomous, offline computer-vision auditor and physical store guardian:
+Chaukas transforms the shopkeeper’s **iQOO 15** into an autonomous, offline computer-vision auditor and physical store guardian:
 
 ```mermaid
 flowchart LR
@@ -60,9 +60,9 @@ flowchart LR
    * The **Color Spectrum Sensor** measures 50Hz tube-light flicker and CCT Kelvin, eliminating glare from shiny metallized foil packets.
    * The owner snaps **one photo** using the 50MP Ultrawide lens. **YOLO11n INT8** on the Hexagon NPU detects and counts all packaged goods simultaneously.
    * The owner snaps the vendor’s bill. On-device OCR parses billed quantities.
-   * Kirana Rakshak compares counted vs. billed: *"Vendor Bill: 24 Maggi | Received: 20 Maggi | Short: 4 (₹56 owed)."*
+   * Chaukas compares counted vs. billed: *"Vendor Bill: 24 Maggi | Received: 20 Maggi | Short: 4 (₹56 owed)."*
 2. **Physical Store Actuation (Cold-Chain Guardian):**
-   * If perishable dairy or ice-cream stock is registered, Kirana Rakshak uses the **integrated top-frame IR Blaster** to pulse the counter freezer/cooler into super-freeze mode.
+   * If perishable dairy or ice-cream stock is registered, Chaukas uses the **integrated top-frame IR Blaster** to pulse the counter freezer/cooler into super-freeze mode.
 3. **Automated Expiry Watch & Checkout Interception (Expiry Guard):**
    * The 3x periscope macro lens scans printed dot-matrix expiry stamps during intake.
    * If an expired item is scanned at checkout, the iQOO 15 fires an **aggressive X-axis linear haptic rumble** and flashes **RED: SALE BLOCKED**.
@@ -74,7 +74,7 @@ flowchart LR
 
 ### Field 6: Deep iQOO 15 Hardware & Sensor Synergy
 
-| iQOO 15 Hardware Primitive | Specific Role in Kirana Rakshak | Why Generic Phones / Cloud Cannot Compete |
+| iQOO 15 Hardware Primitive | Specific Role in Chaukas | Why Generic Phones / Cloud Cannot Compete |
 | :--- | :--- | :--- |
 | **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs simultaneous INT8 vision models (YOLO11n), OCR, Whisper STT, and Laya intent classification in parallel. | Delivers **<250ms end-to-end verification** entirely in Airplane Mode with zero cloud API costs. |
 | **Supercomputing Chip Q3** | Drives **144Hz Real-Time AR Bounding Box HUD** over 30+ items. | Offloads display rendering from NPU/GPU; completely prevents UI touch lag during heavy AI inference. |
@@ -85,14 +85,14 @@ flowchart LR
 | **NavIC L5 Dual-Band GNSS** | Generates tamper-proof **Cryptographic Proof-of-Delivery (PoD)** tags. | Sub-meter Indian satellite tracking penetrates corrugated tin roofs and dense urban bazaar gullies. |
 | **X-Axis Linear Haptic Motor** | Distinct tactile pulses (e.g., sharp double-knock for shortage; aggressive buzz for expired item). | Critical in 80dB noisy Indian bazaars where audio beeps are completely drowned out. |
 | **Omnidirectional NFC** | 1-Tap distributor check-in via crate RFID or delivery driver badge. | Eliminates manual typing or menu navigation during the morning rush. |
-| **Dual High-SPL Stereo Speakers** | Operates as an on-device **Kirana Soundbox** broadcasting Hindi audit summaries. | Saves the merchant ₹125/month rental fees for third-party soundboxes. |
+| **Dual High-SPL Stereo Speakers** | Operates as an on-device **Chaukas Soundbox** broadcasting Hindi audit summaries. | Saves the merchant ₹125/month rental fees for third-party soundboxes. |
 | **7000 mAh Si-C Battery + 7000mm² VC** | Enables continuous 12-hour counter operation at <37°C. | Survives frequent power outages without thermal throttling or camera frame drops. |
 | **3D Ultrasonic Fingerprint Sensor** | Protects purchase prices, vendor margin sheets, and supplier dispute logs. | Operates reliably even with wet, flour-dusted, or oily merchant fingers. |
 
 ---
 
 ### Field 7: iQOO Office Kit Cross-Device Architecture
-Kirana Rakshak fully implements the hackathon’s **Red Light vs. Green Light** evaluation paradigm:
+Chaukas fully implements the hackathon’s **Red Light vs. Green Light** evaluation paradigm:
 * **Red Light Phase (Phone-First Standalone):** The complete audit, counting, OCR, SQLite database, haptic alerts, and Hindi voice agent run 100% natively on the iQOO 15 in Airplane Mode.
 * **Green Light Phase (Laptop + Phone Dual Screen via Office Kit):**
   1. **Customer-Facing Verification Screen (Android `Presentation` API):** The phone projects a clean, real-time itemized bill to an external laptop/monitor facing the customer, building trust while hiding merchant cost margins.

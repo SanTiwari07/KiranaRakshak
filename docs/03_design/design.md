@@ -1,20 +1,20 @@
-# Kirana Rakshak App Design System (`design.md`)
+# Chaukas App Design System (`design.md`)
 
-This document is the complete UI/UX style guide and design system for **Kirana Rakshak** on the **iQOO 15** (OriginOS 6 / Android 16). 
+This document is the complete UI/UX style guide and design system for **Chaukas** on the **iQOO 15** (OriginOS 6 / Android 16). 
 
-It establishes a high-contrast, lightning-fast utilitarian design language engineered for everyday Indian kirana store owners. 
+It establishes a high-contrast, lightning-fast utilitarian design language engineered for everyday Indian shop, godown and factory-store owners. 
 
 All childish emojis have been replaced with **clean vector icons (Lucide Icon standard)**, and all complex technical jargon has been translated into **simple, easy-to-understand English**.
 
 ---
 
-## 1. Design Philosophy: 40–60 Year Old Kirana Shopkeeper Ergonomics
+## 1. Design Philosophy: 40–60 Year Old Shopkeeper Ergonomics
 
-A real Indian kirana shopkeeper (like Ramesh Bhai, age 52) has flour on his hands, presbyopia (+2.0D eyesight without reading glasses on the counter), 5 impatient customers shouting orders across the counter, and zero time or patience to hunt through nested menus, tiny icons, or complicated billing screens.
+A real Indian shopkeeper (like Ramesh Bhai, age 52) has flour on his hands, presbyopia (+2.0D eyesight without reading glasses on the counter), 5 impatient customers shouting orders across the counter, and zero time or patience to hunt through nested menus, tiny icons, or complicated billing screens.
 
 *(See full research foundation in [`SHOPKEEPER_UX_RESEARCH.md`](../02_research/SHOPKEEPER_UX_RESEARCH.md))*
 
-Kirana Rakshak follows **4 Golden Senior-Ergonomic Rules**:
+Chaukas follows **4 Golden Senior-Ergonomic Rules**:
 
 1. **Strictly 2 Giant Buttons on the Home Screen (Zero Clutter):** The home screen contains ONLY TWO massive, unmistakable action blocks taking up the full screen height:
    * **`SELL ITEM (SCAN & BILL)`**: Giant chunky card (`215px` tall) in **Electric Lime (`#D4F639`)** with deep black text, high-contrast shopping cart icon, and direct tap target.
@@ -94,7 +94,7 @@ We replaced all complicated developer terms with simple words that any shopkeepe
 
 ## 5. Icon System: Lucide Vector Outline Icons
 
-Instead of random colored emojis, Kirana Rakshak uses clean 1.5px–2px stroke **Lucide vector icons**:
+Instead of random colored emojis, Chaukas uses clean 1.5px–2px stroke **Lucide vector icons**:
 
 | Screen / Feature | Lucide Icon Name | Visual Representation |
 | :--- | :--- | :--- |
@@ -104,7 +104,7 @@ Instead of random colored emojis, Kirana Rakshak uses clean 1.5px–2px stroke *
 | **Expired Sale Stop** | `shield-alert` / `octagon-x` | Octagon stop shield |
 | **Voice Assistant** | `mic` | Studio microphone outline |
 | **Speaker / Soundbox** | `volume-2` | Loudspeaker with sound waves |
-| **Store Name** | `store` | Kirana storefront roof |
+| **Store Name** | `store` | Storefront roof |
 | **Notification Bell** | `bell` | Bell with alert badge |
 | **Arrow Action** | `arrow-up-right` | Clean 45-degree arrow |
 | **Confirm / Done** | `check` | Checkmark |
@@ -189,7 +189,7 @@ Copy-paste these exact design tokens into your Android Studio project under `ui/
 
 ### `Color.kt`
 ```kotlin
-package com.kiranarakshak.app.ui.theme
+package com.chaukas.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -209,13 +209,13 @@ val LightDivider = Color(0x0F000000)
 
 ### `Shape.kt`
 ```kotlin
-package com.kiranarakshak.app.ui.theme
+package com.chaukas.app.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
-val KiranaRakshakShapes = Shapes(
+val ChaukasShapes = Shapes(
     small = RoundedCornerShape(16.dp),    // Badges & Filter chips
     medium = RoundedCornerShape(24.dp),   // Sub-cards & dialogs
     large = RoundedCornerShape(32.dp),    // Bento grid cards & Viewfinder
@@ -225,13 +225,13 @@ val KiranaRakshakShapes = Shapes(
 
 ### `Theme.kt`
 ```kotlin
-package com.kiranarakshak.app.ui.theme
+package com.chaukas.app.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-private val KiranaLightColorScheme = lightColorScheme(
+private val ChaukasLightColorScheme = lightColorScheme(
     primary = DeepCharcoal,
     onPrimary = CardWhite,
     primaryContainer = ElectricLime,
@@ -247,11 +247,11 @@ private val KiranaLightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun KiranaRakshakTheme(content: @Composable () -> Unit) {
+fun ChaukasTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colorScheme = KiranaLightColorScheme,
-        shapes = KiranaRakshakShapes,
-        typography = KiranaTypography,
+        colorScheme = ChaukasLightColorScheme,
+        shapes = ChaukasShapes,
+        typography = ChaukasTypography,
         content = content
     )
 }
@@ -270,7 +270,7 @@ The UI prototype renders directly inside an accurate **iQOO 15 flagship smartpho
 
 2. **Physical Hardware Rails:**
    * **Top Rail (Hardware Sensors & Acoustics):**
-     * **IR Blaster Diode:** Dedicated circular infrared emitter on the top frame used by Kirana Rakshak to actuate and lock store deep-freezers into super-freeze mode.
+     * **IR Blaster Diode:** Dedicated circular infrared emitter on the top frame used by Chaukas to actuate and lock store deep-freezers into super-freeze mode.
      * **Secondary Noise-Canceling Microphone:** Dedicated acoustic pin-hole for hands-free Hindi voice filtering in noisy bazaars.
      * **Top Stereo Speaker Vent:** High-SPL acoustic chamber forming a symmetrical 130dB Soundbox with the bottom speaker.
    * **Right Rail (Physical Tactile Controls):**
@@ -295,7 +295,7 @@ The UI prototype renders directly inside an accurate **iQOO 15 flagship smartpho
 
 ## Related Project Files
 * **Grand Master Blueprint:** [master.md](../01_pitch/master.md)
-* **Core Proposal:** [Kirana_Rakshak.md](../01_pitch/Kirana_Rakshak.md)
-* **Interactive UI Prototype (iQOO 15):** [kiranaguard_behance_ui.html](../../prototype/kirana_rakshak_ui.html)
+* **Core Proposal:** [Chaukas.md](../01_pitch/Chaukas.md)
+* **Interactive UI Prototype (iQOO 15):** [chaukas_ui.html](../../prototype/chaukas_ui.html)
 * **Hardware & Sensor Dossier:** [iQOO_15_Hackathon_Hardware_Dossier.md](../02_research/iQOO_15_Hackathon_Hardware_Dossier.md)
 * **Engineering Specs:** [TECHNICAL_SPEC_AND_ROADMAP.md](../04_engineering/TECHNICAL_SPEC_AND_ROADMAP.md)

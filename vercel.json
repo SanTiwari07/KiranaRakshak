@@ -3,12 +3,14 @@
   "redirects": [
     { "source": "/frontend", "destination": "/", "permanent": true },
     { "source": "/frontend/index", "destination": "/", "permanent": true },
+    { "source": "/prototype/chaukas_ui", "destination": "/app", "permanent": true },
+    { "source": "/prototype/chaukas_ui.html", "destination": "/app", "permanent": true },
     { "source": "/prototype/kirana_rakshak_ui", "destination": "/app", "permanent": true },
     { "source": "/prototype/kirana_rakshak_ui.html", "destination": "/app", "permanent": true }
   ],
   "rewrites": [
     { "source": "/", "destination": "/frontend/index.html" },
-    { "source": "/app", "destination": "/prototype/kirana_rakshak_ui.html" },
+    { "source": "/app", "destination": "/prototype/chaukas_ui.html" },
     { "source": "/css/:path*", "destination": "/frontend/css/:path*" },
     { "source": "/js/:path*", "destination": "/frontend/js/:path*" }
   ]

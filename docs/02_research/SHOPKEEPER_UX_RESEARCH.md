@@ -1,12 +1,12 @@
-# UX Research: Designing for 40–60 Year Old Indian Kirana Shopkeepers
-## Kirana Rakshak · Team HoloTrio · iQOO Hackathon 2026 Grand Finale
+# UX Research: Designing for 40–60 Year Old Indian Shopkeepers and Small-Business Owners
+## Chaukas · Team HoloTrio · iQOO Hackathon 2026 Grand Finale
 
 **Target Persona:** *Ramesh Bhai* (Age 52), *Gupta Ji* (Age 58), *Suresh Uncle* (Age 47).  
 **Core Problem:** Modern apps look like Silicon Valley SaaS tools: tiny text, abstract icons, low-contrast gray colors, English jargon, and dozens of confusing options. A 52-year-old shopkeeper who is serving 5 customers at once will abandon such an app in under 2 minutes.
 
 ---
 
-## 1. The Physical & Cognitive Reality of a 40–60 Year Old Kirana Merchant
+## 1. The Physical & Cognitive Reality of a 40–60 Year Old Shop or Factory-Store Owner
 
 ### A. Presbyopia & Deteriorating Eyesight (40+ Age Effect)
 * **No Spectacles on Counter:** 85%+ of Indian shopkeepers over 45 have presbyopia (+1.5D to +2.5D), but they **do not wear reading glasses** while working because they are constantly alternating between looking at customers 2 meters away and looking down at the counter.
@@ -36,7 +36,7 @@
 
 ---
 
-## 2. The 5 Golden Rules of "Bharat Kirana" UI Design
+## 2. The 5 Golden Rules of "Bharat Dukaan" UI Design
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -76,7 +76,7 @@ A 55-year-old shopkeeper should not have to lean in to verify numbers:
 In a crowded bazaar with vehicle horns, customer shouts, and radio noise:
 * Shopkeepers trust what they **hear** more than what they read on a screen.
 * When a sale completes or a shortage is flagged, the iQOO 15's **high-SPL dual stereo speakers** announce the result in clear, natural Hindi:
-  > *"गनेश किराना: कुल नौ सौ पच्चीस रुपये (₹925) हुए!"*
+  > *"गणेश ट्रेडर्स: कुल नौ सौ पच्चीस रुपये (₹925) हुए!"*
   > *"राजेश व्होलसेल से 4 पैकेट कम मिले. छप्पन रुपये (₹56) बिल से काटें."*
 
 ### Rule 5: Zero Developer Jargon (Translate Hardware to Merchant Benefits)
@@ -98,7 +98,7 @@ Judges need to see the iQOO 15 hardware depth, but the shopkeeper needs to see h
 ## 3. The New Ergonomic Screen Blueprint
 
 ### Home Screen (Counter Mode):
-1. **Header:** Shop Name (*Ganesh Kirana*) + Today's Profit (*₹1,840 Saved Today*).
+1. **Header:** Shop Name (*Ganesh Traders*) + Today's Profit (*₹1,840 Saved Today*).
 2. **GIANT CARD 1 (88px Height · Lime / Green):**
    * Left: Large shopping cart icon inside a rounded square.
    * Center: **सामान बेचें (SCAN & SELL)** + *"10+ सामान एक साथ बिल करें"*.

@@ -1,6 +1,6 @@
 /* =====================================================================
-   Kirana Rakshak · showcase site
-   Lime = Kirana Rakshak software · Orange = iQOO 15 hardware
+   Chaukas · showcase site
+   Lime = Chaukas software · Orange = iQOO 15 hardware
    ===================================================================== */
 :root {
   --lime: #D4F639;
@@ -189,7 +189,7 @@ body.live-mode .screen iframe { pointer-events: auto; }
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
   transition: opacity .6s ease .3s, visibility .6s .3s;
 }
-.screen-boot svg { width: 54px; height: 54px; fill: none; stroke: currentColor; stroke-width: 3; animation: bootPulse 1.4s ease-in-out infinite; }
+.screen-boot svg { width: 54px; height: 54px; fill: none; stroke: currentColor; stroke-width: 4.5; stroke-linejoin: round; animation: bootPulse 1.4s ease-in-out infinite; }
 .screen-boot span { font-family: var(--display); letter-spacing: .08em; color: var(--text); }
 @keyframes bootPulse { 50% { opacity: .35; } }
 .phone.booted .screen-boot { opacity: 0; visibility: hidden; }
@@ -609,6 +609,11 @@ main { position: relative; z-index: 3; pointer-events: none; overflow-x: clip; }
 /* footer */
 .footer { position: relative; z-index: 3; padding: 10vh var(--gutter) 40px; border-top: 1px solid var(--line); background: var(--ink); }
 .foot-big { font-size: clamp(80px, 18vw, 280px); color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .18); line-height: .85; margin-bottom: 40px; }
+.team { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 16px 48px; }
+.team li { display: flex; flex-direction: column; gap: 4px; }
+.team b { font-family: var(--sans); font-size: 18px; font-weight: 700; color: var(--text); }
+.team span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.scope-note { margin-top: 20px; }
 .foot-note { margin-top: 48px; font-size: 11px; color: #5d605a; }
 
 /* reveal helper (JS toggles) */
