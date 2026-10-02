@@ -5,7 +5,26 @@
 **Auditor**: Senior Hackathon Research Strategist & Hardware-Aware AI Architect  
 **Target Workspace**: `c:\Projects\Research`  
 **Target Event**: iQOO Hackathon 2026 Grand Finale (Bengaluru, Oct 9–11, 2026)  
-**Team**: HoloTrio (Sanskar Tiwari & Shambhavi Patil)
+**Team**: HoloTrio (Sanskar Tiwari & Shambhavi Patil at audit time; Kanishka Salgude joined later)
+
+---
+
+### 0. Repository Status Update (2 October 2026)
+
+> The sections below are the **original 25 Sep 2026 audit** of the research folder and are kept as a historical record. This block records what the repository contains now.
+
+**Project name:** Kounter (earlier working names Kirana Rakshak and Chaukas are retired). **Logo:** dot-matrix "K" with one orange dot (`assets/logos/logo_mark.svg`, `logo_app_icon.svg/.png`). **Team:** HoloTrio, now three members: Sanskar Tiwari (Leader), Shambhavi Patil, Kanishka Salgude.
+
+| Item | Original audit (25 Sep) | Now |
+| :--- | :--- | :--- |
+| Source code | None | Static showcase website (`frontend/`) and a single-file bilingual app prototype (`prototype/kounter_ui.html`); no Android/Kotlin code yet |
+| Pitch docs | None | `docs/01_pitch/` (master, Kounter, feature, Phase 1 portal copy) |
+| Design / engineering | None | `docs/03_design/design.md`, `docs/04_engineering/TECHNICAL_SPEC_AND_ROADMAP.md` |
+| Presentation | None | `docs/05_presentation/` pitch deck (.pptx) and its generator `build_deck.js` |
+| Hosting | None | Vercel routes in `vercel.json` (`/` site, `/app` prototype) |
+| Model weights, benchmarks, tests, CI | None | Still none. Latency figures (< 300 ms audit, ~22 ms YOLO11n) are design targets, not measurements |
+
+**Consistent figures across all documents:** audit latency target **< 300 ms**; build plan **30 hours** (Red Light, Green Light, finale rehearsal); estimated leakage ₹13k–25k per shop per month (team estimate).
 
 ---
 

@@ -279,7 +279,7 @@ async function icon(Comp, color, size = 256) {
   {
     const s = pres.addSlide(); chrome(s, 8);
     kicker(s, "ON-DEVICE AI STACK", LIME);
-    title(s, "Photo in, verdict out — in under 250 ms.");
+    title(s, "Photo in, verdict out — in under 300 ms.");
     // pipeline row
     const pipe = [
       ["NFC tap", "vendor check-in", ORANGE],
@@ -377,7 +377,7 @@ async function icon(Comp, color, size = 256) {
     title(s, "Money back in Ramesh's pocket.", OBS);
     const big = [
       ["₹13–25K", "leakage we target per shop, per month", ORANGE],
-      ["< 250 ms", "photo-to-verdict, fully offline", OBS],
+      ["< 300 ms", "photo-to-verdict, fully offline", OBS],
       ["₹0", "cloud cost — no API calls, no data plan", OBS],
       ["₹125", "saved monthly by replacing a rented soundbox", OBS],
     ];
@@ -404,14 +404,14 @@ async function icon(Comp, color, size = 256) {
   // ================= 11. BUILD PLAN =================
   {
     const s = pres.addSlide(); chrome(s, 12);
-    kicker(s, "48-HOUR EXECUTION PLAN · FRI EVENING → SUN EVENING", LIME);
+    kicker(s, "30-HOUR EXECUTION PLAN · RED LIGHT → GREEN LIGHT → FINALE", LIME);
     title(s, "How we build it at the finale.");
     const plan = [
-      ["0–12 h", "Core app", "Android scaffold, Camera2 dual-lens, SQLite schema, YOLO11n + OCR on device"],
-      ["12–22 h", "Sensors", "Colour-spectrum anti-banding, IR transmitter, NFC tap-in, NavIC geotag"],
-      ["22–32 h", "Voice & haptics", "Whisper STT, Laya intent → SQL, custom haptic waveforms"],
-      ["32–40 h", "Office Kit", "Customer display via Presentation API, dashboard, Excel export"],
-      ["40–48 h", "Demo polish", "Props, lighting calibration, 3–5 minute pitch rehearsal"],
+      ["0–10 h", "Core app", "Android scaffold, Camera2 dual-lens, SQLite schema, YOLO11n + OCR on device"],
+      ["10–16 h", "Sensors & haptics", "Colour-spectrum anti-banding, IR transmitter, NFC tap-in, NavIC geotag, expiry haptics"],
+      ["16–20 h", "Voice", "Whisper STT, Laya intent → SQL, Hindi answers on the stereo speakers"],
+      ["20–25 h", "Office Kit", "Customer display via Presentation API, vendor ledger sync, Excel export"],
+      ["25–30 h", "Demo polish", "Props, lighting calibration, rehearsal of the 3–5 minute pitch"],
     ];
     const lineY = 2.55;
     s.addShape(pres.shapes.LINE, { x: 0.9, y: lineY, w: 11.5, h: 0, line: { color: "3A3C40", width: 2 } });
@@ -423,7 +423,7 @@ async function icon(Comp, color, size = 256) {
       s.addText(h, { x: x + 0.2, y: 3.15, w: 1.9, h: 0.45, fontFace: BODY, fontSize: 14, bold: true, color: WHITE, margin: 0, isTextBox: true });
       s.addText(d, { x: x + 0.2, y: 3.65, w: 1.9, h: 1.8, fontFace: BODY, fontSize: 11, color: MUTED, margin: 0, valign: "top", isTextBox: true });
     });
-    s.addText("Already done: clickable prototype of every screen + showcase website.", { x: 0.6, y: 5.45, w: 12, h: 0.35, fontFace: BODY, fontSize: 13, bold: true, color: LIME, margin: 0, isTextBox: true });
+    s.addText("Already done: clickable bilingual prototype of every screen + scroll-driven showcase website (Vercel routes / and /app).", { x: 0.6, y: 5.45, w: 12, h: 0.35, fontFace: BODY, fontSize: 13, bold: true, color: LIME, margin: 0, isTextBox: true });
   }
 
   // ================= 12. CLOSING =================

@@ -253,7 +253,7 @@ Projects a clean, verified customer receipt to an external laptop via the Androi
 
 | iQOO 15 Hardware Primitive | Specific Role in Kounter | Why Generic Phones / Cloud Cannot Compete |
 | :--- | :--- | :--- |
-| **Snapdragon 8 Elite Gen 5 (Hexagon NPU V79)** | Runs multi-tenant INT8 models in parallel (YOLO11n + PaddleOCR + Whisper + Laya). | Delivers **<250ms end-to-end verification** in 100% Airplane Mode using fused micro-tile execution. |
+| **Snapdragon 8 Elite Gen 5 (Hexagon NPU V79)** | Runs multi-tenant INT8 models in parallel (YOLO11n + PaddleOCR + Whisper + Laya). | Delivers **<300ms end-to-end verification** in 100% Airplane Mode using fused micro-tile execution. |
 | **Supercomputing Chip Q3** | Drives **144Hz Real-Time AR Bounding Box HUD** over 30+ items. | Decouples display rendering from NPU/GPU; completely prevents UI touch lag during heavy AI inference. |
 | **Color Spectrum Sensor + Triple ALS** | Samples ambient CCT (Kelvin) and detects 50Hz electrical tube-light PWM flicker. | Eliminates dark banding and blinding specular glare on shiny metallized FMCG foil (Maggi, Kurkure). |
 | **Top-Frame IR Blaster (`ConsumerIrManager`)** | Autonomous physical controller for shop freezers, ACs, and alarm strobes. | Acts as an IoT bridge to legacy shop appliances without requiring external smart plugs. |
@@ -596,7 +596,7 @@ Kounter transforms the shopkeeper’s iQOO 15 into an autonomous, offline comput
 4. **Conversational Hindi Voice:** On-device Whisper STT + Laya 322M extract intent; deterministic SQL queries SQLite; and dual stereo speakers announce answers loudly across the shop like a built-in Soundbox.
 
 ### Field 6: iQOO 15 Hardware Synergy
-* **Snapdragon 8 Elite NPU:** Runs YOLO11n, OCR, Whisper, and Laya in <250ms in 100% Airplane Mode.
+* **Snapdragon 8 Elite NPU:** Runs YOLO11n, OCR, Whisper, and Laya in <300ms in 100% Airplane Mode.
 * **Supercomputing Chip Q3:** Drives the 144Hz AR HUD without CPU/NPU contention.
 * **Color Spectrum Sensor + ALS:** Eliminates 50Hz tube-light flicker and glare on glossy foil.
 * **Top-Frame IR Blaster:** Physical appliance control for freezers and alarm strobes.

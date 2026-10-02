@@ -76,7 +76,7 @@ flowchart LR
 
 | iQOO 15 Hardware Primitive | Specific Role in Kounter | Why Generic Phones / Cloud Cannot Compete |
 | :--- | :--- | :--- |
-| **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs simultaneous INT8 vision models (YOLO11n), OCR, Whisper STT, and Laya intent classification in parallel. | Delivers **<250ms end-to-end verification** entirely in Airplane Mode with zero cloud API costs. |
+| **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs simultaneous INT8 vision models (YOLO11n), OCR, Whisper STT, and Laya intent classification in parallel. | Delivers **<300ms end-to-end verification** entirely in Airplane Mode with zero cloud API costs. |
 | **Supercomputing Chip Q3** | Drives **144Hz Real-Time AR Bounding Box HUD** over 30+ items. | Offloads display rendering from NPU/GPU; completely prevents UI touch lag during heavy AI inference. |
 | **Color Spectrum Sensor + Triple ALS** | Detects 50Hz tube-light flicker and measures CCT Kelvin. | Eliminates dark banding and blinding specular glare on shiny metallized FMCG foil (Maggi, Kurkure). |
 | **Top-Frame IR Blaster (`ConsumerIrManager`)** | Autonomous physical controller for shop freezers, ACs, and alarm strobes. | Acts as an IoT bridge to legacy shop appliances without requiring external smart plugs. |

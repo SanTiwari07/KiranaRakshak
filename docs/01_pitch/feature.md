@@ -171,7 +171,7 @@ graph TD
 
 | Rank | Feature | Hardware Subsystem | Why It Ranks at the Top |
 | :---: | :--- | :--- | :--- |
-| **#1** | **Multi-Model Parallel Inference** | **Snapdragon 8 Elite Gen 5 (Hexagon NPU V79)** | The backbone of the entire project. Uses Qualcomm's **fused micro-tile architecture** to run YOLO11n INT8, PaddleOCR, Whisper, and Laya concurrently in **100% Airplane Mode** in **<250ms**. Proves this is an edge-AI device, not a cloud wrapper. |
+| **#1** | **Multi-Model Parallel Inference** | **Snapdragon 8 Elite Gen 5 (Hexagon NPU V79)** | The backbone of the entire project. Uses Qualcomm's **fused micro-tile architecture** to run YOLO11n INT8, PaddleOCR, Whisper, and Laya concurrently in **100% Airplane Mode** in **<300ms**. Proves this is an edge-AI device, not a cloud wrapper. |
 | **#2** | **Cold-Chain Appliance Actuator** | **Top-Frame Integrated IR Blaster (`ConsumerIrManager`)** | **Virtually extinct on Apple, Samsung, and Google flagships.** Bridges digital AI inventory decisions directly to physical store appliances (deep-freezers, ACs, alarms) without third-party IoT plugs or Wi-Fi. Turns the phone into a physical actuator. |
 | **#3** | **Cryptographic Proof-of-Delivery** | **Native NavIC L5 Dual-Frequency GNSS** | **India-exclusive satellite triangulation.** Standard GPS drifts by 30–50m in dense Indian market lanes (*bazaars*) and tin-roof shops. NavIC L5 provides sub-meter carrier-locked coordinates, creating tamper-proof delivery audit timestamps that distributors cannot dispute. |
 

@@ -106,7 +106,7 @@ Kounter is architected to exploit the hardware features of the **iQOO 15**:
 
 | iQOO 15 Hardware Primitive | Specific Role in Kounter | Technical Justification (Why Generic Phones Fail) |
 | :--- | :--- | :--- |
-| **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs multi-tenant INT8 models in parallel (YOLO11n + PaddleOCR + Whisper + Laya). | Delivers **<250ms latency in 100% Airplane Mode** using Qualcomm micro-tile fused execution. |
+| **Snapdragon 8 Elite Gen 5 (Hexagon NPU)** | Runs multi-tenant INT8 models in parallel (YOLO11n + PaddleOCR + Whisper + Laya). | Delivers **<300ms latency in 100% Airplane Mode** using Qualcomm micro-tile fused execution. |
 | **Supercomputing Chip Q3** | Drives the **144Hz Real-Time Neural HUD** overlaying AR bounding boxes over 30+ items. | Decouples display rendering from NPU/GPU tensor computation; zero touch lag or UI stutter. |
 | **Color Spectrum Sensor + Triple ALS** | Samples ambient CCT (Kelvin) and detects 50Hz electrical tube-light PWM flicker. | Prevents banding lines and specular glare on shiny metallized FMCG foil (Maggi, Kurkure). |
 | **Top-Frame IR Blaster (`ConsumerIrManager`)** | Physical actuator for shop cooling (freezers, ACs, fans) and cash drawer alarms. | Turns AI decisions into physical-world actuation without expensive IoT smart plugs. |
