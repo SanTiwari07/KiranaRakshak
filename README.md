@@ -257,8 +257,8 @@ Sensors feed on-device models; results are reconciled against a local SQLite led
 **Prerequisites:** Python 3 (any recent version) and a browser with internet access (for the CDN assets). No install step.
 
 ```bash
-git clone https://github.com/SanTiwari07/KiranaRakshak.git
-cd KiranaRakshak
+git clone https://github.com/SanTiwari07/Kounter.git
+cd Kounter
 python -m http.server 5173
 ```
 
@@ -278,7 +278,7 @@ On Vercel the same routes are `/` and `/app`, per [`vercel.json`](vercel.json). 
 ## Project structure
 
 ```
-kounter/   (repo: KiranaRakshak)
+Kounter/
 ├── index.html                  redirects to frontend/
 ├── vercel.json                 Vercel routes (/ → site, /app → prototype)
 ├── frontend/                   showcase website

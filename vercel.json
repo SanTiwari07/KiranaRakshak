@@ -3,6 +3,10 @@
   "redirects": [
     { "source": "/frontend", "destination": "/", "permanent": true },
     { "source": "/frontend/index", "destination": "/", "permanent": true },
+    { "source": "/prototype/kirana_rakshak_ui", "destination": "/app", "permanent": true },
+    { "source": "/prototype/kirana_rakshak_ui.html", "destination": "/app", "permanent": true },
+    { "source": "/prototype/chaukas_ui", "destination": "/app", "permanent": true },
+    { "source": "/prototype/chaukas_ui.html", "destination": "/app", "permanent": true },
     { "source": "/prototype/kounter_ui", "destination": "/app", "permanent": true },
     { "source": "/prototype/kounter_ui.html", "destination": "/app", "permanent": true }
   ],
